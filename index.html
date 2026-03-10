@@ -112,6 +112,37 @@ li{margin-bottom:.4rem}
 .tree .child .spouse{color:var(--accent);font-size:.78rem}
 .tree .connector{text-align:center;color:var(--gold);font-size:1.2rem}
 
+/* Tree View Toggle */
+.tree-view-toggle{display:flex;gap:.5rem;margin:1.2rem 0;justify-content:center;flex-wrap:wrap}
+.tree-view-toggle button{padding:.5rem 1.2rem;border:2px solid var(--navy);border-radius:20px;background:var(--white);color:var(--navy);font-family:var(--font-heading);font-size:.85rem;cursor:pointer;transition:all .2s}
+.tree-view-toggle button.active{background:var(--navy);color:var(--gold)}
+.tree-view-toggle button:hover{background:var(--navy-light);color:var(--white)}
+
+/* Expanded text tree details */
+.tree-section details{margin:.3rem 0 .3rem .8rem;border-left:2px solid var(--cream-dark);padding-left:.6rem}
+.tree-section details summary{font-size:.85rem;padding:.3rem 0}
+.tree-section details summary::before{width:16px;height:16px;font-size:.7rem}
+.tree-section .descendant{font-size:.82rem;padding:.2rem .4rem;margin:.15rem 0;background:var(--cream);border-radius:3px;line-height:1.4}
+.tree-section .descendant .name{font-weight:700;color:var(--navy-light)}
+.tree-section .descendant .dates{color:var(--text-light);font-size:.78rem}
+.tree-section .descendant .sp{color:var(--accent);font-size:.78rem}
+.tree-section .gen-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);font-weight:700;margin:.5rem 0 .2rem;font-family:var(--font-heading)}
+
+/* Interactive Tree */
+#interactive-tree-container{position:relative;width:100%;height:600px;border:2px solid var(--cream-dark);border-radius:8px;overflow:hidden;background:var(--cream);cursor:grab;touch-action:none}
+#interactive-tree-container:active{cursor:grabbing}
+#interactive-tree-container canvas{display:block}
+#tree-controls{position:absolute;top:.5rem;right:.5rem;display:flex;flex-direction:column;gap:.3rem;z-index:10}
+#tree-controls button{width:36px;height:36px;border:1px solid var(--cream-dark);border-radius:6px;background:var(--white);color:var(--navy);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px var(--shadow)}
+#tree-controls button:hover{background:var(--navy);color:var(--gold)}
+#tree-search{position:absolute;top:.5rem;left:.5rem;z-index:10;display:flex;gap:.3rem}
+#tree-search input{padding:.4rem .7rem;border:2px solid var(--cream-dark);border-radius:16px;font-size:.82rem;width:200px;outline:none;font-family:var(--font-body)}
+#tree-search input:focus{border-color:var(--gold)}
+#tree-search button{padding:.4rem .7rem;border:1px solid var(--cream-dark);border-radius:16px;background:var(--navy);color:var(--gold);font-size:.78rem;cursor:pointer;font-family:var(--font-heading)}
+#tree-legend{position:absolute;bottom:.5rem;left:.5rem;z-index:10;background:rgba(255,255,255,.92);padding:.4rem .7rem;border-radius:6px;font-size:.72rem;font-family:var(--font-heading);box-shadow:0 1px 4px var(--shadow)}
+#tree-legend span{margin-right:.8rem}
+#tree-legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:3px;vertical-align:middle}
+
 /* Lineage */
 .lineage{display:flex;flex-direction:column;align-items:center;gap:.3rem;margin:1.5rem 0}
 .lineage .person{background:var(--navy);color:var(--white);padding:.6rem 1.2rem;border-radius:6px;font-family:var(--font-heading);font-size:.9rem;text-align:center;max-width:400px;width:100%}
@@ -420,7 +451,15 @@ th,td{padding:.4rem .5rem}
 <section id="family-tree">
 <div class="section-card">
 <h2>The Family Tree</h2>
-<p>Jimmy Malay married two Motu sisters &mdash; daughters of the Nenehi Motu chief of Tatana Island. Together they had approximately 20 children (sources range 19&ndash;22, possibly including adopted children).</p>
+<p>Jimmy Malay married two Motu sisters &mdash; daughters of the Nenehi Motu chief of Tatana Island. Together they had approximately 20 children (sources range 19&ndash;22, possibly including adopted children). From those children have descended hundreds of people across Papua New Guinea and Australia.</p>
+
+<div class="tree-view-toggle">
+<button class="active" onclick="showTreeView('text')" id="btn-text-view">Text View</button>
+<button onclick="showTreeView('interactive')" id="btn-interactive-view">Interactive Tree</button>
+</div>
+
+<!-- ============ TEXT VIEW ============ -->
+<div id="tree-text-view" class="tree-section">
 
 <div class="tree">
 <div class="patriarch">James Peter Subtino Solien &mdash; &ldquo;Jimmy Malay&rdquo; (c.1853&ndash;1923)</div>
@@ -461,17 +500,391 @@ th,td{padding:.4rem .5rem}
 
 <p style="font-size:.85rem;color:var(--text-light)"><strong>Date note:</strong> Community sources (CloudPNG/Angelfire) give dates 2&ndash;7 years earlier than Ancestry. Neither set is definitively correct. Both are listed above where they differ.</p>
 
+<h3 style="margin-top:2rem">Expanded Branches &mdash; All Known Descendants</h3>
+<p style="font-size:.85rem;color:var(--text-light)">Click any name to expand and see their children, grandchildren, and further descendants. Data sourced from the Sariman family tree document, Ancestry Dwyer Tree, and community records.</p>
+
+<!-- ===== BIRIA'S CHILDREN - EXPANDED ===== -->
+
 <details>
-<summary>George Kevin Solien &mdash; Expanded Branch (4 wives)</summary>
-<p><strong>George Kevin Solien</strong> (b. 1891, d. 10 Apr 1930, Manila Point, Central PNG)</p>
-<table>
+<summary>George Kevin Solien (b. 1891, d. 10 Apr 1930) &mdash; 4 wives, 8+ children</summary>
+<p style="font-size:.82rem;color:var(--text-light)">Born Mariboi, Central PNG. Died Manila Point. Married into the Sariman family twice.</p>
+<table style="font-size:.8rem">
 <tr><th>#</th><th>Wife</th><th>Marriage</th><th>Children</th></tr>
 <tr><td>1</td><td>Tuene Maka (b. 1889)</td><td>28 Apr 1909, Port Moresby</td><td>&mdash;</td></tr>
 <tr><td>2</td><td>Gahusi Kino</td><td>~1912</td><td>Joan of Arc Solien (~1913)</td></tr>
 <tr><td>3</td><td>Theresa Sukira Sariman (b. 1880)</td><td>~1915</td><td>Helen Mary Solien (1910), Helen Savisa Solien (1918)</td></tr>
 <tr><td>4</td><td>Vene Mary Elizabeth Sariman (b. 1899)</td><td>16 Sep 1919, Port Moresby</td><td>Dick Solien (b. 10 Aug 1910), Imelda (1920), Anna Madeleine (1922&ndash;2012), Francis George (1924), Stanley George (1926)</td></tr>
 </table>
-<p style="font-size:.85rem">Wives 3 and 4 are both Sarimans (daughters of Sariman Kadio), deepening the Solien-Sariman intermarriage pattern.</p>
+
+<details>
+<summary>Dick Solien (b. 10 Aug 1910, Obo) &mdash; 3 wives, 7+ children</summary>
+<p style="font-size:.82rem">Buried Mt Gravatt, Brisbane. Married (1) Rosalia Boio Baia (1915&ndash;1969, m. 17 Jul 1942), (2) Maria Goretti Gaigo (1932&ndash;2011, m. 20 Nov 1965), (3) Boio Gaigo (b. 1929).</p>
+<div class="descendant"><span class="name">Agnes Mary Daihanai Solien</span> <span class="dates">b. 15 Feb 1937, Manila Point &ndash; d. 9 Sep 2022, Brisbane</span> <span class="sp">m. Edward Toua English (1934&ndash;2010), 8 Dec 1956, Hanuabada. 11 children.</span></div>
+<div class="descendant"><span class="name">Anna Imelda Solien</span> <span class="dates">b. 20 Nov 1939, Port Moresby &ndash; d. 1 Feb 2022, Gympie QLD</span></div>
+<div class="descendant"><span class="name">Margaret Esther Solien</span></div>
+<div class="descendant"><span class="name">Mare Solien</span></div>
+<div class="descendant"><span class="name">George Solien</span></div>
+<div class="descendant"><span class="name">Steven Solien</span></div>
+<div class="descendant"><span class="name">Julie Solien</span> <span class="dates">d. 2021, Port Moresby</span></div>
+</details>
+
+<details>
+<summary>Imelda Solien (b. 23 May 1920, Kanosia) &mdash; via Mary Elizabeth Sariman</summary>
+<div class="descendant"><span class="sp">m. Saia Elly (b. 1917, Kerepuna)</span></div>
+<div class="descendant"><span class="name">John Robert Elly</span> <span class="dates">b. 9 Feb 1939, Itikinumu</span> <span class="sp">m. Mary Linus Aro, 28 Oct 1961</span></div>
+<div class="descendant"><span class="name">Veronica Lillian Elly</span> <span class="dates">b. 5 Nov 1941</span> <span class="sp">m. (1) Alex Bercamasco; (2) Brian John Butler, 10 Nov 1962</span></div>
+<div class="descendant"><span class="name">Anthony Francis Elly</span> <span class="dates">b. 18 Feb 1945</span> <span class="sp">m. (1) Helen Hevari Sere; (2) Jessie Homoka</span></div>
+<div class="descendant"><span class="name">Albert David Elly</span> <span class="dates">b. 15 Mar 1950</span> <span class="sp">m. Mary Louise Natera</span></div>
+</details>
+
+<details>
+<summary>Anna Madeleine Solien (b. 10 May 1922, d. 6 May 2012, Brisbane)</summary>
+<div class="descendant"><span class="sp">m. (1) Douglas Love (b. 1 Sep 1922); (2) Joseph Oberleuter (b. 24 Mar 1922, Yule Island)</span></div>
+<div class="descendant"><span class="name">Margaret Love</span> <span class="dates">b. 17 Oct 1945, Sogeri</span> <span class="sp">m. Mark William Paten, 24 Apr 1971</span></div>
+<div class="descendant"><span class="name">James Alexander Love</span> <span class="dates">b. 23 Mar 1948, Bomana</span> <span class="sp">m. Kathleen Mary Lawton, 10 Jul 1971</span></div>
+<div class="descendant"><span class="name">John William Love</span> <span class="dates">b. 1 Jun 1950, Badili</span> <span class="sp">m. Gertrude Annette Bannon</span></div>
+<div class="descendant"><span class="name">Mary Violet Love</span> <span class="dates">b. 4 Oct 1951, Brisbane</span> <span class="sp">m. Alan Graham Cooper, 4 Dec 1971</span></div>
+<div class="descendant"><span class="name">Patrick Daniel Love</span> <span class="dates">b. 1 Nov 1954, Badili</span> <span class="sp">m. Maryanne Kristen Aldan</span></div>
+<div class="descendant"><span class="name">Raymond Geoffrey Love</span> <span class="dates">b. 14 Sep 1957</span> <span class="sp">m. Elsie Tingsor</span></div>
+<div class="descendant"><span class="name">Miriel Isabelle Love</span> <span class="dates">b. 11 Oct 1962</span></div>
+</details>
+
+<details>
+<summary>Francis George Solien (b. 19 Jun 1924, Kanosia) &mdash; 7 children</summary>
+<div class="descendant"><span class="sp">m. Josephine Wakuloki Temby (1937&ndash;2021), 3 Aug 1959, Koki</span></div>
+<div class="descendant"><span class="name">Justine Solien</span> <span class="dates">b. 11 Sep 1958</span></div>
+<div class="descendant"><span class="name">George Douglas Solien</span> <span class="dates">b. 18 May 1960</span></div>
+<div class="descendant"><span class="name">Margaret Mary Solien</span> <span class="dates">b. 7 Feb 1962</span></div>
+<div class="descendant"><span class="name">James Maxwell Solien</span> <span class="dates">b. 1 Oct 1963</span></div>
+<div class="descendant"><span class="name">Fabian Geoffrey Solien</span> <span class="dates">b. 18 Dec 1965</span></div>
+<div class="descendant"><span class="name">Rodney Cliff Solien</span> <span class="dates">b. 10 Apr 1968</span></div>
+<div class="descendant"><span class="name">Madeline Anna Solien</span> <span class="dates">b. 10 May 1972</span> <span class="sp">m. Bernard Kombeng Suruman</span></div>
+</details>
+
+<details>
+<summary>Stanley George Solien (b. 24 Oct 1926, Kanosia) &mdash; 3 wives, 11 children</summary>
+<div class="descendant"><span class="sp">m. (1) Frances Kiri; (2) Olive Theresa Tanby, 28 Jul 1953; (3) Eileen Mary Bray</span></div>
+<p class="gen-label">With Frances Kiri:</p>
+<div class="descendant"><span class="name">Elizabeth Cecilia Solien</span> <span class="dates">b. 11 May 1947 &ndash; d. 7 Mar 1998</span> <span class="sp">m. Igo Sere</span></div>
+<div class="descendant"><span class="name">Andrew David Solien</span> <span class="dates">b. 31 Jan 1949</span> <span class="sp">m. Arere Frank Vagi</span></div>
+<p class="gen-label">With Olive Theresa Tanby:</p>
+<div class="descendant"><span class="name">Dulcie Solien</span> <span class="dates">b. 5 Apr 1954, Samarai</span></div>
+<div class="descendant"><span class="name">Francis Solien</span> <span class="dates">b. 20 Jan 1956, Samarai</span></div>
+<p class="gen-label">With Eileen Mary Bray:</p>
+<div class="descendant"><span class="name">Albert Donald Solien</span> <span class="dates">b. 4 Dec 1953</span></div>
+<div class="descendant"><span class="name">Clarence James Solien</span> <span class="dates">b. 1 Feb 1960</span> <span class="sp">m. (1) Shirley Ohello; (2) Janet Agnes Taureka</span></div>
+<div class="descendant"><span class="name">Dennis Paddy Solien</span> <span class="dates">b. 12 Dec 1962</span></div>
+<div class="descendant"><span class="name">Mary Eileen Solien</span> <span class="dates">b. 10 Jun 1964</span> <span class="sp">m. Lothar Eric Grahl</span></div>
+<div class="descendant"><span class="name">Alfred Lawrence Solien</span> <span class="dates">b. 3 Nov 1965</span></div>
+<div class="descendant"><span class="name">Mark Roland Solien</span> <span class="dates">b. 6 Sep 1967</span></div>
+<div class="descendant"><span class="name">Michaelene Rose Solien</span> <span class="dates">b. 28 Oct 1970</span></div>
+</details>
+
+<details>
+<summary>Louisa Mary/May Solien (b. 1887/1892, d. 28 Feb 1927) &mdash; 6 DNA matches</summary>
+<div class="descendant"><span class="sp">m. [Gorogo/Malabag]</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">6 DNA matches through this line. Descendants carry the Gorogo/Malabag surname. Further details pending.</p>
+</details>
+
+<details>
+<summary>Margaret Mary/May Solien (b. 1890/1895, d. 1946) &mdash; Arua line</summary>
+<div class="descendant"><span class="sp">m. [Arua] &mdash; from Hanuabada</span></div>
+<div class="descendant"><span class="name">Joseph Arua</span> <span class="sp">m. Margaret Mary Solien</span></div>
+<div class="descendant"><span class="name">John Arua</span> <span class="dates">b. 1928, Hanuabada</span> <span class="sp">m. Margaret Sariman (Kadio&rsquo;s daughter), 5 Dec 1966</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">1 DNA match through this line. Also connected: Mathia Monica Arua (1925&ndash;2003).</p>
+</details>
+
+<details>
+<summary>James (Jim) Alexis Solien (b. 1892, d. 1953) &mdash; 9 daughters</summary>
+<div class="descendant"><span class="sp">m. Theresa Resena. Also m. Theresa Sukira Sariman.</span></div>
+<p class="gen-label">Daughters with Theresa Resena:</p>
+<div class="descendant"><span class="name">Mary Theresa Solien</span></div>
+<div class="descendant"><span class="name">Marcella Solien</span></div>
+<div class="descendant"><span class="name">Agnes Solien</span></div>
+<div class="descendant"><span class="name">Rita Solien</span></div>
+<div class="descendant"><span class="name">Nellie Solien</span> <span class="dates">b. 19 Apr 1925, Kou Kou</span> <span class="sp">m. Peter Sariman, 9 May 1958, Koki</span></div>
+<div class="descendant"><span class="name">Louisa Solien</span></div>
+<div class="descendant"><span class="name">Perpetual Solien</span></div>
+<div class="descendant"><span class="name">Maureen Solien</span></div>
+<div class="descendant"><span class="name">Mary Meme Solien</span></div>
+
+<details>
+<summary>Nellie Solien&rsquo;s children with Peter Sariman &mdash; 8 children</summary>
+<div class="descendant"><span class="name">James (Jim) Alex Sariman</span> <span class="dates">b. 7 Jun 1947, Koki</span> <span class="sp">m. Hane Mase, 9 May 1959</span></div>
+<div class="descendant"><span class="name">Rosemary Elizabeth Sariman</span> <span class="dates">b. 17 Oct 1950</span> <span class="sp">m. Dick Avi</span></div>
+<div class="descendant"><span class="name">Anthony Archie Sariman</span> <span class="dates">b. 4 Mar 1953</span> <span class="sp">m. Maggie Koiari, 23 Jun 1990</span></div>
+<div class="descendant"><span class="name">Peter Laurence Sariman</span> <span class="dates">b. 20 Sep 1954</span> <span class="sp">m. Maraga Kuruku</span></div>
+<div class="descendant"><span class="name">Clarence Sariman</span> <span class="dates">b. 26 Nov 1956</span></div>
+<div class="descendant"><span class="name">Josephine Sariman</span> <span class="dates">b. 23 Feb 1959</span> <span class="sp">m. Michael Pondros</span></div>
+<div class="descendant"><span class="name">Gloria Maureen Sariman</span> <span class="dates">b. 18 Dec 1960</span> <span class="sp">m. Maragu Ginate</span></div>
+<div class="descendant"><span class="name">Allan Christifore Sariman</span> <span class="dates">b. 18 Aug 1964</span> <span class="sp">m. Imorea Lavona</span></div>
+</details>
+
+<details>
+<summary>Theresa Solien (daughter via Theresa Sukira Sariman) &mdash; b. 1916</summary>
+<div class="descendant"><span class="sp">m. Archie Pan-Tung (b. 1903, Canton, China)</span></div>
+<div class="descendant"><span class="name">Mary Therese Gili Pan-Tung</span> <span class="dates">b. 17 Nov 1935, Kou Kou</span> <span class="sp">m. Dallas Keith Kerslake (b. 1929, Ulverstone, Tasmania)</span></div>
+<div class="descendant"><span class="name">Margaret Tete Resena Pan-Tung</span> <span class="dates">b. 20 Oct 1937, Kou Kou</span> <span class="sp">m. Hildefonse Pontoy Fabila</span></div>
+</details>
+</details>
+
+<details>
+<summary>Vivian Joseph Solien (b. 1899/1900, d. 1969) &mdash; 6 DNA matches</summary>
+<div class="descendant"><span class="sp">m. Margaret Gou</span></div>
+<div class="descendant"><span class="name">Philomena Solien</span> <span class="dates">b. 6 Dec 1921</span> <span class="sp">m. Kadio Sariman, 19 Jan 1959</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">Through Philomena &rarr; Kadio Sariman: Eleanora Sariman (b. 1958), Mary Elizabeth Sariman (b. 1962).</p>
+</details>
+
+<details>
+<summary>Theresa Solien (b. 1898, Kanosia) &mdash; Whitfield/Fabila branch</summary>
+<div class="descendant"><span class="sp">m. George Michael Sariman (b. 1905, d. 10 Nov 1991), 3 Jan 1926, Port Moresby</span></div>
+<p class="gen-label">Children with George Michael Sariman:</p>
+<div class="descendant"><span class="name">Sam Henry Sariman</span> <span class="dates">b. 25 Mar 1927, Manilla Point</span> <span class="sp">m. Alice Elizabeth Davies</span></div>
+<div class="descendant"><span class="name">Joseph Allan Sariman</span> <span class="dates">b. 6 May 1929, Koki</span> <span class="sp">m. Eunice Gou Ovia, 25 Jul 1964</span></div>
+<div class="descendant"><span class="name">Peter George Sariman</span> <span class="dates">b. 1 Sep 1933, Badili</span> <span class="sp">m. Cecilia Hevave Gaudi, 14 Feb 1953</span></div>
+<div class="descendant"><span class="name">Maisie Imelda Sariman</span> <span class="dates">b. 22 Jul 1935, Kikori</span> <span class="sp">m. (1) Charles Richard Whitfield, 29 Dec 1950; (2) Leslie Price</span></div>
+<div class="descendant"><span class="name">Jack Sariman</span> <span class="dates">b. 14 Jul 1939, Tatana</span> <span class="sp">m. Margarita Boroma</span></div>
+<div class="descendant"><span class="name">Rose Louisa Sariman</span> <span class="dates">b. 6 Dec 1941, Kanosia</span> <span class="sp">m. Andrew Michael Fabila, 3 Sep 1960</span></div>
+
+<details>
+<summary>Sam Henry Sariman &mdash; 10 children</summary>
+<div class="descendant"><span class="name">Mary Bernadette Sariman</span> <span class="dates">b. 17 Apr 1951</span></div>
+<div class="descendant"><span class="name">Henry Kadio Sam Sariman</span> <span class="dates">b. 21 Dec 1952 &ndash; d. 23 Jul 2021</span></div>
+<div class="descendant"><span class="name">Paul David Sariman</span> <span class="dates">b. 2 Dec 1954</span> <span class="sp">m. Noi Wendy Pidi, Feb 1973</span></div>
+<div class="descendant"><span class="name">John Reginald Sariman</span> <span class="dates">b. 7 Jan 1957</span></div>
+<div class="descendant"><span class="name">Charles Brian Sariman</span> <span class="dates">b. 22 Jul 1958</span></div>
+<div class="descendant"><span class="name">Keven Alphonse Sariman</span> <span class="dates">b. 27 Dec 1961</span></div>
+<div class="descendant"><span class="name">Mary Mareta Sariman</span> <span class="dates">b. 11 Feb 1962</span></div>
+<div class="descendant"><span class="name">Theresa Sukira Beatrice Sariman</span> <span class="dates">b. 10 Nov 1963</span> <span class="sp">m. Hans Joseph Bock, 7 May 1988</span></div>
+<div class="descendant"><span class="name">Allen Joseph Sariman</span> <span class="dates">b. 2 Feb 1966</span></div>
+<div class="descendant"><span class="name">George Michael Sariman</span> <span class="dates">b. 1 Nov 1969</span></div>
+</details>
+
+<details>
+<summary>Joseph Allan Sariman &mdash; 6 children</summary>
+<div class="descendant"><span class="name">Nellie Valerie Sariman</span> <span class="dates">b. 28 May 1957</span></div>
+<div class="descendant"><span class="name">Lilian Patricia Sariman</span> <span class="dates">b. 14 Jul 1959</span></div>
+<div class="descendant"><span class="name">Beatrice Evangeline Sariman</span> <span class="dates">b. 11 Apr 1961 &ndash; d. 24 Aug 1969</span></div>
+<div class="descendant"><span class="name">Anna Elsie Sariman</span> <span class="dates">b. 9 Feb 1963</span></div>
+<div class="descendant"><span class="name">Brian Gilbert Sariman</span> <span class="dates">b. 7 Nov 1966</span></div>
+<div class="descendant"><span class="name">Richard George Sariman</span> <span class="dates">b. 20 Jun 1969</span></div>
+</details>
+
+<details>
+<summary>Peter George Sariman &mdash; 7 children</summary>
+<div class="descendant"><span class="name">Mary Therese Sariman</span> <span class="dates">b. 26 Jul 1955</span> <span class="sp">m. Daure Gaudi</span></div>
+<div class="descendant"><span class="name">Roselyn Jennifer Sariman</span> <span class="dates">b. 9 Dec 1958</span></div>
+<div class="descendant"><span class="name">Imelda Sariman</span> <span class="dates">b. 24 Aug 1960</span></div>
+<div class="descendant"><span class="name">Madeleine Alice Sariman</span> <span class="dates">b. 26 Jun 1962</span></div>
+<div class="descendant"><span class="name">Athansius Arnold Sariman</span> <span class="dates">b. 7 Nov 1965</span></div>
+<div class="descendant"><span class="name">Mary Stella Sariman</span> <span class="dates">b. 16 Feb 1967</span></div>
+<div class="descendant"><span class="name">Maiari Judith Sariman</span> <span class="dates">b. 23 Mar 1969</span></div>
+</details>
+
+<details>
+<summary>Maisie Imelda Sariman &mdash; 7 Whitfield children + 1 Price child</summary>
+<p class="gen-label">With Charles Richard Whitfield (b. 1920, Jundah QLD):</p>
+<div class="descendant"><span class="name">George Richard Whitfield</span> <span class="dates">b. 19 May 1952</span> <span class="sp">m. Mary Camillus Ah-Wong</span></div>
+<div class="descendant"><span class="name">Reginald John Whitfield</span> <span class="dates">b. 31 Oct 1953, Kikori</span> <span class="sp">m. Sue Maxime Matheson</span></div>
+<div class="descendant"><span class="name">Neville Ernest Whitfield</span> <span class="dates">b. 30 Apr 1955</span></div>
+<div class="descendant"><span class="name">Phillip Graham Whitfield</span> <span class="dates">b. 5 Sep 1957, Kapuna</span></div>
+<div class="descendant"><span class="name">Angeline Rose Ann Whitfield</span> <span class="dates">b. 9 Nov 1959, Wau</span></div>
+<div class="descendant"><span class="name">Charles Rodney Whitfield</span> <span class="dates">b. 2 Jan 1962, Koki</span></div>
+<div class="descendant"><span class="name">Sharon Whitfield</span> <span class="dates">b. 1964</span></div>
+<p class="gen-label">With Leslie Price:</p>
+<div class="descendant"><span class="name">Leslie Price</span></div>
+
+<details>
+<summary>George Richard Whitfield &mdash; 3 children</summary>
+<div class="descendant"><span class="name">Michelle Imelda Whitfield</span> <span class="dates">b. 29 Sep 1973, Hohola</span></div>
+<div class="descendant"><span class="name">Kaylene Charimane Whitfield</span> <span class="dates">b. 14 Jan 1975, Wewak</span></div>
+<div class="descendant"><span class="name">Sharon Louise Whitfield</span> <span class="dates">b. 27 Sep 1977</span></div>
+</details>
+
+<details>
+<summary>Reginald John Whitfield &mdash; 1 child</summary>
+<div class="descendant"><span class="name">Rose Ann Maria Whitfield</span> <span class="dates">b. 4 Aug 1973, Wewak</span></div>
+</details>
+</details>
+
+<details>
+<summary>Jack Sariman &mdash; 5 children</summary>
+<div class="descendant"><span class="name">Angeline Theresa Sariman</span> <span class="dates">b. 6 Apr 1961</span> <span class="sp">m. Herman Joseph Leahy</span></div>
+<div class="descendant"><span class="name">Veronica Jacinta Phyllis Sariman</span> <span class="dates">b. 9 Jun 1962</span> <span class="sp">m. John Riocky Kone</span></div>
+<div class="descendant"><span class="name">Georgina Michelle Sandra Sariman</span> <span class="dates">b. 13 Jan 1964</span> <span class="sp">m. Robert Tiotam</span></div>
+<div class="descendant"><span class="name">John William Sariman</span> <span class="dates">b. 3 Aug 1965</span></div>
+<div class="descendant"><span class="name">Abraham Sariman</span> <span class="dates">b. 21 Feb 1967</span> <span class="sp">m. Jessica Thomas</span></div>
+</details>
+
+<details>
+<summary>Rose Louisa Sariman &mdash; Fabila branch, 7 children</summary>
+<div class="descendant"><span class="sp">m. Andrew Michael Fabila (b. 27 Aug 1937, Koki), 3 Sep 1960, St Mary&rsquo;s Cathedral</span></div>
+<div class="descendant"><span class="name">Jeffrey Nicholas George Fabila</span> <span class="dates">b. 25 Sep 1961 &ndash; d. 1965</span></div>
+<div class="descendant"><span class="name">Frederick Michael Salvatore Fabila</span> <span class="dates">b. 30 May 1963</span> <span class="sp">m. Ruth Phelan. Children: Holly, Luke, Max</span></div>
+<div class="descendant"><span class="name">Adrian Desmond Francis Fabila</span> <span class="dates">b. 16 Aug 1965</span> <span class="sp">m. Christine Stephenson. Children: Geoffrey Leslie, Lani, Kiri, Jake</span></div>
+<div class="descendant"><span class="name">Jeannette Helen Rose Fabila</span> <span class="dates">b. 13 May 1970</span> <span class="sp">m. Andrew McKinnon Hicks. Children: Manu, Hsiu</span></div>
+<div class="descendant"><span class="name">Jonathan Patrick Andrew Fabila</span> <span class="dates">b. 17 Sep 1973</span></div>
+<div class="descendant"><span class="name">Leanne Ligouri Maisie Fabila</span> <span class="dates">b. 28 Sep 1977</span> <span class="sp">m. Michael Tangue</span></div>
+<div class="descendant"><span class="name">Shane Nathan Eberhard Fabila</span> <span class="dates">b. 18 May 1986</span></div>
+</details>
+
+<p class="gen-label">George Michael&rsquo;s children with Margaret Boio Kerum (m. 10 Oct 1965):</p>
+<div class="descendant"><span class="name">Morea Raho Sariman</span> <span class="dates">b. 4 Dec 1960</span></div>
+<div class="descendant"><span class="name">Henry George Henao Raho Sariman</span> <span class="dates">b. 11 Oct 1962</span> <span class="sp">m. Hitolo Uaki</span></div>
+<div class="descendant"><span class="name">George Michael Sariman Jr.</span> <span class="dates">b. 4 May 1966</span></div>
+<div class="descendant"><span class="name">Andrew Michael Sariman</span> <span class="dates">b. 5 Mar 1968</span></div>
+<div class="descendant"><span class="name">Geraldine Nou Sariman</span> <span class="dates">b. 20 Jan 1970</span></div>
+<div class="descendant"><span class="name">Theresa Alison Sariman</span> <span class="dates">b. 17 May 1973</span></div>
+</details>
+
+<!-- ===== DAIHANAI'S CHILDREN - EXPANDED ===== -->
+
+<details>
+<summary>Samuel Alphonse Solien (b. 1891, Kanosia) &mdash; 7 children via Sariman</summary>
+<div class="descendant"><span class="sp">m. Theresa Sukira Sariman (b. 1880, Tatana), 1912, Kanosia</span></div>
+
+<details>
+<summary>Keven Solien (b. 25 Jan 1911, d. 6 Jan 1980) &mdash; 8 children</summary>
+<div class="descendant"><span class="sp">m. (1) Mary Rita Field; (2) Monica Kila Hetabu, 1965</span></div>
+<div class="descendant"><span class="name">Jack Alex Solien</span> <span class="dates">b. 22 Jul 1961</span> <span class="sp">m. Gaulasi Hekoi. Son: Kevin Solien</span></div>
+<div class="descendant"><span class="name">Edwin Solien</span> <span class="dates">b. 24 Aug 1965</span> <span class="sp">m. Gwen. Daughter: Dawson Leach Solien</span></div>
+<div class="descendant"><span class="name">Pauline Solien</span> <span class="dates">b. 22 Apr 1968</span> <span class="sp">m. Lega Kikima</span></div>
+<div class="descendant"><span class="name">Julianne Solien</span> <span class="dates">b. 18 Feb 1970</span> <span class="sp">m. Marco Imani Emmanuel Beni. Son: Jardine R Beni</span></div>
+<div class="descendant"><span class="name">George Solien</span> <span class="dates">b. 13 Dec 1971 &ndash; d. 2019</span> <span class="sp">m. Evangeline Noah Wuat. Children: Tabitha, George Jr.</span></div>
+<div class="descendant"><span class="name">Reginald Solien</span> <span class="dates">b. 21 Apr 1976</span> <span class="sp">m. Laurice Tavari. Son: Castro Solien</span></div>
+<div class="descendant"><span class="name">Grace Solien</span></div>
+<div class="descendant"><span class="name">Gomea Solien</span></div>
+</details>
+
+<details>
+<summary>Charles Solien (b. 28 Feb 1913, d. 26 Jan 1957) &mdash; 5 children</summary>
+<div class="descendant"><span class="sp">m. (1) Imelda Dia-Rahe; (2) Josephine Biria Veidiho</span></div>
+<div class="descendant"><span class="name">Nicholas Charles Solien</span> <span class="dates">b. 6 Dec 1940</span> <span class="sp">m. Kone Maritau. Children: Damian, Marcella Diana</span></div>
+<div class="descendant"><span class="name">Helen Susan Savisa Solien</span> <span class="dates">b. 16 Dec 1942</span></div>
+<div class="descendant"><span class="name">Rita Solien</span> <span class="dates">b. 27 Feb 1945</span></div>
+<div class="descendant"><span class="name">Mercedes Solien</span> <span class="dates">b. 3 Jun 1947</span> <span class="sp">m. William Stanislaus Fabila, 27 Jun 1970. Children: Evangeline, Rosie, Bridgit</span></div>
+<div class="descendant"><span class="name">Louisa Philomena Mary Regina Solien</span> <span class="dates">b. 5 Dec 1945</span> <span class="sp">m. Michael Ganiga, 29 Aug 1983</span></div>
+</details>
+
+<details>
+<summary>Lucy Mary Solien (b. 6 Aug 1915) &mdash; Gallaher branch</summary>
+<div class="descendant"><span class="sp">m. (1) Osman; (2) Charles David Patrick Gallaher (b. 1921, Gympie QLD)</span></div>
+<div class="descendant"><span class="name">Theresa Solien</span> <span class="dates">b. 15 Jun 1939</span></div>
+<div class="descendant"><span class="name">Michael Gallaher</span> <span class="dates">b. 23 Jan 1952 &ndash; d. same day</span></div>
+<div class="descendant"><span class="name">Patrick Clifford Gallaher</span> <span class="dates">b. 14 Mar 1953</span> <span class="sp">m. Rose Rama Morea</span></div>
+<div class="descendant"><span class="name">Kenneth Gallaher</span> <span class="dates">b. 18 Jun 1955</span></div>
+<div class="descendant"><span class="name">Veronica Gallaher</span> <span class="dates">b. 2 Feb 1957</span></div>
+<div class="descendant"><span class="name">Edward Gallaher</span> <span class="dates">b. 16 Jul 1964</span></div>
+<div class="descendant"><span class="name">Charles Gallaher</span> <span class="dates">b. 14 May 1966</span></div>
+<div class="descendant"><span class="name">Samuel Gallaher</span></div>
+</details>
+
+<details>
+<summary>Vincent Patrick Solien (b. 8 Sep 1918, d. 8 Dec 1997) &mdash; 12 children</summary>
+<div class="descendant"><span class="sp">m. Eileen Philomena Kassman, 1965, Kanosia</span></div>
+<div class="descendant"><span class="name">Agnes Margaret Solien</span> <span class="dates">b. 14 Jan 1946</span></div>
+<div class="descendant"><span class="name">Hilda Elsie Solien</span> <span class="dates">b. 9 Jun 1947</span> <span class="sp">m. Leonard William Norris, 1969</span></div>
+<div class="descendant"><span class="name">Patricia Veronica Solien</span> <span class="dates">b. 11 Jan 1949</span></div>
+<div class="descendant"><span class="name">Alexis Michael Solien</span> <span class="dates">b. 7 Sep 1950</span> <span class="sp">m. (1) Nanai Ravu; (2) Theresa Resena. 6 children</span></div>
+<div class="descendant"><span class="name">Joseph John Solien</span> <span class="dates">b. 13 Jun 1952</span></div>
+<div class="descendant"><span class="name">Eileen Solien</span> <span class="dates">b. 2 Nov 1954 (deceased)</span></div>
+<div class="descendant"><span class="name">Elizabeth Mary Theresa Solien</span> <span class="dates">b. 7 Jul 1956</span> <span class="sp">m. Shane Teho Vaitai, 1977. 4 children</span></div>
+<div class="descendant"><span class="name">Charles Joseph Solien</span> <span class="dates">b. 21 Jul 1958 (deceased)</span></div>
+<div class="descendant"><span class="name">Josephine Solien</span> <span class="dates">b. 26 Feb 1961</span></div>
+<div class="descendant"><span class="name">Katrina Mona Solien</span> <span class="dates">b. 6 Feb 1963</span> <span class="sp">m. Robin Totome</span></div>
+<div class="descendant"><span class="name">Stanley Vincent Solien</span> <span class="dates">b. 6 Oct 1966</span></div>
+<div class="descendant"><span class="name">Pascaline Victoria Maria Gorety Solien</span> <span class="dates">b. 7 May 1970</span></div>
+</details>
+
+<details>
+<summary>Sebastian Okitau Solien (b. 2 Oct 1921, d. 17 Apr 1994) &mdash; 11 children</summary>
+<div class="descendant"><span class="sp">m. Philomena Tuana Ah-Wong (1939&ndash;1996), 29 Oct 1955, Koki</span></div>
+<div class="descendant"><span class="name">Imelda Marie Therese Solien</span> <span class="dates">b. 20 Nov 1956</span> <span class="sp">m. Philemon Mamahi Lotivi, 1978</span></div>
+<div class="descendant"><span class="name">Sam Alphonse Solien</span> <span class="dates">b. 10 Mar 1958 &ndash; d. 18 Mar 2021</span> <span class="sp">m. Rose Mase</span></div>
+<div class="descendant"><span class="name">Mary Keven Solien</span> <span class="dates">b. 18 Jun 1959 &ndash; d. 23 Jan 1960</span></div>
+<div class="descendant"><span class="name">Daniel Solien</span> <span class="dates">b. 16 Dec 1960</span></div>
+<div class="descendant"><span class="name">John Gregory Solien</span> <span class="dates">b. 14 Jun 1962</span></div>
+<div class="descendant"><span class="name">Barbara Gertrude Solien</span> <span class="dates">b. 1 Apr 1964</span></div>
+<div class="descendant"><span class="name">Virginia Carolina Solien</span> <span class="dates">b. 6 Dec 1965</span></div>
+<div class="descendant"><span class="name">Helen Regina Solien</span> <span class="dates">b. 10 Oct 1967 &ndash; d. 23 Jan 1983</span></div>
+<div class="descendant"><span class="name">Sebastian Beneldius Solien</span> <span class="dates">b. 22 Oct 1969</span> <span class="sp">m. Margaret Tamemul Walei, 25 Jul 1992</span></div>
+<div class="descendant"><span class="name">James Solien</span> <span class="dates">b. 8 Mar 1973</span></div>
+<div class="descendant"><span class="name">Linda Solien</span> <span class="dates">b. 26 Dec 1975</span></div>
+</details>
+
+<details>
+<summary>John Francis Solien (b. 29 Sep 1924, d. 3 Jan 1984) &mdash; 9 children</summary>
+<div class="descendant"><span class="sp">m. Sela (Sina) Bernadette Matthew (b. 1930, Gabutu)</span></div>
+<div class="descendant"><span class="name">Gabriel Christopher Solien</span> <span class="dates">b. 2 Apr 1948</span> <span class="sp">m. Janet Oneau. 5 children: Delphine, Wilfred, Michelle, Judy, Randy</span></div>
+<div class="descendant"><span class="name">Anastasia Helen Solien</span> <span class="dates">b. 1 Jun 1951 &ndash; d. 13 May 1962</span></div>
+<div class="descendant"><span class="name">Anthony Keven Solien</span> <span class="dates">b. 15 Jun 1953</span></div>
+<div class="descendant"><span class="name">Theresa Sukira Louisa Solien</span> <span class="dates">b. 11 Jul 1955</span> <span class="sp">m. Pala Leka, 9 Nov 1977</span></div>
+<div class="descendant"><span class="name">Mary Madeleine Solien</span> <span class="dates">b. 19 Oct 1957 &ndash; d. 12 Feb 1960</span></div>
+<div class="descendant"><span class="name">Jacinta Solien</span> <span class="dates">b. 27 Nov 1959</span></div>
+<div class="descendant"><span class="name">Lucy Solien</span> <span class="dates">b. 27 Nov 1959</span> <span class="sp">m. Johann Burger (b. 1955, Austria)</span></div>
+<div class="descendant"><span class="name">Gloria Solien</span> <span class="dates">b. 17 Nov 1965</span></div>
+<div class="descendant"><span class="name">John Solien</span> <span class="dates">b. 1970</span></div>
+</details>
+
+<details>
+<summary>Baia Samuel Gabriel Solien (b. 30 Oct 1933) &mdash; 9 children</summary>
+<div class="descendant"><span class="sp">m. Rosa Aiva Haino (b. 6 Dec 1940)</span></div>
+<div class="descendant"><span class="name">Sebastian Solien</span> <span class="dates">b. 17 Apr 1959</span></div>
+<div class="descendant"><span class="name">Joseph Solien</span> <span class="dates">b. 13 Apr 1960</span></div>
+<div class="descendant"><span class="name">Laura Solien</span> <span class="dates">b. 8 Oct 1961 (deceased)</span></div>
+<div class="descendant"><span class="name">Mary Madeleine Solien</span> <span class="dates">b. 6 Apr 1963</span></div>
+<div class="descendant"><span class="name">Mary Therese Solien</span> <span class="dates">b. 17 Oct 1964 (deceased)</span></div>
+<div class="descendant"><span class="name">Lorna Solien</span> <span class="dates">b. 5 Apr 1966</span></div>
+<div class="descendant"><span class="name">Baia Edress Solien</span> <span class="dates">b. 23 Feb 1968</span></div>
+<div class="descendant"><span class="name">Sukira Anastasius Solien</span> <span class="dates">b. 18 Jun 1971</span></div>
+<div class="descendant"><span class="name">Andrew Victor Solien</span> <span class="dates">b. 4 Apr 1974</span></div>
+</details>
+</details>
+
+<details>
+<summary>Keven Sogo Solien (b. 1892, d. 6 Feb 1958) &mdash; via Helen Savisa Sariman</summary>
+<div class="descendant"><span class="sp">m. Helen Savisa Sariman (b. 1894, d. 14 Jul 1969), 20 Feb 1912, Dibama</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">Children not documented in available records. Helen Savisa later married Charlie Solien (7 Feb 1964).</p>
+</details>
+
+<details>
+<summary>Helen (Savisa) Mary Solien (b. 1910) &mdash; Domara line</summary>
+<div class="descendant"><span class="sp">Daughter of George Solien and Theresa Sukira Sariman. m. (1) John Domara, 15 Oct 1931; (2) Archie Pan-Tung (b. 1903, Canton, China)</span></div>
+<div class="descendant"><span class="name">Emmanuel (Manu) Patrick Domara</span> <span class="dates">b. 23 Jan 1930</span> <span class="sp">m. (1) Margaret Gertrude Ah-Wong; (2) Margaret Temu Ah-Mat. 10+ children</span></div>
+<div class="descendant"><span class="name">Vincent John Domara</span> <span class="dates">b. 1 Mar 1932</span> <span class="sp">m. (1) Emma Gavera; (2) Philomena Kassman</span></div>
+<div class="descendant"><span class="name">Samuel Michael Domara</span> <span class="dates">b. 31 May 1934</span> <span class="sp">m. Elizabeth Cecilia Maba, 5 Jun 1979</span></div>
+</details>
+
+<details>
+<summary>Lucy Cecelia Solien (b. 1906, Kanosia) &mdash; via Joseph Vincent Sariman</summary>
+<div class="descendant"><span class="sp">m. Joseph Vincent Sariman (b. 1895, d. 10 Oct 1954), 3 Mar 1921, Manu Manu</span></div>
+<div class="descendant"><span class="name">Alphonse Sariman</span> <span class="dates">b. 1922</span> <span class="sp">m. Eliza Kassman, 3 Jan 1945</span></div>
+<div class="descendant"><span class="name">Eugene Sariman</span> <span class="dates">b. 1923</span> <span class="sp">m. (1) Josephine Vedu; (2) Emily Eme Ovia</span></div>
+<div class="descendant"><span class="name">Martha Sariman</span> <span class="dates">b. 27 Nov 1924</span> <span class="sp">m. (1) Ambrose George Gorogo; (2) Joseph Alphonse Natera</span></div>
+<div class="descendant"><span class="name">Edward Sariman</span> <span class="dates">b. 27 Sep 1926</span> <span class="sp">m. Maureen Ranu. 10 children</span></div>
+<div class="descendant"><span class="name">Joseph Sariman</span> <span class="dates">b. 1928</span></div>
+<div class="descendant"><span class="name">Gerard Sariman</span> <span class="dates">b. 1934</span> <span class="sp">m. Theresa Arua Naime. 5 children</span></div>
+<div class="descendant"><span class="name">Francis Sariman</span> <span class="dates">b. 1936</span></div>
+<div class="descendant"><span class="name">Anastasius Alphonse Sariman</span> <span class="dates">b. 4 Apr 1938</span> <span class="sp">m. (1) Boni Mauri Daroa (6 children); (2) Elizabeth Bure</span></div>
+</details>
+
+<details>
+<summary>Josephine Solien (b. 1892) &mdash; Iorive/Yorive line</summary>
+<div class="descendant"><span class="sp">m. [Iorive/Yorive]</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">Descendants George and Edward Yorive narrated the PARADISEC oral history recording (TD1-P02980) in 1980. Ancestor of the Veidiho Domara line (TikTok).</p>
+</details>
+
+<details>
+<summary>Philomena Mary Solien (b. 1899) &mdash; Kassman line (9 DNA matches)</summary>
+<div class="descendant"><span class="sp">m. [Kassman] &mdash; one of the original &ldquo;Malay&rdquo; settler families</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">9 DNA matches through this line &mdash; the most of any sibling line. Descendants carry the Kassman surname.</p>
+</details>
+
+<details>
+<summary>Agnes Daihanai Solien (b. 1900, d. 1973) &mdash; English line</summary>
+<div class="descendant"><span class="sp">m. [English]</span></div>
+<p style="font-size:.8rem;color:var(--text-light)">Line leads to Agnes Mary &ldquo;Daihanai&rdquo; Solien (1937&ndash;2022) who married Edward Toua English (1934&ndash;2010). 11 children. Moved to Brisbane. Buried at Pinnaroo Cemetery, Bridgeman Downs, QLD.</p>
+<p style="font-size:.8rem;color:var(--text-light)">Through this line: Mary English married Bruno Choulai &rarr; Wendi Choulai (artist, 1954&ndash;2001) &rarr; Aaron Choulai Tenenbaum (Artistic Director, Australian Art Orchestra).</p>
 </details>
 
 <details>
@@ -491,6 +904,35 @@ th,td{padding:.4rem .5rem}
 </table>
 <p style="font-size:.85rem">Theresa Sukira Sariman married three sons of Jimmy Malay. These marriages created the dense Galley Reach family enclave.</p>
 </details>
+
+</div><!-- end tree-text-view -->
+
+<!-- ============ INTERACTIVE TREE VIEW ============ -->
+<div id="tree-interactive-view" style="display:none">
+<h3>Interactive Family Tree</h3>
+<p style="font-size:.85rem;color:var(--text-light);margin-bottom:.8rem">Click on any person to expand or collapse their branch. Use the search box to find family members. Zoom with the +/- buttons or scroll wheel. Drag to pan.</p>
+
+<div id="interactive-tree-container">
+<div id="tree-search">
+<input type="text" id="treeSearchInput" placeholder="Search by name...">
+<button onclick="searchTree()">Find</button>
+</div>
+<div id="tree-controls">
+<button onclick="zoomTree(1.2)" title="Zoom in">+</button>
+<button onclick="zoomTree(0.8)" title="Zoom out">&minus;</button>
+<button onclick="resetTreeView()" title="Reset view">&#8634;</button>
+</div>
+<div id="tree-legend">
+<span><span class="dot" style="background:var(--navy)"></span> Patriarch</span>
+<span><span class="dot" style="background:var(--gold)"></span> Wife</span>
+<span><span class="dot" style="background:#2a5298"></span> Son</span>
+<span><span class="dot" style="background:#8b4c2a"></span> Daughter</span>
+<span><span class="dot" style="background:#5a8a4a"></span> Grandchild+</span>
+</div>
+<canvas id="treeCanvas"></canvas>
+</div>
+</div><!-- end tree-interactive-view -->
+
 </div>
 </section>
 
@@ -982,6 +1424,546 @@ document.querySelectorAll('details summary').forEach(function(s){
     if(e.key==='Enter'||e.key===' '){e.preventDefault();s.click();}
   });
 });
+
+// ==================== TREE VIEW TOGGLE ====================
+function showTreeView(view){
+  var tv=document.getElementById('tree-text-view');
+  var iv=document.getElementById('tree-interactive-view');
+  var bt=document.getElementById('btn-text-view');
+  var bi=document.getElementById('btn-interactive-view');
+  if(view==='text'){
+    tv.style.display='';iv.style.display='none';
+    bt.classList.add('active');bi.classList.remove('active');
+  }else{
+    tv.style.display='none';iv.style.display='';
+    bt.classList.remove('active');bi.classList.add('active');
+    if(!window._treeInitialized){initInteractiveTree();window._treeInitialized=true;}
+  }
+}
+
+// ==================== INTERACTIVE TREE ====================
+(function(){
+var treeData=null,canvas,ctx,nodes=[],edges=[];
+var scale=1,offsetX=0,offsetY=0,dragging=false,dragStartX=0,dragStartY=0;
+var highlightName='',animFrame=null;
+var NODE_W=160,NODE_H=44,V_GAP=70,H_GAP=16;
+
+// Color scheme
+var C={
+  patriarch:'#1a2744',patriarchText:'#c9a84c',
+  wife:'#c9a84c',wifeText:'#1a2744',
+  son:'#2a5298',daughter:'#8b4c2a',
+  grandchild:'#5a8a4a',
+  nodeText:'#ffffff',
+  line:'#c9a84c',lineSub:'#d0c8b0',
+  highlight:'#ff6b35',bg:'#faf6ee'
+};
+
+function buildTreeData(){
+  // Build a compact tree: Jimmy -> wives -> children -> grandchildren (collapsible)
+  var jimmy={id:'jimmy',name:'James Peter Subtino Solien',sub:'Jimmy Malay (c.1853-1923)',type:'patriarch',children:[],expanded:true};
+
+  var biria={id:'biria',name:'Biria Veidiho',sub:'Wife 1 — Motu, Tatana Island',type:'wife',children:[],expanded:true,parent:jimmy};
+  var daihanai={id:'daihanai',name:'Daihanai Veidiho',sub:'Wife 2 — Motu, Tatana Island',type:'wife',children:[],expanded:true,parent:jimmy};
+  jimmy.children=[biria,daihanai];
+
+  // Biria's children
+  var bChildren=[
+    {id:'maona',name:'Maona/Mauna Solien',sub:'b. ~1884, m. Jack Lotai',type:'daughter',children:[]},
+    {id:'louisa',name:'Louisa Mary Solien',sub:'b. 1892, d. 1927, m. Gorogo',type:'daughter',children:[]},
+    {id:'george_kevin',name:'George Kevin Solien',sub:'b. 1891, d. 1930 — 4 wives',type:'son',expanded:false,children:[
+      {id:'joan',name:'Joan of Arc Solien',sub:'b. ~1913 (via Gahusi Kino)',type:'daughter',children:[]},
+      {id:'helen_mary',name:'Helen Mary Solien',sub:'b. 1910 (via T.S. Sariman)',type:'daughter',children:[]},
+      {id:'helen_savisa_s',name:'Helen Savisa Solien',sub:'b. 1918 (via T.S. Sariman)',type:'daughter',children:[]},
+      {id:'dick',name:'Dick Solien',sub:'b. 1910, d. Brisbane',type:'son',expanded:false,children:[
+        {id:'agnes_mary_d',name:'Agnes Mary Daihanai Solien',sub:'1937-2022, m. E. English',type:'daughter',children:[]},
+        {id:'anna_imelda_d',name:'Anna Imelda Solien',sub:'1939-2022, Gympie',type:'daughter',children:[]},
+        {id:'margaret_esther',name:'Margaret Esther Solien',sub:'',type:'daughter',children:[]},
+        {id:'mare',name:'Mare Solien',sub:'',type:'daughter',children:[]},
+        {id:'george_d',name:'George Solien',sub:'',type:'son',children:[]},
+        {id:'steven_d',name:'Steven Solien',sub:'',type:'son',children:[]},
+        {id:'julie_d',name:'Julie Solien',sub:'d. 2021',type:'daughter',children:[]}
+      ]},
+      {id:'imelda_gk',name:'Imelda Solien',sub:'b. 1920, m. Saia Elly',type:'daughter',expanded:false,children:[
+        {id:'john_elly',name:'John Robert Elly',sub:'b. 1939',type:'son',children:[]},
+        {id:'veronica_elly',name:'Veronica Lillian Elly',sub:'b. 1941',type:'daughter',children:[]},
+        {id:'anthony_elly',name:'Anthony Francis Elly',sub:'b. 1945',type:'son',children:[]},
+        {id:'albert_elly',name:'Albert David Elly',sub:'b. 1950',type:'son',children:[]}
+      ]},
+      {id:'anna_m',name:'Anna Madeleine Solien',sub:'1922-2012, Love/Oberleuter',type:'daughter',expanded:false,children:[
+        {id:'margaret_love',name:'Margaret Love',sub:'b. 1945',type:'daughter',children:[]},
+        {id:'james_love',name:'James Alexander Love',sub:'b. 1948',type:'son',children:[]},
+        {id:'john_love',name:'John William Love',sub:'b. 1950',type:'son',children:[]},
+        {id:'mary_v_love',name:'Mary Violet Love',sub:'b. 1951, Brisbane',type:'daughter',children:[]},
+        {id:'patrick_love',name:'Patrick Daniel Love',sub:'b. 1954',type:'son',children:[]},
+        {id:'raymond_love',name:'Raymond Geoffrey Love',sub:'b. 1957',type:'son',children:[]},
+        {id:'miriel_love',name:'Miriel Isabelle Love',sub:'b. 1962',type:'daughter',children:[]}
+      ]},
+      {id:'francis_g',name:'Francis George Solien',sub:'b. 1924, m. J.W. Temby',type:'son',expanded:false,children:[
+        {id:'justine_s',name:'Justine Solien',sub:'b. 1958',type:'daughter',children:[]},
+        {id:'george_d_s',name:'George Douglas Solien',sub:'b. 1960',type:'son',children:[]},
+        {id:'margaret_m_s',name:'Margaret Mary Solien',sub:'b. 1962',type:'daughter',children:[]},
+        {id:'james_m_s',name:'James Maxwell Solien',sub:'b. 1963',type:'son',children:[]},
+        {id:'fabian_s',name:'Fabian Geoffrey Solien',sub:'b. 1965',type:'son',children:[]},
+        {id:'rodney_s',name:'Rodney Cliff Solien',sub:'b. 1968',type:'son',children:[]},
+        {id:'madeline_a_s',name:'Madeline Anna Solien',sub:'b. 1972, m. B. Suruman',type:'daughter',children:[]}
+      ]},
+      {id:'stanley_g',name:'Stanley George Solien',sub:'b. 1926, 3 wives, 11 children',type:'son',expanded:false,children:[
+        {id:'eliz_c_s',name:'Elizabeth Cecilia Solien',sub:'1947-1998',type:'daughter',children:[]},
+        {id:'andrew_d_s',name:'Andrew David Solien',sub:'b. 1949',type:'son',children:[]},
+        {id:'dulcie_s',name:'Dulcie Solien',sub:'b. 1954',type:'daughter',children:[]},
+        {id:'francis_s2',name:'Francis Solien',sub:'b. 1956',type:'son',children:[]},
+        {id:'albert_d_s',name:'Albert Donald Solien',sub:'b. 1953',type:'son',children:[]},
+        {id:'clarence_s',name:'Clarence James Solien',sub:'b. 1960',type:'son',children:[]},
+        {id:'dennis_s',name:'Dennis Paddy Solien',sub:'b. 1962',type:'son',children:[]},
+        {id:'mary_e_s',name:'Mary Eileen Solien',sub:'b. 1964',type:'daughter',children:[]},
+        {id:'alfred_s',name:'Alfred Lawrence Solien',sub:'b. 1965',type:'son',children:[]},
+        {id:'mark_s',name:'Mark Roland Solien',sub:'b. 1967',type:'son',children:[]},
+        {id:'michaelene_s',name:'Michaelene Rose Solien',sub:'b. 1970',type:'daughter',children:[]}
+      ]}
+    ]},
+    {id:'margaret_may',name:'Margaret Mary Solien',sub:'b. 1895, d. 1946, m. Arua',type:'daughter',children:[]},
+    {id:'james_alexis',name:'James (Jim) Alexis Solien',sub:'b. 1892, d. 1953',type:'son',expanded:false,children:[
+      {id:'mary_t_ja',name:'Mary Theresa Solien',sub:'',type:'daughter',children:[]},
+      {id:'marcella_ja',name:'Marcella Solien',sub:'',type:'daughter',children:[]},
+      {id:'agnes_ja',name:'Agnes Solien',sub:'',type:'daughter',children:[]},
+      {id:'rita_ja',name:'Rita Solien',sub:'',type:'daughter',children:[]},
+      {id:'nellie',name:'Nellie Solien',sub:'b. 1925, m. Peter Sariman',type:'daughter',expanded:false,children:[
+        {id:'jim_alex_s',name:'James (Jim) Alex Sariman',sub:'b. 1947',type:'son',children:[]},
+        {id:'rosemary_s',name:'Rosemary Elizabeth Sariman',sub:'b. 1950',type:'daughter',children:[]},
+        {id:'anthony_a_s',name:'Anthony Archie Sariman',sub:'b. 1953',type:'son',children:[]},
+        {id:'peter_l_s',name:'Peter Laurence Sariman',sub:'b. 1954',type:'son',children:[]},
+        {id:'clarence_sar',name:'Clarence Sariman',sub:'b. 1956',type:'son',children:[]},
+        {id:'josephine_sar',name:'Josephine Sariman',sub:'b. 1959',type:'daughter',children:[]},
+        {id:'gloria_m_sar',name:'Gloria Maureen Sariman',sub:'b. 1960',type:'daughter',children:[]},
+        {id:'allan_c_sar',name:'Allan Christifore Sariman',sub:'b. 1964',type:'son',children:[]}
+      ]},
+      {id:'louisa_ja',name:'Louisa Solien',sub:'',type:'daughter',children:[]},
+      {id:'perpetual_ja',name:'Perpetual Solien',sub:'',type:'daughter',children:[]},
+      {id:'maureen_ja',name:'Maureen Solien',sub:'',type:'daughter',children:[]},
+      {id:'marymeme_ja',name:'Mary Meme Solien',sub:'',type:'daughter',children:[]}
+    ]},
+    {id:'marina',name:'Marina Elizabeth Mary Solien',sub:'b. 1894, d. 1968',type:'daughter',children:[]},
+    {id:'charlie',name:'Charlie Solien',sub:'b. 1897, m. H.S. Sariman',type:'son',children:[]},
+    {id:'vivian',name:'Vivian Joseph Solien',sub:'b. 1900, d. 1969',type:'son',expanded:false,children:[
+      {id:'philomena_v',name:'Philomena Solien',sub:'b. 1921, m. Kadio Sariman',type:'daughter',children:[]}
+    ]},
+    {id:'theresa',name:'Theresa Solien',sub:'b. 1898, m. G.M. Sariman',type:'daughter',expanded:false,children:[
+      {id:'sam_henry',name:'Sam Henry Sariman',sub:'b. 1927, 10 children',type:'son',children:[]},
+      {id:'joseph_allan',name:'Joseph Allan Sariman',sub:'b. 1929, 6 children',type:'son',children:[]},
+      {id:'peter_george',name:'Peter George Sariman',sub:'b. 1933, 7 children',type:'son',children:[]},
+      {id:'maisie',name:'Maisie Imelda Sariman',sub:'b. 1935, m. C.R. Whitfield',type:'daughter',expanded:false,children:[
+        {id:'george_r_w',name:'George Richard Whitfield',sub:'b. 1952',type:'son',children:[]},
+        {id:'reg_w',name:'Reginald John Whitfield',sub:'b. 1953',type:'son',children:[]},
+        {id:'neville_w',name:'Neville Ernest Whitfield',sub:'b. 1955',type:'son',children:[]},
+        {id:'phillip_w',name:'Phillip Graham Whitfield',sub:'b. 1957',type:'son',children:[]},
+        {id:'angeline_w',name:'Angeline Rose Ann Whitfield',sub:'b. 1959',type:'daughter',children:[]},
+        {id:'charles_r_w',name:'Charles Rodney Whitfield',sub:'b. 1962, Koki',type:'son',children:[]},
+        {id:'sharon_w',name:'Sharon Whitfield',sub:'b. 1964',type:'daughter',children:[]}
+      ]},
+      {id:'jack_sar',name:'Jack Sariman',sub:'b. 1939, 5 children',type:'son',children:[]},
+      {id:'rose_louisa',name:'Rose Louisa Sariman',sub:'b. 1941, Fabila branch',type:'daughter',children:[]}
+    ]}
+  ];
+  bChildren.forEach(function(c){c.parent=biria;});
+  biria.children=bChildren;
+
+  // Daihanai's children
+  var dChildren=[
+    {id:'edress',name:'Edress (Edward) Solien',sub:'b. 1888',type:'son',children:[]},
+    {id:'josephine',name:'Josephine Solien',sub:'b. 1892, m. Iorive/Yorive',type:'daughter',children:[]},
+    {id:'keven_sogo',name:'Keven Sogo Solien',sub:'b. 1892, d. 1958',type:'son',children:[]},
+    {id:'samuel_a',name:'Samuel Alphonse Solien',sub:'b. 1891, m. T.S. Sariman',type:'son',expanded:false,children:[
+      {id:'keven_sa',name:'Keven Solien',sub:'b. 1911, d. 1980, 8 children',type:'son',children:[]},
+      {id:'charles_sa',name:'Charles Solien',sub:'b. 1913, d. 1957, 5 children',type:'son',children:[]},
+      {id:'lucy_mary',name:'Lucy Mary Solien',sub:'b. 1915, Gallaher branch',type:'daughter',children:[]},
+      {id:'vincent_p',name:'Vincent Patrick Solien',sub:'b. 1918, d. 1997, 12 children',type:'son',children:[]},
+      {id:'sebastian_o',name:'Sebastian Okitau Solien',sub:'b. 1921, d. 1994, 11 children',type:'son',children:[]},
+      {id:'john_f',name:'John Francis Solien',sub:'b. 1924, d. 1984, 9 children',type:'son',children:[]},
+      {id:'baia_s',name:'Baia Samuel Gabriel Solien',sub:'b. 1933, 9 children',type:'son',children:[]}
+    ]},
+    {id:'philomena_m',name:'Philomena Mary Solien',sub:'b. 1899, m. Kassman',type:'daughter',children:[]},
+    {id:'agnes_d',name:'Agnes Daihanai Solien',sub:'b. 1900, d. 1973, m. English',type:'daughter',children:[]},
+    {id:'lucy_c',name:'Lucy Cecelia Solien',sub:'b. 1906, m. J.V. Sariman',type:'daughter',expanded:false,children:[
+      {id:'alphonse_sar',name:'Alphonse Sariman',sub:'b. 1922',type:'son',children:[]},
+      {id:'eugene_sar',name:'Eugene Sariman',sub:'b. 1923',type:'son',children:[]},
+      {id:'martha_sar',name:'Martha Sariman',sub:'b. 1924',type:'daughter',children:[]},
+      {id:'edward_sar',name:'Edward Sariman',sub:'b. 1926, 10 children',type:'son',children:[]},
+      {id:'joseph_sar',name:'Joseph Sariman',sub:'b. 1928',type:'son',children:[]},
+      {id:'gerard_sar',name:'Gerard Sariman',sub:'b. 1934, 5 children',type:'son',children:[]},
+      {id:'francis_sar',name:'Francis Sariman',sub:'b. 1936',type:'son',children:[]},
+      {id:'anastasius_sar',name:'Anastasius A. Sariman',sub:'b. 1938, 8 children',type:'son',children:[]}
+    ]},
+    {id:'vincent_sol',name:'Vincent Solien',sub:'b. 1906',type:'son',children:[]},
+    {id:'madeline_sol',name:'Madeline Solien',sub:'b. 1908',type:'daughter',children:[]},
+    {id:'nicholas_sol',name:'Nicholas Solien',sub:'b. 1910',type:'son',children:[]}
+  ];
+  dChildren.forEach(function(c){c.parent=daihanai;});
+  daihanai.children=dChildren;
+
+  // Recursively set parent refs
+  function setParents(node){
+    if(node.children){
+      node.children.forEach(function(c){c.parent=node;setParents(c);});
+    }
+  }
+  setParents(jimmy);
+  return jimmy;
+}
+
+function getNodeColor(node){
+  if(node.type==='patriarch')return C.patriarch;
+  if(node.type==='wife')return C.wife;
+  var depth=0,n=node;while(n.parent){depth++;n=n.parent;}
+  if(depth<=2){return node.type==='son'?C.son:C.daughter;}
+  return C.grandchild;
+}
+
+function getTextColor(node){
+  if(node.type==='patriarch')return C.patriarchText;
+  if(node.type==='wife')return C.wifeText;
+  return C.nodeText;
+}
+
+function layoutTree(root){
+  nodes=[];edges=[];
+  var yCounter=0;
+
+  function countLeaves(node){
+    if(!node.children||node.children.length===0||node.expanded===false)return 1;
+    var s=0;node.children.forEach(function(c){s+=countLeaves(c);});
+    return Math.max(1,s);
+  }
+
+  function layout(node,depth,yStart){
+    var leaves=countLeaves(node);
+    var nodeH=(NODE_H+V_GAP)*leaves-V_GAP;
+    var y=yStart+nodeH/2-NODE_H/2;
+    var x=depth*(NODE_W+H_GAP*4+40);
+
+    node._x=x;node._y=y;node._w=NODE_W;node._h=NODE_H;
+    nodes.push(node);
+
+    if(node.children&&node.children.length>0&&node.expanded!==false){
+      var cy=yStart;
+      node.children.forEach(function(child){
+        var childLeaves=countLeaves(child);
+        var childH=(NODE_H+V_GAP)*childLeaves-V_GAP;
+        layout(child,depth+1,cy);
+        edges.push({from:node,to:child});
+        cy+=childH+V_GAP;
+      });
+    }
+  }
+  layout(root,0,0);
+}
+
+function drawTree(){
+  if(!canvas||!ctx)return;
+  var container=document.getElementById('interactive-tree-container');
+  canvas.width=container.clientWidth;
+  canvas.height=container.clientHeight;
+  var w=canvas.width,h=canvas.height;
+
+  ctx.save();
+  ctx.fillStyle=C.bg;
+  ctx.fillRect(0,0,w,h);
+  ctx.translate(offsetX,offsetY);
+  ctx.scale(scale,scale);
+
+  // Draw edges
+  edges.forEach(function(e){
+    var fx=e.from._x+e.from._w;
+    var fy=e.from._y+e.from._h/2;
+    var tx=e.to._x;
+    var ty=e.to._y+e.to._h/2;
+    var midX=(fx+tx)/2;
+    ctx.beginPath();
+    ctx.moveTo(fx,fy);
+    ctx.bezierCurveTo(midX,fy,midX,ty,tx,ty);
+    ctx.strokeStyle=e.to.parent&&e.to.parent.type==='patriarch'?C.line:C.lineSub;
+    ctx.lineWidth=e.to.parent&&e.to.parent.type==='patriarch'?2:1.2;
+    ctx.stroke();
+  });
+
+  // Draw nodes
+  nodes.forEach(function(node){
+    var x=node._x,y=node._y,w=node._w,h=node._h;
+    var col=getNodeColor(node);
+    var isHighlighted=highlightName&&node.name.toLowerCase().indexOf(highlightName.toLowerCase())>=0;
+
+    // Shadow
+    ctx.fillStyle='rgba(0,0,0,.08)';
+    roundRect(ctx,x+2,y+2,w,h,6,true,false);
+
+    // Background
+    ctx.fillStyle=isHighlighted?C.highlight:col;
+    roundRect(ctx,x,y,w,h,6,true,false);
+
+    if(isHighlighted){
+      ctx.strokeStyle='#ff3300';ctx.lineWidth=3;
+      roundRect(ctx,x,y,w,h,6,false,true);
+    }
+
+    // Text
+    ctx.fillStyle=isHighlighted?'#fff':getTextColor(node);
+    ctx.font='bold 10px "Segoe UI",Arial,sans-serif';
+    ctx.textBaseline='top';
+    var nameText=node.name;
+    if(nameText.length>22)nameText=nameText.substring(0,20)+'...';
+    ctx.fillText(nameText,x+6,y+6);
+
+    if(node.sub){
+      ctx.font='9px Georgia,serif';
+      ctx.fillStyle=isHighlighted?'rgba(255,255,255,.8)':'rgba(255,255,255,.7)';
+      if(node.type==='wife')ctx.fillStyle='rgba(26,39,68,.6)';
+      var subText=node.sub;
+      if(subText.length>26)subText=subText.substring(0,24)+'...';
+      ctx.fillText(subText,x+6,y+22);
+    }
+
+    // Expand/collapse indicator
+    if(node.children&&node.children.length>0){
+      var indX=x+w-14,indY=y+h/2-6;
+      ctx.fillStyle=node.expanded===false?'rgba(255,255,255,.4)':'rgba(255,255,255,.25)';
+      if(node.type==='wife')ctx.fillStyle='rgba(26,39,68,.25)';
+      ctx.beginPath();ctx.arc(indX+5,indY+5,7,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle=node.expanded===false?'#fff':'rgba(255,255,255,.8)';
+      if(node.type==='wife')ctx.fillStyle='#1a2744';
+      ctx.font='bold 11px Arial';ctx.textBaseline='middle';
+      ctx.fillText(node.expanded===false?'+':'-',indX+2,indY+6);
+    }
+  });
+
+  ctx.restore();
+}
+
+function roundRect(ctx,x,y,w,h,r,fill,stroke){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);
+  ctx.closePath();
+  if(fill)ctx.fill();if(stroke)ctx.stroke();
+}
+
+function getMousePos(e){
+  var rect=canvas.getBoundingClientRect();
+  var x=(e.clientX-rect.left-offsetX)/scale;
+  var y=(e.clientY-rect.top-offsetY)/scale;
+  return{x:x,y:y};
+}
+
+function getTouchPos(e){
+  var rect=canvas.getBoundingClientRect();
+  var t=e.touches[0];
+  return{clientX:t.clientX,clientY:t.clientY,x:(t.clientX-rect.left-offsetX)/scale,y:(t.clientY-rect.top-offsetY)/scale};
+}
+
+function findNodeAt(mx,my){
+  for(var i=nodes.length-1;i>=0;i--){
+    var n=nodes[i];
+    if(mx>=n._x&&mx<=n._x+n._w&&my>=n._y&&my<=n._y+n._h)return n;
+  }
+  return null;
+}
+
+function toggleNode(node){
+  if(!node.children||node.children.length===0)return;
+  node.expanded=node.expanded===false?true:false;
+  layoutTree(treeData);
+  drawTree();
+}
+
+function expandToNode(node){
+  var n=node;
+  while(n.parent){
+    n.parent.expanded=true;
+    n=n.parent;
+  }
+}
+
+window.zoomTree=function(factor){
+  var cw=canvas.width/2,ch=canvas.height/2;
+  var newScale=Math.max(0.15,Math.min(3,scale*factor));
+  offsetX=cw-(cw-offsetX)*(newScale/scale);
+  offsetY=ch-(ch-offsetY)*(newScale/scale);
+  scale=newScale;
+  drawTree();
+};
+
+window.resetTreeView=function(){
+  scale=0.7;offsetX=40;offsetY=40;highlightName='';
+  // Collapse all except top 2 levels
+  function collapseBelow(node,depth){
+    if(depth>=2&&node.children&&node.children.length>0)node.expanded=false;
+    if(node.children)node.children.forEach(function(c){collapseBelow(c,depth+1);});
+  }
+  if(treeData){
+    treeData.expanded=true;
+    if(treeData.children)treeData.children.forEach(function(c){c.expanded=true;collapseBelow(c,1);});
+    layoutTree(treeData);
+  }
+  drawTree();
+};
+
+window.searchTree=function(){
+  var input=document.getElementById('treeSearchInput');
+  var q=input.value.trim();
+  if(q.length<2){highlightName='';drawTree();return;}
+  highlightName=q;
+
+  // Find and expand path to matching nodes
+  function findAndExpand(node){
+    var found=false;
+    if(node.name.toLowerCase().indexOf(q.toLowerCase())>=0)found=true;
+    if(node.children){
+      node.children.forEach(function(c){
+        if(findAndExpand(c)){found=true;}
+      });
+    }
+    if(found&&node.children&&node.children.length>0)node.expanded=true;
+    return found;
+  }
+  findAndExpand(treeData);
+  layoutTree(treeData);
+
+  // Pan to first match
+  var match=nodes.find(function(n){return n.name.toLowerCase().indexOf(q.toLowerCase())>=0;});
+  if(match){
+    var cw=canvas.width/2,ch=canvas.height/2;
+    offsetX=cw-match._x*scale-NODE_W/2*scale;
+    offsetY=ch-match._y*scale-NODE_H/2*scale;
+  }
+  drawTree();
+};
+
+window.initInteractiveTree=function(){
+  canvas=document.getElementById('treeCanvas');
+  ctx=canvas.getContext('2d');
+  treeData=buildTreeData();
+
+  var container=document.getElementById('interactive-tree-container');
+  canvas.width=container.clientWidth;
+  canvas.height=container.clientHeight;
+
+  // Initial layout
+  scale=0.7;offsetX=40;offsetY=40;
+  layoutTree(treeData);
+  drawTree();
+
+  // Mouse events
+  canvas.addEventListener('mousedown',function(e){
+    dragging=true;dragStartX=e.clientX-offsetX;dragStartY=e.clientY-offsetY;
+    canvas.style.cursor='grabbing';
+  });
+  canvas.addEventListener('mousemove',function(e){
+    if(dragging){
+      offsetX=e.clientX-dragStartX;offsetY=e.clientY-dragStartY;
+      drawTree();
+    }
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){
+      var dx=Math.abs(e.clientX-dragStartX-offsetX);
+      var dy=Math.abs(e.clientY-dragStartY-offsetY);
+      // Only toggle if it was a click (not a drag)
+      if(dx<3&&dy<3){
+        var pos=getMousePos(e);
+        var node=findNodeAt(pos.x,pos.y);
+        if(node)toggleNode(node);
+      }
+    }
+    dragging=false;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('click',function(e){
+    var pos=getMousePos(e);
+    var node=findNodeAt(pos.x,pos.y);
+    if(node)toggleNode(node);
+  });
+
+  // Wheel zoom
+  canvas.addEventListener('wheel',function(e){
+    e.preventDefault();
+    var factor=e.deltaY<0?1.1:0.9;
+    var rect=canvas.getBoundingClientRect();
+    var mx=e.clientX-rect.left,my=e.clientY-rect.top;
+    var newScale=Math.max(0.15,Math.min(3,scale*factor));
+    offsetX=mx-(mx-offsetX)*(newScale/scale);
+    offsetY=my-(my-offsetY)*(newScale/scale);
+    scale=newScale;
+    drawTree();
+  },{passive:false});
+
+  // Touch events for mobile
+  var lastTouchDist=0;
+  canvas.addEventListener('touchstart',function(e){
+    if(e.touches.length===1){
+      dragging=true;
+      dragStartX=e.touches[0].clientX-offsetX;
+      dragStartY=e.touches[0].clientY-offsetY;
+    }else if(e.touches.length===2){
+      dragging=false;
+      var dx=e.touches[0].clientX-e.touches[1].clientX;
+      var dy=e.touches[0].clientY-e.touches[1].clientY;
+      lastTouchDist=Math.sqrt(dx*dx+dy*dy);
+    }
+    e.preventDefault();
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    if(e.touches.length===1&&dragging){
+      offsetX=e.touches[0].clientX-dragStartX;
+      offsetY=e.touches[0].clientY-dragStartY;
+      drawTree();
+    }else if(e.touches.length===2){
+      var dx=e.touches[0].clientX-e.touches[1].clientX;
+      var dy=e.touches[0].clientY-e.touches[1].clientY;
+      var dist=Math.sqrt(dx*dx+dy*dy);
+      if(lastTouchDist>0){
+        var factor=dist/lastTouchDist;
+        var rect=canvas.getBoundingClientRect();
+        var mx=(e.touches[0].clientX+e.touches[1].clientX)/2-rect.left;
+        var my=(e.touches[0].clientY+e.touches[1].clientY)/2-rect.top;
+        var newScale=Math.max(0.15,Math.min(3,scale*factor));
+        offsetX=mx-(mx-offsetX)*(newScale/scale);
+        offsetY=my-(my-offsetY)*(newScale/scale);
+        scale=newScale;
+        drawTree();
+      }
+      lastTouchDist=dist;
+    }
+    e.preventDefault();
+  },{passive:false});
+  canvas.addEventListener('touchend',function(e){
+    if(e.touches.length===0){
+      if(dragging&&e.changedTouches.length===1){
+        var t=e.changedTouches[0];
+        var rect=canvas.getBoundingClientRect();
+        var mx=(t.clientX-rect.left-offsetX)/scale;
+        var my=(t.clientY-rect.top-offsetY)/scale;
+        var node=findNodeAt(mx,my);
+        if(node)toggleNode(node);
+      }
+      dragging=false;lastTouchDist=0;
+    }
+  });
+
+  // Enter key in search
+  document.getElementById('treeSearchInput').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){e.preventDefault();searchTree();}
+  });
+
+  // Resize handler
+  window.addEventListener('resize',function(){
+    if(document.getElementById('tree-interactive-view').style.display!=='none'){
+      canvas.width=container.clientWidth;
+      canvas.height=container.clientHeight;
+      drawTree();
+    }
+  });
+};
+})();
 </script>
 </body>
 </html>
