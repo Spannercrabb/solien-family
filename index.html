@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Solien Besena: A Family Heritage Journey</title>
+<meta name="description" content="The complete family history of James Peter Subtino Solien (Jimmy Malay) and the Solien Besena clan, from Southeast Asia to Papua New Guinea and Australia.">
+<meta name="author" content="Dom Whitfield">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127796;</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#1a2744;--navy-light:#2a3f6a;--gold:#c9a84c;--gold-light:#e8d48b;
+--cream:#faf6ee;--cream-dark:#f0e9d8;--text:#2d2a24;--text-light:#5a5549;
+--accent:#8b4c2a;--white:#ffffff;--shadow:rgba(26,39,68,0.08);
+--font-body:'Georgia','Times New Roman',serif;
+--font-heading:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);line-height:1.75;color:var(--text);background:var(--cream)}
+a{color:var(--navy-light);text-decoration:underline}
+a:hover{color:var(--gold)}
+img{max-width:100%;height:auto;display:block}
+.skip-link{position:absolute;top:-100px;left:0;background:var(--navy);color:var(--white);padding:.5rem 1rem;z-index:10000;font-family:var(--font-heading)}
+.skip-link:focus{top:0}
+
+/* Loading Screen */
+#loading{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--navy);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:99999;transition:opacity .6s ease}
+#loading.hidden{opacity:0;pointer-events:none}
+#loading h2{color:var(--gold);font-family:var(--font-heading);font-size:1.8rem;letter-spacing:.15em;margin-bottom:.5rem}
+#loading p{color:var(--cream);font-style:italic;font-size:.95rem;opacity:.7}
+#loading .spinner{width:40px;height:40px;border:3px solid rgba(201,168,76,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin-top:1.5rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Navigation */
+.nav{position:sticky;top:0;background:var(--white);box-shadow:0 2px 12px var(--shadow);z-index:1000;border-bottom:2px solid var(--gold)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 1.2rem}
+.nav-brand{font-family:var(--font-heading);font-weight:700;color:var(--navy);text-decoration:none;font-size:1.05rem;padding:.8rem 0;white-space:nowrap}
+.nav-links{display:flex;flex-wrap:wrap;list-style:none;gap:0}
+.nav-links a{display:block;padding:.8rem .9rem;color:var(--text);text-decoration:none;font-size:.82rem;font-family:var(--font-heading);border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);border-bottom-color:var(--gold);background:var(--cream)}
+.hamburger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--navy);padding:.5rem}
+.breadcrumb{background:var(--cream-dark);padding:.4rem 1.2rem;font-size:.8rem;font-family:var(--font-heading);color:var(--text-light);max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+/* Search */
+.search-bar{background:var(--white);padding:.6rem 1.2rem;border-bottom:1px solid var(--cream-dark);text-align:center}
+.search-input{padding:.55rem 1rem;border:2px solid var(--cream-dark);border-radius:20px;font-size:.9rem;width:100%;max-width:380px;outline:none;font-family:var(--font-body);transition:border-color .2s}
+.search-input:focus{border-color:var(--gold)}
+mark.highlight{background:var(--gold-light);padding:0 2px;border-radius:2px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 50%,#1e3a5f 100%);color:var(--white);text-align:center;padding:4rem 1.5rem 3.5rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,rgba(26,39,68,.15))}
+.hero h1{font-family:var(--font-heading);font-size:2.6rem;font-weight:300;letter-spacing:.04em;margin-bottom:.6rem;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero h1 strong{font-weight:700;color:var(--gold)}
+.hero .subtitle{font-size:1.15rem;opacity:.85;font-style:italic;max-width:600px;margin:0 auto}
+
+/* Sections */
+.container{max-width:900px;margin:0 auto;padding:0 1.2rem}
+section{padding:3rem 0 2rem}
+section:target{scroll-margin-top:120px}
+.section-card{background:var(--white);border-radius:8px;box-shadow:0 2px 16px var(--shadow);padding:2.5rem 2rem;margin-bottom:2rem}
+h2{font-family:var(--font-heading);color:var(--navy);font-size:1.7rem;margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:2px solid var(--gold);line-height:1.3}
+h3{font-family:var(--font-heading);color:var(--navy-light);font-size:1.2rem;margin:1.5rem 0 .8rem}
+h4{font-family:var(--font-heading);color:var(--accent);font-size:1rem;margin:1.2rem 0 .5rem}
+p{margin-bottom:1rem}
+blockquote{border-left:4px solid var(--gold);padding:.8rem 1.2rem;margin:1.2rem 0;background:var(--cream);font-style:italic;border-radius:0 6px 6px 0;color:var(--text-light)}
+blockquote cite{display:block;margin-top:.5rem;font-size:.85rem;font-style:normal;color:var(--navy-light)}
+ul,ol{margin:0 0 1rem 1.5rem}
+li{margin-bottom:.4rem}
+
+/* Dedication */
+.dedication{background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 100%);border-left:5px solid var(--gold);padding:2rem;border-radius:0 8px 8px 0;margin:2rem 0;text-align:center;font-style:italic}
+.dedication p{font-size:1.05rem;color:var(--text-light)}
+
+/* Photo */
+.photo-frame{text-align:center;margin:1.5rem 0}
+.photo-frame img{display:inline-block;border:4px solid var(--cream-dark);border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,.1);max-width:300px}
+.photo-frame figcaption{font-size:.85rem;color:var(--text-light);margin-top:.5rem;font-style:italic}
+
+/* DNA Chart */
+.dna-chart{margin:1.5rem 0}
+.dna-bar{display:flex;align-items:center;margin-bottom:.6rem;gap:.5rem}
+.dna-bar .label{flex:0 0 200px;text-align:right;font-size:.85rem;font-family:var(--font-heading)}
+.dna-bar .bar-wrap{flex:1;background:var(--cream-dark);border-radius:4px;height:24px;position:relative;overflow:hidden}
+.dna-bar .bar{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:700;color:var(--white);min-width:30px;transition:width .8s ease}
+.dna-bar .bar.maritime{background:linear-gradient(90deg,#2a5298,#3a72c4)}
+.dna-bar .bar.tonga{background:linear-gradient(90deg,#5a8a4a,#7ab860)}
+.dna-bar .bar.melanesia{background:linear-gradient(90deg,#8b4c2a,#b86a3a)}
+.dna-bar .bar.mainland{background:linear-gradient(90deg,#6a4c8a,#9070b0)}
+.dna-bar .bar.samoa{background:linear-gradient(90deg,#2a7a8a,#40a0b0)}
+.dna-bar .bar.philippines{background:linear-gradient(90deg,#8a2a4c,#b04070)}
+.dna-bar .pct{flex:0 0 40px;font-size:.85rem;font-weight:700;color:var(--text)}
+
+/* Origin Probability */
+.origin-bar{margin-bottom:.7rem}
+.origin-bar .theory-name{font-family:var(--font-heading);font-size:.9rem;margin-bottom:.2rem;color:var(--text)}
+.origin-bar .prob-wrap{display:flex;align-items:center;gap:.5rem}
+.origin-bar .prob-track{flex:1;background:var(--cream-dark);border-radius:4px;height:18px;overflow:hidden;position:relative}
+.origin-bar .prob-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--navy),var(--navy-light))}
+.origin-bar .prob-range{height:100%;position:absolute;top:0;border-radius:4px;background:rgba(201,168,76,.4)}
+.origin-bar .prob-label{font-size:.82rem;flex:0 0 70px;text-align:right;font-weight:700;color:var(--navy)}
+
+/* Family Tree */
+.tree{font-family:var(--font-heading);font-size:.88rem}
+.tree .patriarch{text-align:center;padding:1rem;background:var(--navy);color:var(--gold);border-radius:8px;font-weight:700;font-size:1rem;margin-bottom:.5rem}
+.tree .wives{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.tree .wife-card{background:var(--cream);border:2px solid var(--gold);border-radius:8px;padding:1rem}
+.tree .wife-card h4{margin:0 0 .6rem;color:var(--navy);font-size:.95rem}
+.tree .child{background:var(--white);border:1px solid var(--cream-dark);border-radius:4px;padding:.4rem .6rem;margin-bottom:.3rem;font-size:.82rem;line-height:1.4}
+.tree .child strong{color:var(--navy-light)}
+.tree .child .spouse{color:var(--accent);font-size:.78rem}
+.tree .connector{text-align:center;color:var(--gold);font-size:1.2rem}
+
+/* Lineage */
+.lineage{display:flex;flex-direction:column;align-items:center;gap:.3rem;margin:1.5rem 0}
+.lineage .person{background:var(--navy);color:var(--white);padding:.6rem 1.2rem;border-radius:6px;font-family:var(--font-heading);font-size:.9rem;text-align:center;max-width:400px;width:100%}
+.lineage .person.highlight{background:var(--gold);color:var(--navy)}
+.lineage .arrow{color:var(--gold);font-size:1.2rem}
+
+/* Find Your Branch */
+.branch-guide{display:grid;gap:.8rem;margin:1rem 0}
+.branch-item{background:var(--cream);border-left:4px solid var(--gold);padding:.8rem 1rem;border-radius:0 6px 6px 0}
+.branch-item .surname{font-family:var(--font-heading);font-weight:700;color:var(--navy);font-size:1rem}
+.branch-item .connection{font-size:.9rem;color:var(--text-light)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:2rem;margin:1.5rem 0}
+.timeline::before{content:'';position:absolute;left:.6rem;top:0;bottom:0;width:2px;background:var(--gold)}
+.timeline-item{position:relative;margin-bottom:1.2rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-1.65rem;top:.4rem;width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--white);box-shadow:0 0 0 2px var(--gold)}
+.timeline-item .year{font-family:var(--font-heading);font-weight:700;color:var(--navy);font-size:.9rem}
+.timeline-item .event{font-size:.9rem;color:var(--text)}
+
+/* Heritage Sites */
+.site-grid{display:grid;gap:1rem;margin:1rem 0}
+.site-card{background:var(--cream);border-radius:6px;padding:1rem;border:1px solid var(--cream-dark)}
+.site-card h4{margin:0 0 .3rem;font-size:.95rem}
+.site-card p{font-size:.88rem;margin:0;color:var(--text-light)}
+
+/* Notable People */
+.notable{border:1px solid var(--cream-dark);border-radius:8px;padding:1.2rem;margin-bottom:1rem;background:var(--white)}
+.notable h4{margin-top:0;color:var(--navy)}
+.notable .role{font-family:var(--font-heading);font-size:.85rem;color:var(--gold);font-weight:700;margin-bottom:.5rem}
+
+/* Expandable */
+details{margin:1rem 0}
+details summary{cursor:pointer;font-family:var(--font-heading);font-weight:700;color:var(--navy-light);padding:.5rem 0;list-style:none;display:flex;align-items:center;gap:.5rem}
+details summary::before{content:'+';display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;background:var(--gold);color:var(--white);border-radius:50%;font-size:.85rem;flex-shrink:0;transition:transform .2s}
+details[open] summary::before{content:'-'}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+th{background:var(--navy);color:var(--white);padding:.6rem .8rem;text-align:left;font-family:var(--font-heading);font-size:.82rem}
+td{padding:.5rem .8rem;border-bottom:1px solid var(--cream-dark);vertical-align:top}
+tr:hover td{background:var(--cream)}
+
+/* Call to Action */
+.cta{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:var(--white);padding:2.5rem 2rem;border-radius:8px;text-align:center;margin:2rem 0}
+.cta h2{color:var(--gold);border-bottom-color:rgba(201,168,76,.3)}
+.cta p{color:rgba(255,255,255,.85)}
+.cta a{color:var(--gold-light)}
+
+/* Footer */
+footer{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 1.2rem;text-align:center;font-size:.85rem;margin-top:2rem}
+footer strong{color:var(--gold)}
+footer a{color:var(--gold-light)}
+
+/* Back to top */
+#back-to-top{position:fixed;bottom:2rem;right:2rem;background:var(--navy);color:var(--gold);border:none;width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0;transition:opacity .3s;z-index:999;display:flex;align-items:center;justify-content:center}
+#back-to-top.visible{opacity:1}
+#back-to-top:hover{background:var(--gold);color:var(--navy)}
+
+/* Print */
+@media print{
+.nav,.search-bar,.breadcrumb,#back-to-top,#loading,.hamburger,.skip-link{display:none!important}
+body{background:#fff;color:#000;font-size:11pt}
+.hero{background:#333!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.section-card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+a{color:#333;text-decoration:underline}
+}
+
+/* Responsive */
+@media(max-width:768px){
+.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--white);box-shadow:0 8px 20px var(--shadow);border-top:1px solid var(--cream-dark)}
+.nav-links.open{display:flex}
+.hamburger{display:block}
+.hero h1{font-size:1.8rem}
+.hero .subtitle{font-size:1rem}
+.section-card{padding:1.5rem 1.2rem}
+h2{font-size:1.4rem}
+.tree .wives{grid-template-columns:1fr}
+.dna-bar .label{flex:0 0 120px;font-size:.78rem}
+.lineage .person{font-size:.82rem;padding:.5rem .8rem}
+table{font-size:.8rem}
+th,td{padding:.4rem .5rem}
+}
+@media(min-width:769px) and (max-width:1024px){
+.site-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link" tabindex="0">Skip to content</a>
+
+<div id="loading">
+<h2>SOLIEN BESENA</h2>
+<p>A Family Heritage Journey</p>
+<div class="spinner"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+<div class="nav-inner">
+<a href="#hero" class="nav-brand">Solien Besena</a>
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false" tabindex="0">&#9776;</button>
+<ul class="nav-links">
+<li><a href="#patriarch">The Patriarch</a></li>
+<li><a href="#origin">Origin Mystery</a></li>
+<li><a href="#family-tree">Family Tree</a></li>
+<li><a href="#lineage">Your Connection</a></li>
+<li><a href="#dna">DNA Evidence</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="#today">Today</a></li>
+<li><a href="#heritage">Heritage Sites</a></li>
+<li><a href="#stories">Stories</a></li>
+<li><a href="#sources">Sources</a></li>
+<li><a href="#mysteries">Mysteries</a></li>
+<li><a href="#help">How to Help</a></li>
+</ul>
+</div>
+</nav>
+<div class="breadcrumb" id="breadcrumb" aria-live="polite">Home</div>
+<div class="search-bar">
+<input type="search" class="search-input" placeholder="Search this page..." aria-label="Search page content" id="searchInput">
+</div>
+
+<!-- Hero -->
+<header class="hero" id="hero">
+<h1>The <strong>Solien Besena</strong></h1>
+<h1 style="font-size:1.6rem;font-weight:300;margin-top:0">A Family Heritage Journey</h1>
+<p class="subtitle">From Southeast Asia to Papua New Guinea and Australia</p>
+</header>
+
+<main id="main" class="container">
+
+<!-- Dedication -->
+<div class="dedication" id="dedication">
+<p><strong>For the Solien Besena</strong> &mdash; the hundreds of descendants of one remarkable man, scattered from Tatana Island to Brisbane, from the Gulf of Papua to the jazz stages of Melbourne. This is your story. It belongs to all of you.</p>
+<p style="margin-top:.8rem;font-size:.9rem">And for Jimmy Malay himself &mdash; who came as a foreigner, married into the land, raised twenty children, and never went home. But he made a home so enduring that his name is still a clan, still a family, still a living culture, more than a century after his death.</p>
+</div>
+
+<!-- ===================== SECTION 1: THE PATRIARCH ===================== -->
+<section id="patriarch">
+<div class="section-card">
+<h2>The Patriarch &mdash; Jimmy Malay</h2>
+<h3>James Peter Subtino Solien, c.1853 &ndash; 24 February 1923</h3>
+
+<figure class="photo-frame">
+<img src="./jimmy-malay-portrait.jpg" alt="Portrait photograph of James Peter Subtino Solien, known as Jimmy Malay" style="max-width:220px">
+<figcaption>James Peter Subtino Solien &mdash; &ldquo;Jimmy Malay&rdquo;<br><small>Photo courtesy of Fred Fabila, via solienfamily.com</small></figcaption>
+</figure>
+
+<p>There is no surviving physical description of Jimmy Malay in any known source. Archduke Franz Ferdinand of Austria, who spent a day with him in 1893 and who described the skin tones and builds of nearly everyone else he met in New Guinea, said nothing about what Jimmy looked like. He called him only &ldquo;a local Malay trader.&rdquo; The colonial officers who praised him, the missionaries who operated on him, the newspapermen who gossiped about his gold discoveries &mdash; none of them bothered to describe him. He was simply &ldquo;Jimmy Malay,&rdquo; and everyone in Port Moresby knew what that meant.</p>
+
+<p>What we know is this: he had one hand. He had lost the other in 1883, and for the remaining forty years of his life he sailed boats, fired guns, climbed mountains, traded across hundreds of miles of coastline, and hosted legendary parties &mdash; all with a single hand. His Asian features, whatever exactly they were, ran deep in the blood. Four and five generations later, his descendants still carry them. As the CloudPNG blog noted: <em>&ldquo;What striking to this day after four or five generations is that his Asian features continue to flow along the bloodline.&rdquo;</em></p>
+
+<h3>Character</h3>
+<p>Everyone who wrote about Jimmy Malay liked him. Administrator William MacGregor &mdash; the most powerful man in British New Guinea &mdash; praised him as:</p>
+<blockquote>&ldquo;A man of integrity and of remarkable ability and courage.&rdquo;<cite>&mdash; BNGAR, 1897&ndash;1898</cite></blockquote>
+
+<p>&ldquo;Toaguba,&rdquo; writing in the <em>Pacific Islands Monthly</em> in 1959, remembered him with warmth:</p>
+<blockquote>&ldquo;My memories of my very good friend Jimmy are pungent. He was a much-loved man. In my day he had an open bungalow on one of the numerous tidal streams which feed into the sea via Galley Reach &hellip; no matter at what hour you arrived at the house he was always pleased to see you. And there was always plenty of home-brewed &lsquo;cratur&rsquo; available, despite the fact that he did not drink or smoke himself, being a strict Mahommedan. He was an excellent cook and would prepare a first-class meal.&rdquo;<cite>&mdash; &ldquo;Toaguba&rdquo; (B.A. McLachlan), Pacific Islands Monthly, January 1959</cite></blockquote>
+
+<p>Walter Gors, the Burns Philp trader who knew him best, said simply: <em>&ldquo;Everyone liked Jimmy. In my long experience, he was the best trader I ever knew &mdash; he could buy and sell anything.&rdquo;</em></p>
+
+<h3>The Hand (1883)</h3>
+<p>In 1883, Jimmy Malay&rsquo;s gun exploded. The London Missionary Society missionaries William and Fanny Lawes performed makeshift surgery &mdash; an amputation, almost certainly, in a mission house with no anaesthetic and no proper surgical instruments. During the operation, Jimmy <em>&ldquo;never uttered a sound&rdquo;</em> (Lawes, 1883).</p>
+<p>The loss barely slowed him down. &ldquo;Toaguba&rdquo; wrote that <em>&ldquo;although he had only one hand, he could handle a boat with ease.&rdquo;</em> For forty years, the one-handed man outworked, outtraded, and outlasted most of the two-handed Europeans around him.</p>
+
+<h3>The Trading Empire</h3>
+<p>Jimmy traded in everything the region produced: b&ecirc;che-de-mer, shells, sandalwood, birds of paradise, butterflies, native curios, sago, and coconuts. He sold to the Burns Philp Company store and to individual ship captains, European collectors, and museum agents. Walter Gors described his method:</p>
+<blockquote>&ldquo;He would get perhaps &pound;200 worth of stuff from me, and then come back from a trip into wild country with enough beche-de-mer, birds-of-paradise, native curios, and so on to show a handsome profit.&rdquo;</blockquote>
+<p>Birds of paradise alone fetched &pound;70 to &pound;80 per specimen from museums. But the money never stayed long: <em>&ldquo;Within a couple of weeks, his innumerable wives and relations, and places of entertainment, had it all. Then off he would go, far into the jungle with another lot of trade goods.&rdquo;</em></p>
+
+<p>He sailed his own boat &mdash; the <em>PTM</em>, named after Power, Thomas and Manning, a Cooktown firm. With Sariman, he established coconut and rubber plantations in the Galley Reach area and received Crown land grants in 1894.</p>
+
+<h3>The Plume Smuggling Network</h3>
+<p>Jimmy&rsquo;s most lucrative enterprise was also his most illegal. His main income came from smuggling Reggiana bird-of-paradise plumes out of Papua to the Paris fashion market. He had a sophisticated network of agents, including <em>&ldquo;a Malay-Chinaman who lived at a place named Sansineena.&rdquo;</em> The plumes were packed into cases marked <strong>&ldquo;Natural History specimens&rdquo;</strong> and shipped on Dutch vessels via Batavia to Europe.</p>
+
+<p>Leo Gors, the sympathetic Customs Officer, turned a blind eye. When Leo retired, his successor tried repeatedly to catch Jimmy but never succeeded. In one famous incident, a searching officer <em>&ldquo;actually sat on one of the cases containing the contraband, but was either unaware or did not want to give the show away.&rdquo;</em> Over 2,000 plumes from that single shipment reached Paris.</p>
+
+<blockquote>&ldquo;It is not known how many traps were laid for him. But it is not on record that he was ever caught, and he was never without ready cash.&rdquo;<cite>&mdash; &ldquo;Toaguba,&rdquo; PIM 1959</cite></blockquote>
+
+<h3>Hosting Archduke Franz Ferdinand (14 June 1893)</h3>
+<p>On 14 June 1893, the presumptive heir to the Austro-Hungarian Empire arrived in Port Moresby aboard the warship SMS <em>Elisabeth</em>. Twenty-one years later, his assassination in Sarajevo would trigger the First World War.</p>
+<p>The Archduke wanted to hunt birds. Jimmy was his guide. The hunt was a failure &mdash; Jimmy led the royal party in circles, claiming they would need to march many miles inland. Was he genuinely unable to find birds? Or was the man who supplied plumes by the thousand to Paris quietly sabotaging a hunting party to protect his stock? We will never know.</p>
+<p>Franz Ferdinand did record: <em>&ldquo;The Malay whose house we had been visiting is said to be very wealthy and sails along the coasts of New Guinea in small sailing boats trading tobacco with the natives.&rdquo;</em></p>
+
+<h3>The 2,000 Skulls (~1898)</h3>
+<p>The story that made Jimmy a legend came from the Gulf of Papua. He sailed to Maipua &mdash; cannibal country &mdash; ignoring Walter Gors&rsquo;s warnings.</p>
+<blockquote>&ldquo;They&rsquo;ll tackle a white man,&rdquo; said Jimmy, &ldquo;but they no hurt a coloured man. I&rsquo;ll take plenty of cooking pots for them &mdash; I&rsquo;ll be all right.&rdquo;</blockquote>
+<p>He returned weeks later with approximately 2,000 human skulls, bought from the Maipua people &mdash; sticks of tobacco for five skulls, a tomahawk for twenty, a big knife for forty. Gors was horrified. The skulls were secretly stored and sold: 1,000 to Captain Steele at a shilling each, 500 to Nathan Jones of San Francisco at ten shillings, others at Christie&rsquo;s in London for up to three guineas. When another trader tried the same trick and dumped skulls on the Port Moresby jetty, the new Governor literally stepped into a mass of human remains. A skull export ban was rushed through within the hour.</p>
+
+<h3>The Gold Rush (1897)</h3>
+<p>Jimmy was at the centre of the New Guinea gold rush. His name appeared in at least 87 Australian newspaper articles between 1893 and 1898. The <em>Maryborough Chronicle</em> reported: <em>&ldquo;The movements of &lsquo;Jimmy Malay&rsquo; are very mysterious, and it is felt certain that he has discovered a patch of gold and is keeping it secret.&rdquo;</em></p>
+<p>He offered transport from Port Moresby to the Mambare goldfields at &pound;5 per person. But the 1897 expedition ended badly when Australian miners quarrelled and challenged his leadership. He swore he would never lead another white party into the interior. He had dealt with cannibals and raiders &mdash; but the pettiness of white miners was more than he could bear.</p>
+
+<h3>Annual Hill Tribe Parties</h3>
+<p>Each year, Jimmy hosted over a hundred guests from villages in the Mariboi area at his Galley Reach bungalow. The centrepiece was a pole-climbing competition &mdash; a huge pole about fifty feet high, with prizes of biscuits, matches, cloth wraps, and canned goods tied to it. These gatherings cemented his relationships with the hill tribes, making him invaluable as a go-between.</p>
+
+<h3>Government Service</h3>
+<p>Despite his smuggling, Jimmy was deeply entangled with the colonial Administration. He assisted numerous government expeditions throughout the 1890s. His most dramatic act was voluntarily pursuing a raiding party that had killed fourteen people in a &ldquo;pacified&rdquo; village. His property was a regular stopover for government expeditions &mdash; even in 1914, the <em>Papuan Times</em> used &ldquo;Jimmy Malay&rsquo;s&rdquo; as a geographical reference point.</p>
+<p>A government officer in the 1897 Annual Report called him <em>&ldquo;the indefatigable Jimmy Malay.&rdquo;</em></p>
+
+<h3>Death &mdash; 24 February 1923</h3>
+<p>Jimmy Malay died on 24 February 1923, at approximately seventy years of age. He was buried in Papua New Guinea &mdash; the land he had made his home for more than forty years. He never returned to his homeland, wherever that was. His grave was commemorated in 1999.</p>
+
+<figure class="photo-frame">
+<img src="./jimmy-malay-grave.jpg" alt="Jimmy Malay's grave memorial, commemorated 1999" style="max-width:min(350px,100%)">
+<figcaption>Jimmy Malay&rsquo;s grave memorial, commemorated 1999<br><small>Photo via CloudPNG blog</small></figcaption>
+</figure>
+
+<blockquote>&ldquo;He came as a foreigner, got married to two sisters from Tatana Island, had 20 children and never returned to his homeland.&rdquo;<cite>&mdash; CloudPNG blog, 2012</cite></blockquote>
+</div>
+</section>
+
+<!-- ===================== SECTION 2: ORIGIN MYSTERY ===================== -->
+<section id="origin">
+<div class="section-card">
+<h2>The Origin Mystery</h2>
+<p><strong>Where did Jimmy Malay come from?</strong> This is the central unsolved question of the Solien family history. Despite decades of research, we do not know. The honest position is that no single theory dominates. The question is genuinely open.</p>
+
+<h3>The &ldquo;Malay&rdquo; Problem</h3>
+<p>The word &ldquo;Malay&rdquo; had two entirely different meanings in the 19th century:</p>
+<p><strong>Meaning 1: An ethnic Malay.</strong> The Malays are a specific Austronesian people from the Malay Peninsula, eastern Sumatra, and coastal Borneo. They are predominantly Sunni Muslim &mdash; Islam is the defining characteristic of Malay identity.</p>
+<p><strong>Meaning 2: A colonial catch-all.</strong> British administrators used &ldquo;Malay&rdquo; as a blanket label for anyone from the Indonesian archipelago &mdash; Javanese, Bugis, Florenese, Timorese, and actual ethnic Malays alike.</p>
+<p>Both readings are plausible. We simply do not know which applies to Jimmy.</p>
+
+<h3>The Muslim&ndash;Catholic Contradiction</h3>
+<p>This is the central puzzle. An eyewitness who knew Jimmy personally called him <em>&ldquo;a strict Mahommedan&rdquo;</em> who did not drink or smoke. Yet his children were raised Catholic at the Sacred Heart convent school at Yule Island, and his names &mdash; &ldquo;James Peter Subtino&rdquo; &mdash; are Catholic names. The possible explanations:</p>
+<ul>
+<li><strong>He was Muslim all along</strong> &mdash; the Catholic education was pragmatic (the Sacred Heart Mission was the only school). &ldquo;James Peter&rdquo; and possibly &ldquo;Subtino&rdquo; were adopted for church records.</li>
+<li><strong>He was Catholic, misidentified as Muslim</strong> &mdash; colonial Australians assumed all &ldquo;Malays&rdquo; were Muslim. A non-drinking, non-smoking Catholic would look Muslim to an outsider.</li>
+<li><strong>He was from a mixed-religion community</strong> &mdash; parts of Flores, Timor, and the Solor Islands had Muslim and Catholic communities side by side.</li>
+<li><strong>He converted</strong> &mdash; religious fluidity was common in 19th-century maritime Southeast Asia.</li>
+</ul>
+
+<h3>The Six Origin Theories</h3>
+<p>Each theory fits some of the evidence but not all of it. Here are the current probability ranges, revised with DNA evidence (February 2026):</p>
+
+<div style="margin:1.5rem 0">
+<div class="origin-bar">
+<div class="theory-name">1. Malay Peninsula (Ethnic Malay)</div>
+<div class="prob-wrap">
+<div class="prob-track"><div class="prob-fill" style="width:25%"></div><div class="prob-range" style="left:20%;width:10%"></div></div>
+<div class="prob-label">20&ndash;30%</div>
+</div>
+</div>
+<p style="font-size:.85rem;color:var(--text-light);margin:0 0 1rem .5rem"><strong>For:</strong> &ldquo;Strict Mahommedan&rdquo; (Islam defines Malay identity); 13% Mainland SEA DNA; maritime traders. <strong>Against:</strong> &ldquo;Subtino&rdquo; is a Portuguese name, not Malay.</p>
+
+<div class="origin-bar">
+<div class="theory-name">2. Eastern Flores / Larantuka</div>
+<div class="prob-wrap">
+<div class="prob-track"><div class="prob-fill" style="width:21.5%"></div><div class="prob-range" style="left:18%;width:7%"></div></div>
+<div class="prob-label">18&ndash;25%</div>
+</div>
+</div>
+<p style="font-size:.85rem;color:var(--text-light);margin:0 0 1rem .5rem"><strong>For:</strong> &ldquo;Subtino&rdquo; = Portuguese &ldquo;Sabatino&rdquo; (found in Flores Catholic communities); sandalwood traders. <strong>Against:</strong> &ldquo;Strict Mahommedan&rdquo; is hard to explain from Catholic Flores.</p>
+
+<div class="origin-bar">
+<div class="theory-name">3. East Java / Surabaya</div>
+<div class="prob-wrap">
+<div class="prob-track"><div class="prob-fill" style="width:17.5%"></div><div class="prob-range" style="left:15%;width:5%"></div></div>
+<div class="prob-label">15&ndash;20%</div>
+</div>
+</div>
+<p style="font-size:.85rem;color:var(--text-light);margin:0 0 1rem .5rem"><strong>For:</strong> Family oral tradition; &ldquo;Sutino&rdquo; is a Javanese name; Muslim Surabaya. <strong>Against:</strong> Java had essentially zero Catholics in the 1850s; may be departure port, not birthplace.</p>
+
+<div class="origin-bar">
+<div class="theory-name">4. South Sulawesi (Bugis/Makassar)</div>
+<div class="prob-wrap">
+<div class="prob-track"><div class="prob-fill" style="width:10%"></div><div class="prob-range" style="left:8%;width:4%"></div></div>
+<div class="prob-label">8&ndash;12%</div>
+</div>
+</div>
+<p style="font-size:.85rem;color:var(--text-light);margin:0 0 1rem .5rem"><strong>For:</strong> Dominant Muslim maritime traders in PNG. <strong>Against:</strong> No naming evidence; no Catholic communities.</p>
+
+<div class="origin-bar">
+<div class="theory-name">5. Philippines</div>
+<div class="prob-wrap">
+<div class="prob-track"><div class="prob-fill" style="width:7.5%"></div><div class="prob-range" style="left:5%;width:5%"></div></div>
+<div class="prob-label">5&ndash;10%</div>
+</div>
+</div>
+<p style="font-size:.85rem;color:var(--text-light);margin:0 0 1rem .5rem"><strong>For:</strong> 7% Filipino DNA marker; &ldquo;Subtino&rdquo; could be &ldquo;Saturnino&rdquo; (Spanish-Filipino). <strong>Against:</strong> SideView suggests Filipino DNA is from Sariman side, not Jimmy.</p>
+
+<div class="origin-bar">
+<div class="theory-name">6. Timor</div>
+<div class="prob-wrap">
+<div class="prob-track"><div class="prob-fill" style="width:4%"></div><div class="prob-range" style="left:3%;width:2%"></div></div>
+<div class="prob-label">3&ndash;5%</div>
+</div>
+</div>
+<p style="font-size:.85rem;color:var(--text-light);margin:0 0 1rem .5rem"><strong>For:</strong> Portuguese Catholic connection. <strong>Against:</strong> Weakest evidence of any theory.</p>
+</div>
+
+<h3>What Could Resolve It</h3>
+<ul>
+<li><strong>PARADISEC recordings</strong> &mdash; 90+ minutes of oral family history from 1980, the single most important untapped source</li>
+<li><strong>Larantuka Catholic church records</strong> &mdash; search for &ldquo;Sabatino/Subtino&rdquo; baptisms from the 1840s&ndash;1860s (trip planned April 2026)</li>
+<li><strong>DNA test of a Jimmy-only descendant</strong> &mdash; someone who descends from Jimmy but NOT from Sariman Kadio</li>
+<li><strong>Wilson (1975)</strong> &mdash; key missing academic source with Catholic Church records identifying &ldquo;James Subtino Solien&rdquo;</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================== SECTION 3: FAMILY TREE ===================== -->
+<section id="family-tree">
+<div class="section-card">
+<h2>The Family Tree</h2>
+<p>Jimmy Malay married two Motu sisters &mdash; daughters of the Nenehi Motu chief of Tatana Island. Together they had approximately 20 children (sources range 19&ndash;22, possibly including adopted children).</p>
+
+<div class="tree">
+<div class="patriarch">James Peter Subtino Solien &mdash; &ldquo;Jimmy Malay&rdquo; (c.1853&ndash;1923)</div>
+<div class="connector">&#9660;</div>
+<div class="wives">
+
+<div class="wife-card">
+<h4>Wife 1: Biria Veidiho (~10 children)</h4>
+<div class="child"><strong>Maona/Mauna (Supina) Solien</strong> &mdash; b. 1877 or ~1884 <span class="spouse">m. Jack Lotai</span></div>
+<div class="child"><strong>Louisa Mary/May Solien</strong> &mdash; b. 1887 or 1892, d. 28 Feb 1927 <span class="spouse">m. [Gorogo/Malabag]</span></div>
+<div class="child"><strong>George Kevin Solien</strong> &mdash; b. 1889 or 1891, d. 10 Apr 1930 <span class="spouse">4 wives (see below)</span></div>
+<div class="child"><strong>Margaret Mary/May Solien</strong> &mdash; b. 1890 or 1895, d. 1946 <span class="spouse">m. [Arua]</span></div>
+<div class="child"><strong>James (Jim) Alexis Solien</strong> &mdash; b. 1892&ndash;1894 <span class="spouse">m. Theresa Resena</span></div>
+<div class="child"><strong>Marina Elizabeth Mary Solien</strong> &mdash; b. 1894 or 1896, d. 1968</div>
+<div class="child"><strong>Charlie Solien</strong> &mdash; b. 1897, Kanosia <span class="spouse">m. Helen Savisa Sariman (7 Feb 1964)</span></div>
+<div class="child"><strong>Vivian Joseph Solien</strong> &mdash; b. 1899&ndash;1900 <span class="spouse">m. Margaret Gou</span></div>
+<div class="child"><strong>Theresa Solien</strong> &mdash; b. 1898, Kanosia <span class="spouse">m. George Michael Sariman (3 Jan 1926)</span></div>
+</div>
+
+<div class="wife-card">
+<h4>Wife 2: Daihanai Veidiho (~10 children)</h4>
+<div class="child"><strong>Edress (Edward) Solien</strong> &mdash; b. 1888</div>
+<div class="child"><strong>Josephine Solien</strong> &mdash; b. 1892 <span class="spouse">m. [Iorive/Yorive]</span></div>
+<div class="child"><strong>Keven Sogo Solien</strong> &mdash; b. 1892, Tatana, d. 6 Feb 1958 <span class="spouse">m. Helen Savisa Sariman (20 Feb 1912)</span></div>
+<div class="child"><strong>Samuel Alphonse Solien</strong> &mdash; b. 1891, Kanosia <span class="spouse">m. Theresa Sukira Sariman (1912)</span></div>
+<div class="child"><strong>Philomena Mary Solien</strong> &mdash; b. 1899 <span class="spouse">m. [Kassman]</span></div>
+<div class="child"><strong>Agnes Daihanai Solien</strong> &mdash; b. 1900, d. 1973 <span class="spouse">m. [English]</span></div>
+<div class="child"><strong>Lucy Cecelia Solien</strong> &mdash; b. 1904 or 1906, Kanosia <span class="spouse">m. Joseph Vincent Sariman (3 Mar 1921)</span></div>
+<div class="child"><strong>Vincent Solien</strong> &mdash; b. 1906</div>
+<div class="child"><strong>Madeline (Magdaline Buruka) Solien</strong> &mdash; b. 1908</div>
+<div class="child"><strong>Nicholas Solien</strong> &mdash; b. 1910</div>
+</div>
+
+</div>
+</div>
+
+<p style="font-size:.85rem;color:var(--text-light);margin-top:.5rem"><strong>Unplaced child:</strong> Wilhelmina &mdash; mentioned in PIM 1959, not in any family tree. A suitor called &ldquo;Handsome Harry&rdquo; was killed in a Moresby fracas; she did not mourn his demise.</p>
+
+<p style="font-size:.85rem;color:var(--text-light)"><strong>Date note:</strong> Community sources (CloudPNG/Angelfire) give dates 2&ndash;7 years earlier than Ancestry. Neither set is definitively correct. Both are listed above where they differ.</p>
+
+<details>
+<summary>George Kevin Solien &mdash; Expanded Branch (4 wives)</summary>
+<p><strong>George Kevin Solien</strong> (b. 1891, d. 10 Apr 1930, Manila Point, Central PNG)</p>
+<table>
+<tr><th>#</th><th>Wife</th><th>Marriage</th><th>Children</th></tr>
+<tr><td>1</td><td>Tuene Maka (b. 1889)</td><td>28 Apr 1909, Port Moresby</td><td>&mdash;</td></tr>
+<tr><td>2</td><td>Gahusi Kino</td><td>~1912</td><td>Joan of Arc Solien (~1913)</td></tr>
+<tr><td>3</td><td>Theresa Sukira Sariman (b. 1880)</td><td>~1915</td><td>Helen Mary Solien (1910), Helen Savisa Solien (1918)</td></tr>
+<tr><td>4</td><td>Vene Mary Elizabeth Sariman (b. 1899)</td><td>16 Sep 1919, Port Moresby</td><td>Dick Solien (b. 10 Aug 1910), Imelda (1920), Anna Madeleine (1922&ndash;2012), Francis George (1924), Stanley George (1926)</td></tr>
+</table>
+<p style="font-size:.85rem">Wives 3 and 4 are both Sarimans (daughters of Sariman Kadio), deepening the Solien-Sariman intermarriage pattern.</p>
+</details>
+
+<details>
+<summary>The Solien-Sariman Intermarriage Network (at least 10 marriages)</summary>
+<table>
+<tr><th>Solien</th><th>Sariman</th><th>Marriage Date</th></tr>
+<tr><td>Theresa Solien (Biria&rsquo;s daughter, b. 1898)</td><td>George Michael Sariman</td><td>3 Jan 1926</td></tr>
+<tr><td>Keven Sogo Solien</td><td>Helen Savisa Sariman</td><td>20 Feb 1912</td></tr>
+<tr><td>Samuel Alphonse Solien</td><td>Theresa Sukira Sariman</td><td>1912</td></tr>
+<tr><td>George Kevin Solien</td><td>Theresa Sukira Sariman</td><td>~1908</td></tr>
+<tr><td>George Kevin Solien</td><td>Vene Mary Elizabeth Sariman</td><td>16 Sep 1919</td></tr>
+<tr><td>Lucy Cecelia Solien</td><td>Joseph Vincent Sariman</td><td>3 Mar 1921</td></tr>
+<tr><td>Philomena Solien (Vivian&rsquo;s daughter)</td><td>Kadio Sariman</td><td>19 Jan 1959</td></tr>
+<tr><td>Nellie Solien (James Alexis&rsquo;s daughter)</td><td>Peter Sariman</td><td>9 May 1958</td></tr>
+<tr><td>Madeleine Solien</td><td>Peter Sariman</td><td>(earlier marriage)</td></tr>
+<tr><td>Charlie Solien (b. 1897)</td><td>Helen Savisa Sariman</td><td>7 Feb 1964</td></tr>
+</table>
+<p style="font-size:.85rem">Theresa Sukira Sariman married three sons of Jimmy Malay. These marriages created the dense Galley Reach family enclave.</p>
+</details>
+</div>
+</section>
+
+<!-- ===================== SECTION 4: DOM'S LINEAGE ===================== -->
+<section id="lineage">
+<div class="section-card">
+<h2>Dom&rsquo;s Lineage &mdash; Your Connection</h2>
+<p>Here is the direct line from Jimmy Malay to the researcher who compiled this heritage resource:</p>
+
+<div class="lineage">
+<div class="person">Jimmy Malay (James Peter Subtino Solien, c.1853&ndash;1923) + Biria Veidiho</div>
+<div class="arrow">&#9660;</div>
+<div class="person">Theresa Solien (b. 1898, Kanosia) + George Michael Sariman (m. 3 Jan 1926)</div>
+<div class="arrow">&#9660;</div>
+<div class="person">Maisie Imelda Sariman (b. 22 Jul 1935, Kikori) + Charles Richard Whitfield (m. 29 Dec 1950)</div>
+<div class="arrow">&#9660;</div>
+<div class="person">Charles Rodney Whitfield (b. 2 Jan 1962, Koki)</div>
+<div class="arrow">&#9660;</div>
+<div class="person highlight">Dom Whitfield &mdash; 5th generation descendant</div>
+</div>
+
+<p>Maisie married Charles Richard Whitfield (b. 1920, Jundah, QLD; son of Charles Richard Whitfield and Charlotte Lewis) on <strong>29 December 1950</strong> at the <strong>Church of Our Lady of the Rosary</strong>, Port Moresby. Their children included George Richard (1952), Reginald John (1953), Neville Ernest (1955), Phillip Graham (1957), Angeline Rose Ann (1959), Charles Rodney (1962), and Sharon (1964).</p>
+</div>
+</section>
+
+<!-- ===================== SECTION 5: FIND YOUR BRANCH ===================== -->
+<section id="find-branch">
+<div class="section-card">
+<h2>&ldquo;Find Your Branch&rdquo; Guide</h2>
+<p>Do you have one of these surnames in your family? Here is how you likely connect to Jimmy Malay:</p>
+
+<div class="branch-guide">
+<div class="branch-item">
+<div class="surname">Surname: English</div>
+<div class="connection">Through <strong>Agnes Daihanai Solien</strong> (b. 1900) &rarr; married into the English family. Agnes Mary &ldquo;Daihanai&rdquo; Solien (1937&ndash;2022) married Edward Toua English.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Kassman</div>
+<div class="connection">Through <strong>Philomena Mary Solien</strong> (b. 1899) &rarr; married into the Kassman family, one of the original &ldquo;Malay&rdquo; settler families.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Sariman</div>
+<div class="connection">Multiple connections &mdash; at least 10 Solien-Sariman marriages: Theresa Solien (1926), Keven Sogo Solien (1912), Samuel Alphonse Solien (1912), George Kevin Solien (1908, 1919), Lucy Cecelia Solien (1921), Philomena Solien (1959), Nellie Solien (1958), and Charlie Solien (1964).</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Lotai</div>
+<div class="connection">Through <strong>Maona/Mauna (Supina) Solien</strong> (b. 1877 or ~1884) &rarr; married Jack Lotai.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Whitfield</div>
+<div class="connection">Through <strong>Theresa Solien</strong> (b. 1898) &rarr; Maisie Imelda Sariman &rarr; married Charles Richard Whitfield (1950).</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Choulai</div>
+<div class="connection">Through the Solien &rarr; English &rarr; Choulai line. Mary English (of the Solien clan) married Bruno Choulai.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Yorive / Iorive</div>
+<div class="connection">Through <strong>Josephine Solien</strong> (b. 1892) &rarr; married into the Iorive/Yorive family.</div>
+</div>
+</div>
+<p style="margin-top:1rem"><strong>Don&rsquo;t see your surname?</strong> You may still be connected. With approximately 20 children and hundreds of descendants, the Solien Besena has many branches. Contact the community &mdash; see <a href="#help">How You Can Help</a> below.</p>
+</div>
+</section>
+
+<!-- ===================== SECTION 6: DNA EVIDENCE ===================== -->
+<section id="dna">
+<div class="section-card">
+<h2>DNA Evidence</h2>
+<p>The first genetic evidence for Jimmy Malay&rsquo;s origins comes from his granddaughter <strong>Maisie Imelda Sariman</strong>, only two generations removed. These are <strong>actual results</strong>, not hypothetical.</p>
+
+<h3>Maisie Sariman&rsquo;s AncestryDNA Results</h3>
+<figure class="photo-frame">
+<img src="./maisie-sariman-dna-results.jpg" alt="Maisie Sariman's AncestryDNA ethnicity estimate showing 36% Maritime SEA, 20% Tonga, 15% Melanesia, 13% Mainland SEA, 9% Samoa, 7% Philippines" style="max-width:min(400px,100%)">
+<figcaption>Maisie Sariman&rsquo;s AncestryDNA ethnicity estimate</figcaption>
+</figure>
+
+<div class="dna-chart">
+<div class="dna-bar"><span class="label">Maritime Southeast Asia</span><div class="bar-wrap"><div class="bar maritime" style="width:36%">36%</div></div><span class="pct">36%</span></div>
+<div class="dna-bar"><span class="label">Tonga</span><div class="bar-wrap"><div class="bar tonga" style="width:20%">20%</div></div><span class="pct">20%</span></div>
+<div class="dna-bar"><span class="label">Melanesia</span><div class="bar-wrap"><div class="bar melanesia" style="width:15%">15%</div></div><span class="pct">15%</span></div>
+<div class="dna-bar"><span class="label">Mainland Southeast Asia</span><div class="bar-wrap"><div class="bar mainland" style="width:13%">13%</div></div><span class="pct">13%</span></div>
+<div class="dna-bar"><span class="label">Samoa</span><div class="bar-wrap"><div class="bar samoa" style="width:9%">9%</div></div><span class="pct">9%</span></div>
+<div class="dna-bar"><span class="label">Central &amp; Southern Philippines</span><div class="bar-wrap"><div class="bar philippines" style="width:7%">7%</div></div><span class="pct">7%</span></div>
+</div>
+
+<p><strong>Important caveat:</strong> Maisie&rsquo;s father George Michael Sariman was the son of Sariman Kadio &mdash; another &ldquo;Malay&rdquo; trader who arrived with Jimmy. So <em>both</em> of Maisie&rsquo;s grandfathers were Southeast Asian. The Maritime SEA DNA comes from two men, not one.</p>
+
+<h3>Dom&rsquo;s Results</h3>
+<p>Dom&rsquo;s AncestryDNA shows <strong>58% European</strong> and <strong>22% Southeast Asian/Pacific</strong>, reflecting the Whitfield (European) and Sariman/Solien (Southeast Asian/Motu) heritage. There are <strong>37 DNA matches through Jimmy Malay</strong> across 8 family lines, and approximately 13,180 total DNA matches on Ancestry.</p>
+
+<h3>SideView Analysis</h3>
+<p>Maisie&rsquo;s SideView parent breakdown reveals that the <strong>7% Filipino marker appears on Parent 2</strong> &mdash; likely Sariman&rsquo;s side, not Jimmy&rsquo;s. This weakens the Philippines origin theory for Jimmy specifically, though it does not eliminate it. The 13% Mainland Southeast Asia marker remains consistent with a Malay Peninsula connection.</p>
+
+<h3>What DNA Confirms</h3>
+<ul>
+<li>Jimmy was genuinely Southeast Asian &mdash; not just a colonial label</li>
+<li>Significant Maritime SEA component (consistent with Malay/Indonesian origin)</li>
+<li>The Filipino marker is <em>probably</em> from Sariman&rsquo;s side, not Jimmy&rsquo;s</li>
+</ul>
+
+<h3>What&rsquo;s Needed Next</h3>
+<p>A DNA test from a <strong>Jimmy-only descendant</strong> &mdash; someone who descends from Jimmy Malay but NOT from Sariman Kadio &mdash; would isolate Jimmy&rsquo;s individual genetic contribution. A Y-DNA test on a male-line Solien descendant could potentially identify Jimmy&rsquo;s specific ethnic origin through his paternal haplogroup.</p>
+</div>
+</section>
+
+<!-- ===================== SECTION 7: TIMELINE ===================== -->
+<section id="timeline">
+<div class="section-card">
+<h2>Timeline</h2>
+<div class="timeline">
+<div class="timeline-item"><span class="year">c. 1853</span><span class="event"> &mdash; Jimmy Malay born (location unknown)</span></div>
+<div class="timeline-item"><span class="year">Late 1870s</span><span class="event"> &mdash; Arrives in Papua New Guinea, alongside Sariman, Kassman, and other &ldquo;Malay&rdquo; traders</span></div>
+<div class="timeline-item"><span class="year">~1877</span><span class="event"> &mdash; First child Maona/Mauna born (Ancestry dates suggest ~1884)</span></div>
+<div class="timeline-item"><span class="year">1883</span><span class="event"> &mdash; Loses hand in gun explosion; LMS missionaries operate &mdash; &ldquo;never uttered a sound&rdquo;</span></div>
+<div class="timeline-item"><span class="year">~1886</span><span class="event"> &mdash; Marries Biria Veidiho, Tatana Island. Settles on northern shore of harbour.</span></div>
+<div class="timeline-item"><span class="year">1891</span><span class="event"> &mdash; First gun permit issued; classified as &ldquo;native resident&rdquo;</span></div>
+<div class="timeline-item"><span class="year">1892</span><span class="event"> &mdash; Reclassified as &ldquo;trader&rdquo;</span></div>
+<div class="timeline-item"><span class="year">14 Jun 1893</span><span class="event"> &mdash; Hosts Archduke Franz Ferdinand of Austria on a bird-hunting expedition</span></div>
+<div class="timeline-item"><span class="year">1893&ndash;1894</span><span class="event"> &mdash; Voluntarily pursues raiders who killed 14 people</span></div>
+<div class="timeline-item"><span class="year">1894</span><span class="event"> &mdash; Crown land application, Galley Reach plantations</span></div>
+<div class="timeline-item"><span class="year">1895</span><span class="event"> &mdash; Classified as &ldquo;settler&rdquo; and employer</span></div>
+<div class="timeline-item"><span class="year">1897</span><span class="event"> &mdash; Centre of the New Guinea gold rush; features in 87+ newspaper articles across Australia</span></div>
+<div class="timeline-item"><span class="year">~1898</span><span class="event"> &mdash; The 2,000 skulls episode in the Gulf of Papua</span></div>
+<div class="timeline-item"><span class="year">1898</span><span class="event"> &mdash; Theresa Solien born, Kanosia</span></div>
+<div class="timeline-item"><span class="year">24 Feb 1923</span><span class="event"> &mdash; <strong>Jimmy Malay dies</strong>, Port Moresby</span></div>
+<div class="timeline-item"><span class="year">3 Jan 1926</span><span class="event"> &mdash; Theresa Solien marries George Michael Sariman, Port Moresby</span></div>
+<div class="timeline-item"><span class="year">22 Jul 1935</span><span class="event"> &mdash; Maisie Imelda Sariman born, Kikori</span></div>
+<div class="timeline-item"><span class="year">29 Dec 1950</span><span class="event"> &mdash; Maisie marries Charles Richard Whitfield, Church of Our Lady of the Rosary, Port Moresby</span></div>
+<div class="timeline-item"><span class="year">2 Jan 1962</span><span class="event"> &mdash; Charles Rodney Whitfield born, Koki</span></div>
+<div class="timeline-item"><span class="year">1996</span><span class="event"> &mdash; Wendi Choulai&rsquo;s &ldquo;Egu Rami&rdquo; at APT2, reuniting 40 Solien Besena members</span></div>
+<div class="timeline-item"><span class="year">1999</span><span class="event"> &mdash; Jimmy Malay&rsquo;s grave commemorated</span></div>
+<div class="timeline-item"><span class="year">2024&ndash;2025</span><span class="event"> &mdash; Aaron Choulai&rsquo;s &ldquo;Ane Ta Abia&rdquo; performed at WOMADelaide, Asia TOPA, and GOMA</span></div>
+</div>
+</div>
+</section>
+
+<!-- ===================== SECTION 8: THE SOLIEN BESENA TODAY ===================== -->
+<section id="today">
+<div class="section-card">
+<h2>The Solien Besena Today</h2>
+<p>From one man, two wives, and twenty children has grown an entire clan. The <strong>Solien Besena</strong> is today a recognised clan of the Motu-Koitapu people near Port Moresby, with a significant diaspora in Brisbane and Logan, Queensland.</p>
+
+<h3>Brisbane/Logan Diaspora</h3>
+<p>The primary hub is the <strong>Slacks Creek</strong> area, with community gatherings at 51a Paradise Road. The Solien Besena Facebook page has over 1,400 members. Multiple <strong>culture schools</strong> operate in Brisbane, Sydney, and Melbourne, led primarily by women including Theresa Barlow, Ruth Choulai, and Alma Adamson.</p>
+
+<h3>Cultural Practices</h3>
+<ul>
+<li><strong>The Roroipe dance cycle</strong> &mdash; central to Solien Besena identity, performed at gatherings like the Koukou Feast</li>
+<li><strong>Nara chants</strong> &mdash; an endangered Motu language tradition preserved by Alma Adamson&rsquo;s group</li>
+<li><strong>Traditional dance costumes</strong> &mdash; 535&ndash;585 AUD per female dancer, a significant cultural investment</li>
+</ul>
+<p>Dr. Jacquelyn Lewis-Harris documented the community&rsquo;s efforts in her PhD thesis: <em>&ldquo;Anina Asi A Mavaru Kavamu &mdash; We Don&rsquo;t Dance For Nothing.&rdquo;</em></p>
+
+<h3>&ldquo;Besena&rdquo; &mdash; What It Means</h3>
+<p>The Motu word <em>besena</em> derives from <em>bese</em> (&asymp; &ldquo;family&rdquo;), with <em>-na</em> as a possessive suffix. It can mean &ldquo;children&rdquo; or imply an entire tribe of descendants. The same word was used in Papua Besena (&ldquo;Children of Papua&rdquo;), the political movement of the 1970s.</p>
+
+<h3>Notable Descendants</h3>
+
+<div class="notable">
+<h4>Aaron Choulai Tenenbaum (b. 1982)</h4>
+<div class="role">Artistic Director, Australian Art Orchestra</div>
+<p>Born on <strong>Tatana Island</strong> &mdash; Jimmy Malay&rsquo;s village &mdash; with Papuan (Solien/Motu), Chinese, Polish, and Jewish heritage. Born with albinism, he was raised in the village before moving to Australia. Named Australia&rsquo;s Young Jazz Artist of the Year (2006). Created <strong>&ldquo;Ane Ta Abia&rdquo;</strong> (2024&ndash;2025), a collaboration with the Tatana Village Choir fusing traditional Motu <em>Peroveta</em> singing with jazz. Performed at WOMADelaide, Asia TOPA, and GOMA.</p>
+<blockquote>&ldquo;You&rsquo;re going to go down there and have a very difficult time, because they&rsquo;re going to identify you as &lsquo;them&rsquo;, but you&rsquo;re not going to feel that. You&rsquo;re going to feel very lonely, so learn how to play an instrument. If you learn how to play an instrument, you&rsquo;ll never be lonely.&rdquo;<cite>&mdash; Aaron&rsquo;s grandfather, on his leaving PNG</cite></blockquote>
+</div>
+
+<div class="notable">
+<h4>Wendi Choulai (1954&ndash;2001)</h4>
+<div class="role">Pioneering PNG/Australian Artist</div>
+<p>Daughter of Mary English (Solien clan) and Bruno Choulai (Chinese and New Ireland descent). First female graduate in textile design in PNG. Created <strong>&ldquo;Egu Rami&rdquo;</strong> at APT2, Queensland Art Gallery (1996), reuniting approximately 40 Solien Besena members through ceremony. Works held in QAGOMA&rsquo;s permanent collection.</p>
+</div>
+
+<div class="notable">
+<h4>Joseph Solien</h4>
+<div class="role">PNG Film Industry</div>
+<p>Wrote the script for <strong>&ldquo;Black Python,&rdquo;</strong> a PNG action crime drama screened at the Festival of Pacific Arts and Culture (FestPAC, Honolulu 2024), Hawaii International Film Festival, and Solomon Islands Native Lens Film Festival.</p>
+</div>
+
+<div class="notable">
+<h4>Agnelly Solien</h4>
+<div class="role">Miss Scuba PNG 2017</div>
+<p>Crowned Miss Scuba PNG at age 22 (Central Province), representing PNG at Miss Scuba International 2017 in Malaysia.</p>
+</div>
+
+<div class="notable">
+<h4>Katrina M.T. Solien</h4>
+<div class="role">Scientist and Author</div>
+<p>Published <em>How to Become a Good Friend</em>. Joint major in biology and chemistry (UPNG), postgraduate diploma in agricultural science (Lincoln University, NZ).</p>
+</div>
+
+<div class="notable">
+<h4>Elizabeth Solien &amp; Madeline Solien-Suruman</h4>
+<div class="role">PNG Government Service</div>
+<p>Elizabeth serves as Executive Secretary at PNG&rsquo;s Investment Promotion Authority. Madeline works at the Department of Justice &amp; Attorney General.</p>
+</div>
+
+<h3>Surname Distribution</h3>
+<table>
+<tr><th>Country</th><th>Bearers</th><th>Notes</th></tr>
+<tr><td>Papua New Guinea</td><td>371</td><td>48% Central Province, 48% NCD</td></tr>
+<tr><td>Australia</td><td>58</td><td>PNG diaspora, mainly Brisbane/QLD</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ===================== SECTION 9: HERITAGE SITES ===================== -->
+<section id="heritage">
+<div class="section-card">
+<h2>Heritage Sites</h2>
+
+<h3>Papua New Guinea</h3>
+<div class="site-grid">
+<div class="site-card"><h4>Tatana Island, Port Moresby</h4><p>Where Jimmy married the Veidiho sisters and built his landmark house. Still an active Motu village. Keren Solien&rsquo;s house still standing. Aaron Choulai&rsquo;s ancestral village.</p></div>
+<div class="site-card"><h4>Hanuabada Village, Port Moresby</h4><p>&ldquo;The Great Village&rdquo; &mdash; largest Motu village with famous stilt houses. Where Agnes Mary Solien married Edward Toua English (1956). Poreporena United Church still standing.</p></div>
+<div class="site-card"><h4>Jimmy Malay&rsquo;s Grave</h4><p>Commemorated in 1999 by descendants. Site documented by the CloudPNG blog.</p></div>
+<div class="site-card"><h4>Galley Reach</h4><p>~80 km west of Port Moresby. Jimmy and Sariman&rsquo;s coconut and rubber plantations. The Solien-Sariman-Kassman family enclave &mdash; &ldquo;where the surnames Sariman, Kassman and Solien were, and remain, common&rdquo; (Goddard, 2020).</p></div>
+<div class="site-card"><h4>Badili/Koke</h4><p>Near Port Moresby. Charlie Solien&rsquo;s house. Second enclave where Solien and South Sea Islander descendants settled.</p></div>
+</div>
+
+<h3>Indonesia (Potential Origin)</h3>
+<div class="site-grid">
+<div class="site-card"><h4>Larantuka, Eastern Flores</h4><p>Potential origin &mdash; Catholic since the 1500s. Katedral Reinha Rosari, Portuguese Cemetery, Kapela Tuan Ma. Research trip planned April 2026 to check church baptismal records.</p></div>
+<div class="site-card"><h4>Surabaya, East Java</h4><p>Family oral tradition names this as Jimmy&rsquo;s origin &mdash; may be departure port rather than birthplace. Archives at Jl. Jagir Wonokromo No. 350.</p></div>
+</div>
+
+<h3>Australia</h3>
+<div class="site-grid">
+<div class="site-card"><h4>Pinnaroo Cemetery, Brisbane</h4><p>Burial place of Agnes Mary English (n&eacute;e Solien, 1937&ndash;2022) and Edward Toua English (1934&ndash;2010). Diaspora burials.</p></div>
+<div class="site-card"><h4>QAGOMA, South Brisbane</h4><p>Holds Wendi Choulai&rsquo;s artworks in permanent collection. Site of the landmark 1996 APT2 &ldquo;Egu Rami&rdquo; performance.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ===================== SECTION 10: STORIES & NEWSPAPER COVERAGE ===================== -->
+<section id="stories">
+<div class="section-card">
+<h2>Stories &amp; Newspaper Coverage</h2>
+<p>Jimmy Malay appeared in at least <strong>87 Australian newspaper articles</strong> in the 1890s, mostly during the 1897 New Guinea gold rush. He also featured in two major <em>Pacific Islands Monthly</em> articles in 1958&ndash;1959.</p>
+
+<h3>Key Articles</h3>
+<ul>
+<li><strong>&ldquo;The 2,000 Skulls of Jimmy Malay&rdquo;</strong> &mdash; PIM, July 1958. Walter Gors&rsquo;s first-hand account of the skull trading episode.</li>
+<li><strong>&ldquo;They Tried, But They Couldn&rsquo;t Catch &lsquo;Jimmy Malay&rsquo;&rdquo;</strong> &mdash; PIM, January 1959. &ldquo;Toaguba&rsquo;s&rdquo; memories of Jimmy&rsquo;s character, plume smuggling, and the Muslim-Catholic mystery.</li>
+</ul>
+
+<h3>Notable Newspaper Quotes</h3>
+<blockquote>&ldquo;The movements of &lsquo;Jimmy Malay&rsquo; are very mysterious, and it is felt certain that he has discovered a patch of gold and is keeping it secret.&rdquo;<cite>&mdash; Maryborough Chronicle, May 1897</cite></blockquote>
+<blockquote>&ldquo;Jimmy Malay is offering to take miners from Port Moresby to McLaughlin&rsquo;s find, at Mambare, at &pound;5 each.&rdquo;<cite>&mdash; The Telegraph, Brisbane, June 1897</cite></blockquote>
+<blockquote>&ldquo;At the Airi I met the indefatigable &lsquo;Jimmy Malay.&rsquo;&rdquo;<cite>&mdash; Annual Report on British New Guinea, 1897</cite></blockquote>
+<p>As late as 1914, the <em>Papuan Times</em> used &ldquo;Jimmy Malay&rsquo;s&rdquo; as a geographical reference point for directions in Port Moresby.</p>
+</div>
+</section>
+
+<!-- ===================== SECTION 11: PRIMARY SOURCES ===================== -->
+<section id="sources">
+<div class="section-card">
+<h2>Primary Sources &amp; References</h2>
+
+<h3>Academic Sources</h3>
+<ul>
+<li>Goddard, Michael (2020). &ldquo;Certain Malays and South Sea Islanders: Non-European foreigners in early colonial British New Guinea.&rdquo; <em>Journal de la Soci&eacute;t&eacute; des Oc&eacute;anistes</em> 150, pp. 63&ndash;82.</li>
+<li>Lewis-Harris, Jacquelyn (2005). <em>Anina Asi A Mavaru Kavamu &mdash; We Don&rsquo;t Dance For Nothing: Solien Besena cultural retention in urban Australia.</em> PhD thesis, Washington University, St. Louis.</li>
+<li>Lewis-Harris, J. (2011). &ldquo;Producing Inalienable Objects in a Global Market.&rdquo; In <em>Changing Contexts, Shifting Meanings</em>, pp. 209&ndash;220. University of Hawaii Press.</li>
+<li>Lewis-Harris, J. (2011). &ldquo;Dancing on the Weekend: Papua New Guinea Culture Schools in Urban Australia.&rdquo; <em>Intersections</em> #27.</li>
+<li>Robson, R.W. (1958). &ldquo;The 2,000 Skulls of Jimmy Malay.&rdquo; <em>Pacific Islands Monthly</em> 28(12), pp. 85, 103.</li>
+<li>&ldquo;Toaguba&rdquo; [B.A. McLachlan] (1959). &ldquo;They Tried, But They Couldn&rsquo;t Catch &lsquo;Jimmy Malay.&rsquo;&rdquo; <em>Pacific Islands Monthly</em> 29(6), pp. 82&ndash;83, 95.</li>
+<li>Wilson, Martin (1975). <em>The Kinsmen of Aruapaka</em> (likely MA thesis, UPNG). Appendix C: detailed genealogies.</li>
+<li>Dutton, Tom (1985). <em>Police Motu.</em> Pacific Linguistics, ANU.</li>
+<li>Oram, Nigel (1976). <em>Colonial Town to Melanesian City: Port Moresby, 1884&ndash;1974.</em></li>
+</ul>
+
+<h3>Primary Sources</h3>
+<ul>
+<li>Lawes, William (1883). Journal entry &mdash; LMS missionary, Port Moresby. Gun explosion surgery.</li>
+<li>Franz Ferdinand (1893). <em>Tagebuch meiner Reise um die Erde, 1892&ndash;1893.</em> Diary entry for 14 June 1893.</li>
+<li>Colonial records: BNGAR (British New Guinea Annual Reports), BNGGG (Government Gazettes), 1886&ndash;1898.</li>
+<li>Sariman family tree PDF &mdash; detailed genealogical document, 4,478 lines.</li>
+<li>Ancestry.com Dwyer Family Tree (#177825699) &mdash; fully extracted July 2025.</li>
+</ul>
+
+<h3>DNA Evidence</h3>
+<ul>
+<li>Maisie Sariman AncestryDNA &mdash; full results with SideView parent breakdown.</li>
+<li>Dominic Whitfield AncestryDNA &mdash; full ethnicity, SideView, chromosome painter data.</li>
+<li>37 DNA matches through Jimmy Malay across 8 family lines.</li>
+</ul>
+
+<h3>PARADISEC Oral History Recordings (Restricted)</h3>
+<ul>
+<li>TD1-P02980 &mdash; &ldquo;Jimmy Malay, Iorive&rdquo; (26 Nov 1980). Vincent Dovara + George &amp; Edward Yorive.</li>
+<li>TD1-P03080 &mdash; &ldquo;Yorive (&amp; Jim Malay)&rdquo;</li>
+<li>TD1-P01880 &mdash; Solien family history (Sebastian Solien, Sam Dumara)</li>
+<li>Plus 8 additional recordings of Sariman, Kassman, and connected families.</li>
+</ul>
+
+<h3>Newspaper Sources</h3>
+<ul>
+<li>87+ articles on Trove (National Library of Australia) mentioning &ldquo;Jimmy Malay,&rdquo; mostly from 1897.</li>
+<li><em>Papuan Times</em>, 1914 &mdash; property used as landmark reference.</li>
+</ul>
+
+<h3>Community Sources</h3>
+<ul>
+<li>CloudPNG blog (2010, 2012) &mdash; family tree, grave photographs.</li>
+<li>solienfamily.com (archived Feb 2011) &mdash; by Trish Hunnam, 4th generation descendant.</li>
+<li>Angelfire page (offline since 2026) &mdash; by Natasha Sanievez.</li>
+<li>WikiTree &mdash; Agnes Mary (Solien) English profile (Solien-12).</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================== SECTION 12: UNRESOLVED QUESTIONS ===================== -->
+<section id="mysteries">
+<div class="section-card">
+<h2>The Mystery Continues &mdash; Unresolved Questions</h2>
+
+<table>
+<tr><th>#</th><th>Question</th><th>Importance</th><th>Likelihood of Resolution</th></tr>
+<tr><td>1</td><td><strong>Where did Jimmy Malay come from?</strong></td><td>Critical</td><td>Medium &mdash; requires PARADISEC + DNA + Larantuka records</td></tr>
+<tr><td>2</td><td><strong>What do the PARADISEC recordings contain?</strong> (~90 mins, 1980)</td><td>Critical</td><td>High &mdash; family registration needed</td></tr>
+<tr><td>3</td><td>Is the 7% Filipino DNA from Jimmy or Sariman?</td><td>High</td><td>High &mdash; test a Jimmy-only descendant</td></tr>
+<tr><td>4</td><td>What&rsquo;s in Wilson (1975)? Key missing source with genealogies + Church records</td><td>High</td><td>Medium &mdash; interlibrary loan</td></tr>
+<tr><td>5</td><td>What&rsquo;s in Nigel Oram&rsquo;s papers? (NLA MS 9436, Box 2, Folder 8)</td><td>High</td><td>High &mdash; visit NLA Canberra</td></tr>
+<tr><td>6</td><td>Meaning of &ldquo;Solien&rdquo; and &ldquo;Solikau&rdquo;</td><td>Medium</td><td>Low</td></tr>
+<tr><td>7</td><td>Route to PNG &mdash; via Thursday Island? Direct?</td><td>Medium</td><td>Low</td></tr>
+<tr><td>8</td><td>Who were Jimmy&rsquo;s parents?</td><td>High</td><td>Very low</td></tr>
+<tr><td>9</td><td>Who is Wilhelmina? Daughter in PIM 1959, not in any family tree</td><td>Low</td><td>Low</td></tr>
+<tr><td>10</td><td>Which children belong to which wife? Sources disagree</td><td>Medium</td><td>Medium &mdash; PARADISEC may clarify</td></tr>
+</table>
+
+<h3>Active Research Leads</h3>
+<ul>
+<li><strong>Larantuka trip (April 2026)</strong> &mdash; check Catholic baptismal records for &ldquo;Sabatino/Subtino&rdquo; from the 1840s&ndash;1860s</li>
+<li><strong>PARADISEC recordings</strong> &mdash; 11 recordings in the Tom Dutton Collection. Access restricted to family members.</li>
+<li><strong>Robson (1958) on Trove</strong> &mdash; &ldquo;The 2,000 Skulls of Jimmy Malay&rdquo; now accessible in digitised PIM archives</li>
+<li><strong>Wilson (1975)</strong> &mdash; likely held at UPNG Michael Somare Library; citation now identified</li>
+<li><strong>Nigel Oram Papers</strong> &mdash; NLA MS 9436, Canberra</li>
+<li><strong>Prof. Michael Goddard</strong> &mdash; Macquarie University, most knowledgeable academic</li>
+<li><strong>Weltmuseum Wien photographs</strong> &mdash; ~1,100 photos from Franz Ferdinand&rsquo;s 1892&ndash;93 world tour</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================== SECTION 13: HOW YOU CAN HELP ===================== -->
+<section id="help">
+<div class="cta">
+<h2>How You Can Help</h2>
+<p>This heritage resource is a living document. If you are a descendant of Jimmy Malay &mdash; or if you know something we don&rsquo;t &mdash; please get in touch.</p>
+
+<h3 style="color:var(--gold-light)">Do You Have&hellip;</h3>
+<ul style="text-align:left;max-width:500px;margin:1rem auto;color:rgba(255,255,255,.9)">
+<li>Old photographs of family members?</li>
+<li>Family stories or oral histories passed down through generations?</li>
+<li>Documents, letters, or certificates?</li>
+<li>Knowledge of where Jimmy Malay came from before PNG?</li>
+<li>Connections to other Solien descendants we haven&rsquo;t found yet?</li>
+</ul>
+
+<h3 style="color:var(--gold-light)">DNA Testing</h3>
+<p>If you descend from Jimmy Malay through a line that does <strong>not</strong> also descend from Sariman Kadio, your DNA test could help solve the origin mystery. An AncestryDNA or 23andMe test from a &ldquo;Jimmy-only&rdquo; descendant would be invaluable.</p>
+
+<h3 style="color:var(--gold-light)">Get in Touch</h3>
+<p>Join <strong>The Solien Besena</strong> on Facebook (1,400+ members)<br>
+Community contact: Tuene &mdash; 0424 811 139<br>
+Location: 51a Paradise Road, Slacks Creek, QLD</p>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+<p>Researched and compiled by <strong>Dom Whitfield</strong>, 5th generation descendant of Jimmy Malay</p>
+<p style="margin-top:.5rem">Built with love for the Solien Besena</p>
+<p style="margin-top:.8rem;font-size:.78rem;opacity:.6">Last updated: 10 March 2026</p>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top" tabindex="0">&#9650;</button>
+
+<script>
+// Loading screen
+window.addEventListener('load',function(){
+  setTimeout(function(){document.getElementById('loading').classList.add('hidden')},800);
+});
+
+// Hamburger menu
+(function(){
+  var btn=document.querySelector('.hamburger');
+  var menu=document.querySelector('.nav-links');
+  if(btn&&menu){
+    btn.addEventListener('click',function(){
+      var open=menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false')});
+    });
+  }
+})();
+
+// Back to top
+(function(){
+  var btn=document.getElementById('back-to-top');
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('visible',window.scrollY>400);
+  });
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();
+
+// Breadcrumb update on scroll
+(function(){
+  var bc=document.getElementById('breadcrumb');
+  var sections=document.querySelectorAll('section[id]');
+  var map={};
+  sections.forEach(function(s){
+    var h=s.querySelector('h2');
+    if(h)map[s.id]=h.textContent.replace(/\s*\u2014.*$/,'').trim();
+  });
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        var current='Home';
+        sections.forEach(function(s){
+          if(s.getBoundingClientRect().top<200&&map[s.id])current=map[s.id];
+        });
+        bc.textContent='Home > '+current;
+        ticking=false;
+      });
+      ticking=true;
+    }
+  });
+})();
+
+// Active nav link
+(function(){
+  var links=document.querySelectorAll('.nav-links a');
+  var sections=document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',function(){
+    var pos=window.scrollY+200;
+    sections.forEach(function(s){
+      var top=s.offsetTop,h=s.offsetHeight;
+      if(pos>=top&&pos<top+h){
+        links.forEach(function(l){l.classList.remove('active')});
+        var a=document.querySelector('.nav-links a[href="#'+s.id+'"]');
+        if(a)a.classList.add('active');
+      }
+    });
+  });
+})();
+
+// Search
+(function(){
+  var input=document.getElementById('searchInput');
+  var timer;
+  input.addEventListener('input',function(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      // Remove old highlights
+      document.querySelectorAll('mark.highlight').forEach(function(m){
+        var p=m.parentNode;
+        p.replaceChild(document.createTextNode(m.textContent),m);
+        p.normalize();
+      });
+      var q=input.value.trim();
+      if(q.length<2)return;
+      var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+      var walker=document.createTreeWalker(document.getElementById('main'),NodeFilter.SHOW_TEXT);
+      var nodes=[];
+      while(walker.nextNode()){
+        if(re.test(walker.currentNode.textContent))nodes.push(walker.currentNode);
+        re.lastIndex=0;
+      }
+      nodes.forEach(function(n){
+        var span=document.createElement('span');
+        span.innerHTML=n.textContent.replace(re,'<mark class="highlight">$1</mark>');
+        n.parentNode.replaceChild(span,n);
+      });
+      if(nodes.length>0){
+        var first=document.querySelector('mark.highlight');
+        if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+    },300);
+  });
+})();
+
+// Keyboard accessibility for details
+document.querySelectorAll('details summary').forEach(function(s){
+  s.setAttribute('tabindex','0');
+  s.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();s.click();}
+  });
+});
+</script>
+</body>
+</html>
