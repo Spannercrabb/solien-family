@@ -174,6 +174,17 @@ li{margin-bottom:.4rem}
 .notable h4{margin-top:0;color:var(--navy)}
 .notable .role{font-family:var(--font-heading);font-size:.85rem;color:var(--gold);font-weight:700;margin-bottom:.5rem}
 
+/* Cross-links */
+.tree-section a.cross-link{color:var(--navy-light);text-decoration:underline;text-decoration-style:dotted;font-weight:600}
+.tree-section a.cross-link:hover{color:var(--gold);text-decoration-style:solid}
+.also-appears{font-size:.78rem;color:var(--accent);font-style:italic;margin:.2rem 0 .4rem .4rem}
+.also-appears a{color:var(--accent);text-decoration:underline dotted}
+.person-entry{font-size:.82rem;padding:.3rem .5rem;margin:.15rem 0;background:var(--cream);border-radius:3px;line-height:1.5}
+.person-entry .name{font-weight:700;color:var(--navy-light)}
+.person-entry .dates{color:var(--text-light);font-size:.78rem}
+.person-entry .spouse-line{color:var(--accent);font-size:.8rem;display:block;margin-top:.1rem}
+.person-entry .children-line{font-size:.78rem;color:var(--text-light);display:block;margin-top:.1rem}
+
 /* Expandable */
 details{margin:1rem 0}
 details summary{cursor:pointer;font-family:var(--font-heading);font-weight:700;color:var(--navy-light);padding:.5rem 0;list-style:none;display:flex;align-items:center;gap:.5rem}
@@ -250,7 +261,6 @@ th,td{padding:.4rem .5rem}
 <li><a href="#patriarch">The Patriarch</a></li>
 <li><a href="#origin">Origin Mystery</a></li>
 <li><a href="#family-tree">Family Tree</a></li>
-<li><a href="#lineage">Whitfield Branch</a></li>
 <li><a href="#dna">DNA Evidence</a></li>
 <li><a href="#timeline">Timeline</a></li>
 <li><a href="#today">Today</a></li>
@@ -462,35 +472,35 @@ th,td{padding:.4rem .5rem}
 <div id="tree-text-view" class="tree-section">
 
 <div class="tree">
-<div class="patriarch">James Peter Subtino Solien &mdash; &ldquo;Jimmy Malay&rdquo; (c.1853&ndash;1923)</div>
+<div class="patriarch" id="person-jimmy-malay">James Peter Subtino Solien &mdash; &ldquo;Jimmy Malay&rdquo; (c.1853&ndash;1923)</div>
 <div class="connector">&#9660;</div>
 <div class="wives">
 
 <div class="wife-card">
-<h4>Wife 1: Biria Veidiho (~10 children)</h4>
-<div class="child"><strong>Maona/Mauna (Supina) Solien</strong> &mdash; b. 1877 or ~1884 <span class="spouse">m. Jack Lotai</span></div>
-<div class="child"><strong>Louisa Mary/May Solien</strong> &mdash; b. 1887 or 1892, d. 28 Feb 1927 <span class="spouse">m. [Gorogo/Malabag]</span></div>
-<div class="child"><strong>George Kevin Solien</strong> &mdash; b. 1889 or 1891, d. 10 Apr 1930 <span class="spouse">4 wives (see below)</span></div>
-<div class="child"><strong>Margaret Mary/May Solien</strong> &mdash; b. 1890 or 1895, d. 1946 <span class="spouse">m. [Arua]</span></div>
-<div class="child"><strong>James (Jim) Alexis Solien</strong> &mdash; b. 1892&ndash;1894 <span class="spouse">m. Theresa Resena</span></div>
-<div class="child"><strong>Marina Elizabeth Mary Solien</strong> &mdash; b. 1894 or 1896, d. 1968</div>
-<div class="child"><strong>Charlie Solien</strong> &mdash; b. 1897, Kanosia <span class="spouse">m. Helen Savisa Sariman (7 Feb 1964)</span></div>
-<div class="child"><strong>Vivian Joseph Solien</strong> &mdash; b. 1899&ndash;1900 <span class="spouse">m. Margaret Gou</span></div>
-<div class="child"><strong>Theresa Solien</strong> &mdash; b. 1898, Kanosia <span class="spouse">m. George Michael Sariman (3 Jan 1926)</span></div>
+<h4 id="person-biria-veidiho">Wife 1: Biria Veidiho (~10 children)</h4>
+<div class="child"><strong><a href="#person-maona-solien" class="cross-link">Maona/Mauna (Supina) Solien</a></strong> &mdash; b. 1877 or ~1884 <span class="spouse">m. Jack Lotai</span></div>
+<div class="child"><strong><a href="#person-louisa-solien" class="cross-link">Louisa Mary/May Solien</a></strong> &mdash; b. 1887 or 1892, d. 28 Feb 1927 <span class="spouse">m. [Gorogo/Malabag]</span></div>
+<div class="child"><strong><a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a></strong> &mdash; b. 1889 or 1891, d. 10 Apr 1930 <span class="spouse">4 wives (see below)</span></div>
+<div class="child"><strong><a href="#person-margaret-mary-solien" class="cross-link">Margaret Mary/May Solien</a></strong> &mdash; b. 1890 or 1895, d. 1946 <span class="spouse">m. [Arua]</span></div>
+<div class="child"><strong><a href="#person-james-alexis-solien" class="cross-link">James (Jim) Alexis Solien</a></strong> &mdash; b. 1892&ndash;1894 <span class="spouse">m. Theresa Resena</span></div>
+<div class="child"><strong><a href="#person-marina-solien" class="cross-link">Marina Elizabeth Mary Solien</a></strong> &mdash; b. 1894 or 1896, d. 1968</div>
+<div class="child"><strong><a href="#person-charlie-solien" class="cross-link">Charlie Solien</a></strong> &mdash; b. 1897, Kanosia <span class="spouse">m. <a href="#person-helen-savisa-sariman" class="cross-link">Helen Savisa Sariman</a> (7 Feb 1964)</span></div>
+<div class="child"><strong><a href="#person-vivian-solien" class="cross-link">Vivian Joseph Solien</a></strong> &mdash; b. 1899&ndash;1900 <span class="spouse">m. Margaret Gou</span></div>
+<div class="child"><strong><a href="#person-theresa-solien" class="cross-link">Theresa Solien</a></strong> &mdash; b. 1898, Kanosia <span class="spouse">m. <a href="#person-george-michael-sariman" class="cross-link">George Michael Sariman</a> (3 Jan 1926)</span></div>
 </div>
 
 <div class="wife-card">
-<h4>Wife 2: Daihanai Veidiho (~10 children)</h4>
-<div class="child"><strong>Edress (Edward) Solien</strong> &mdash; b. 1888</div>
-<div class="child"><strong>Josephine Solien</strong> &mdash; b. 1892 <span class="spouse">m. [Iorive/Yorive]</span></div>
-<div class="child"><strong>Keven Sogo Solien</strong> &mdash; b. 1892, Tatana, d. 6 Feb 1958 <span class="spouse">m. Helen Savisa Sariman (20 Feb 1912)</span></div>
-<div class="child"><strong>Samuel Alphonse Solien</strong> &mdash; b. 1891, Kanosia <span class="spouse">m. Theresa Sukira Sariman (1912)</span></div>
-<div class="child"><strong>Philomena Mary Solien</strong> &mdash; b. 1899 <span class="spouse">m. [Kassman]</span></div>
-<div class="child"><strong>Agnes Daihanai Solien</strong> &mdash; b. 1900, d. 1973 <span class="spouse">m. [English]</span></div>
-<div class="child"><strong>Lucy Cecelia Solien</strong> &mdash; b. 1904 or 1906, Kanosia <span class="spouse">m. Joseph Vincent Sariman (3 Mar 1921)</span></div>
-<div class="child"><strong>Vincent Solien</strong> &mdash; b. 1906</div>
-<div class="child"><strong>Madeline (Magdaline Buruka) Solien</strong> &mdash; b. 1908</div>
-<div class="child"><strong>Nicholas Solien</strong> &mdash; b. 1910</div>
+<h4 id="person-daihanai-veidiho">Wife 2: Daihanai Veidiho (~10 children)</h4>
+<div class="child"><strong><a href="#person-edress-solien" class="cross-link">Edress (Edward) Solien</a></strong> &mdash; b. 1888</div>
+<div class="child"><strong><a href="#person-josephine-solien" class="cross-link">Josephine Solien</a></strong> &mdash; b. 1892 <span class="spouse">m. [Iorive/Yorive]</span></div>
+<div class="child"><strong><a href="#person-keven-sogo-solien" class="cross-link">Keven Sogo Solien</a></strong> &mdash; b. 1892, Tatana, d. 6 Feb 1958 <span class="spouse">m. <a href="#person-helen-savisa-sariman" class="cross-link">Helen Savisa Sariman</a> (20 Feb 1912)</span></div>
+<div class="child"><strong><a href="#person-samuel-alphonse-solien" class="cross-link">Samuel Alphonse Solien</a></strong> &mdash; b. 1891, Kanosia <span class="spouse">m. <a href="#person-theresa-sukira-sariman" class="cross-link">Theresa Sukira Sariman</a> (1912)</span></div>
+<div class="child"><strong><a href="#person-philomena-mary-solien" class="cross-link">Philomena Mary Solien</a></strong> &mdash; b. 1899 <span class="spouse">m. [Kassman]</span></div>
+<div class="child"><strong><a href="#person-agnes-daihanai-solien" class="cross-link">Agnes Daihanai Solien</a></strong> &mdash; b. 1900, d. 1973 <span class="spouse">m. [English]</span></div>
+<div class="child"><strong><a href="#person-lucy-cecelia-solien" class="cross-link">Lucy Cecelia Solien</a></strong> &mdash; b. 1904 or 1906, Kanosia <span class="spouse">m. <a href="#person-joseph-vincent-sariman" class="cross-link">Joseph Vincent Sariman</a> (3 Mar 1921)</span></div>
+<div class="child"><strong><a href="#person-vincent-solien" class="cross-link">Vincent Solien</a></strong> &mdash; b. 1906</div>
+<div class="child"><strong><a href="#person-madeline-solien" class="cross-link">Madeline (Magdaline Buruka) Solien</a></strong> &mdash; b. 1908</div>
+<div class="child"><strong><a href="#person-nicholas-solien" class="cross-link">Nicholas Solien</a></strong> &mdash; b. 1910</div>
 </div>
 
 </div>
@@ -505,18 +515,28 @@ th,td{padding:.4rem .5rem}
 
 <!-- ===== BIRIA'S CHILDREN - EXPANDED ===== -->
 
-<details>
+<details id="person-maona-solien">
+<summary>Maona/Mauna (Supina) Solien (b. 1877 or ~1884) &mdash; Lotai line</summary>
+<div class="person-entry"><span class="name">Maona/Mauna (Supina) Solien</span> <span class="dates">b. 1877 (community) or ~1884 (Ancestry)</span>
+<span class="spouse-line">Spouse: Jack Lotai</span>
+<span class="children-line">Descendants carry the Lotai surname. Further details pending.</span>
+</div>
+<p style="font-size:.8rem;color:var(--text-light)">Also &ldquo;Mona Mauna Solien&rdquo; in Ancestry. &ldquo;Supina&rdquo; may echo &ldquo;Subtino/Sabatino.&rdquo; 7-year date discrepancy between sources.</p>
+</details>
+
+<details id="person-george-kevin-solien">
 <summary>George Kevin Solien (b. 1891, d. 10 Apr 1930) &mdash; 4 wives, 8+ children</summary>
 <p style="font-size:.82rem;color:var(--text-light)">Born Mariboi, Central PNG. Died Manila Point. Married into the Sariman family twice.</p>
+<div class="also-appears">Spouse cross-refs: <a href="#person-theresa-sukira-sariman">Theresa Sukira Sariman</a> (also married <a href="#person-samuel-alphonse-solien">Samuel Alphonse Solien</a>), <a href="#intermarriage-table">Vene Mary Elizabeth Sariman</a></div>
 <table style="font-size:.8rem">
 <tr><th>#</th><th>Wife</th><th>Marriage</th><th>Children</th></tr>
 <tr><td>1</td><td>Tuene Maka (b. 1889)</td><td>28 Apr 1909, Port Moresby</td><td>&mdash;</td></tr>
 <tr><td>2</td><td>Gahusi Kino</td><td>~1912</td><td>Joan of Arc Solien (~1913)</td></tr>
-<tr><td>3</td><td>Theresa Sukira Sariman (b. 1880)</td><td>~1915</td><td>Helen Mary Solien (1910), Helen Savisa Solien (1918)</td></tr>
+<tr><td>3</td><td><a href="#person-theresa-sukira-sariman" class="cross-link">Theresa Sukira Sariman</a> (b. 1880)</td><td>~1915</td><td>Helen Mary Solien (1910), Helen Savisa Solien (1918)</td></tr>
 <tr><td>4</td><td>Vene Mary Elizabeth Sariman (b. 1899)</td><td>16 Sep 1919, Port Moresby</td><td>Dick Solien (b. 10 Aug 1910), Imelda (1920), Anna Madeleine (1922&ndash;2012), Francis George (1924), Stanley George (1926)</td></tr>
 </table>
 
-<details>
+<details id="person-dick-solien">
 <summary>Dick Solien (b. 10 Aug 1910, Obo) &mdash; 3 wives, 7+ children</summary>
 <p style="font-size:.82rem">Buried Mt Gravatt, Brisbane. Married (1) Rosalia Boio Baia (1915&ndash;1969, m. 17 Jul 1942), (2) Maria Goretti Gaigo (1932&ndash;2011, m. 20 Nov 1965), (3) Boio Gaigo (b. 1929).</p>
 <div class="descendant"><span class="name">Agnes Mary Daihanai Solien</span> <span class="dates">b. 15 Feb 1937, Manila Point &ndash; d. 9 Sep 2022, Brisbane</span> <span class="sp">m. Edward Toua English (1934&ndash;2010), 8 Dec 1956, Hanuabada. 11 children.</span></div>
@@ -528,7 +548,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Julie Solien</span> <span class="dates">d. 2021, Port Moresby</span></div>
 </details>
 
-<details>
+<details id="person-imelda-solien-gk">
 <summary>Imelda Solien (b. 23 May 1920, Kanosia) &mdash; via Mary Elizabeth Sariman</summary>
 <div class="descendant"><span class="sp">m. Saia Elly (b. 1917, Kerepuna)</span></div>
 <div class="descendant"><span class="name">John Robert Elly</span> <span class="dates">b. 9 Feb 1939, Itikinumu</span> <span class="sp">m. Mary Linus Aro, 28 Oct 1961</span></div>
@@ -537,7 +557,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Albert David Elly</span> <span class="dates">b. 15 Mar 1950</span> <span class="sp">m. Mary Louise Natera</span></div>
 </details>
 
-<details>
+<details id="person-anna-madeleine-solien">
 <summary>Anna Madeleine Solien (b. 10 May 1922, d. 6 May 2012, Brisbane)</summary>
 <div class="descendant"><span class="sp">m. (1) Douglas Love (b. 1 Sep 1922); (2) Joseph Oberleuter (b. 24 Mar 1922, Yule Island)</span></div>
 <div class="descendant"><span class="name">Margaret Love</span> <span class="dates">b. 17 Oct 1945, Sogeri</span> <span class="sp">m. Mark William Paten, 24 Apr 1971</span></div>
@@ -549,7 +569,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Miriel Isabelle Love</span> <span class="dates">b. 11 Oct 1962</span></div>
 </details>
 
-<details>
+<details id="person-francis-george-solien">
 <summary>Francis George Solien (b. 19 Jun 1924, Kanosia) &mdash; 7 children</summary>
 <div class="descendant"><span class="sp">m. Josephine Wakuloki Temby (1937&ndash;2021), 3 Aug 1959, Koki</span></div>
 <div class="descendant"><span class="name">Justine Solien</span> <span class="dates">b. 11 Sep 1958</span></div>
@@ -561,7 +581,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Madeline Anna Solien</span> <span class="dates">b. 10 May 1972</span> <span class="sp">m. Bernard Kombeng Suruman</span></div>
 </details>
 
-<details>
+<details id="person-stanley-george-solien">
 <summary>Stanley George Solien (b. 24 Oct 1926, Kanosia) &mdash; 3 wives, 11 children</summary>
 <div class="descendant"><span class="sp">m. (1) Frances Kiri; (2) Olive Theresa Tanby, 28 Jul 1953; (3) Eileen Mary Bray</span></div>
 <p class="gen-label">With Frances Kiri:</p>
@@ -579,22 +599,23 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Mark Roland Solien</span> <span class="dates">b. 6 Sep 1967</span></div>
 <div class="descendant"><span class="name">Michaelene Rose Solien</span> <span class="dates">b. 28 Oct 1970</span></div>
 </details>
+</details>
 
-<details>
+<details id="person-louisa-solien">
 <summary>Louisa Mary/May Solien (b. 1887/1892, d. 28 Feb 1927) &mdash; 6 DNA matches</summary>
 <div class="descendant"><span class="sp">m. [Gorogo/Malabag]</span></div>
 <p style="font-size:.8rem;color:var(--text-light)">6 DNA matches through this line. Descendants carry the Gorogo/Malabag surname. Further details pending.</p>
 </details>
 
-<details>
+<details id="person-margaret-mary-solien">
 <summary>Margaret Mary/May Solien (b. 1890/1895, d. 1946) &mdash; Arua line</summary>
 <div class="descendant"><span class="sp">m. [Arua] &mdash; from Hanuabada</span></div>
 <div class="descendant"><span class="name">Joseph Arua</span> <span class="sp">m. Margaret Mary Solien</span></div>
-<div class="descendant"><span class="name">John Arua</span> <span class="dates">b. 1928, Hanuabada</span> <span class="sp">m. Margaret Sariman (Kadio&rsquo;s daughter), 5 Dec 1966</span></div>
+<div class="descendant"><span class="name">John Arua</span> <span class="dates">b. 1928, Hanuabada</span> <span class="sp">m. Margaret Sariman (Kadio&rsquo;s daughter), 5 Dec 1966 &mdash; <a href="#intermarriage-table" class="cross-link" style="font-size:.78rem">another Solien-Sariman connection</a></span></div>
 <p style="font-size:.8rem;color:var(--text-light)">1 DNA match through this line. Also connected: Mathia Monica Arua (1925&ndash;2003).</p>
 </details>
 
-<details>
+<details id="person-james-alexis-solien">
 <summary>James (Jim) Alexis Solien (b. 1892, d. 1953) &mdash; 9 daughters</summary>
 <div class="descendant"><span class="sp">m. Theresa Resena. Also m. Theresa Sukira Sariman.</span></div>
 <p class="gen-label">Daughters with Theresa Resena:</p>
@@ -602,13 +623,13 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Marcella Solien</span></div>
 <div class="descendant"><span class="name">Agnes Solien</span></div>
 <div class="descendant"><span class="name">Rita Solien</span></div>
-<div class="descendant"><span class="name">Nellie Solien</span> <span class="dates">b. 19 Apr 1925, Kou Kou</span> <span class="sp">m. Peter Sariman, 9 May 1958, Koki</span></div>
+<div class="descendant"><span class="name">Nellie Solien</span> <span class="dates">b. 19 Apr 1925, Kou Kou</span> <span class="sp">m. Peter Sariman, 9 May 1958, Koki. <a href="#intermarriage-table" class="cross-link" style="font-size:.78rem">See intermarriage table</a></span></div>
 <div class="descendant"><span class="name">Louisa Solien</span></div>
 <div class="descendant"><span class="name">Perpetual Solien</span></div>
 <div class="descendant"><span class="name">Maureen Solien</span></div>
 <div class="descendant"><span class="name">Mary Meme Solien</span></div>
 
-<details>
+<details id="person-nellie-solien">
 <summary>Nellie Solien&rsquo;s children with Peter Sariman &mdash; 8 children</summary>
 <div class="descendant"><span class="name">James (Jim) Alex Sariman</span> <span class="dates">b. 7 Jun 1947, Koki</span> <span class="sp">m. Hane Mase, 9 May 1959</span></div>
 <div class="descendant"><span class="name">Rosemary Elizabeth Sariman</span> <span class="dates">b. 17 Oct 1950</span> <span class="sp">m. Dick Avi</span></div>
@@ -620,24 +641,42 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Allan Christifore Sariman</span> <span class="dates">b. 18 Aug 1964</span> <span class="sp">m. Imorea Lavona</span></div>
 </details>
 
-<details>
-<summary>Theresa Solien (daughter via Theresa Sukira Sariman) &mdash; b. 1916</summary>
+<details id="person-theresa-solien-jr">
+<summary>Theresa Solien (daughter via <a href="#person-theresa-sukira-sariman" class="cross-link">Theresa Sukira Sariman</a>) &mdash; b. 1916</summary>
 <div class="descendant"><span class="sp">m. Archie Pan-Tung (b. 1903, Canton, China)</span></div>
 <div class="descendant"><span class="name">Mary Therese Gili Pan-Tung</span> <span class="dates">b. 17 Nov 1935, Kou Kou</span> <span class="sp">m. Dallas Keith Kerslake (b. 1929, Ulverstone, Tasmania)</span></div>
 <div class="descendant"><span class="name">Margaret Tete Resena Pan-Tung</span> <span class="dates">b. 20 Oct 1937, Kou Kou</span> <span class="sp">m. Hildefonse Pontoy Fabila</span></div>
 </details>
 </details>
 
-<details>
+<details id="person-marina-solien">
+<summary>Marina Elizabeth Mary Solien (b. 1894/1896, d. 1968)</summary>
+<div class="person-entry"><span class="name">Marina Elizabeth Mary Solien</span> <span class="dates">b. 1894 (Ancestry) or 1896 (community), d. 1968</span>
+<span class="children-line">No spouse or children documented in available records.</span>
+</div>
+</details>
+
+<details id="person-charlie-solien">
+<summary>Charlie Solien (b. 1897, Kanosia) &mdash; via <a href="#person-helen-savisa-sariman" class="cross-link">Helen Savisa Sariman</a></summary>
+<div class="person-entry"><span class="name">Charlie Solien</span> <span class="dates">b. 1897, Kanosia</span>
+<span class="spouse-line">Spouse: <a href="#person-helen-savisa-sariman" class="cross-link">Helen Savisa Sariman</a> (m. 7 Feb 1964, Galley Reach)</span>
+<span class="children-line">Children not documented in available records.</span>
+</div>
+<div class="also-appears">Cross-ref: Helen Savisa Sariman previously married <a href="#person-keven-sogo-solien">Keven Sogo Solien</a> (20 Feb 1912). See <a href="#intermarriage-table">Intermarriage table</a></div>
+</details>
+
+<details id="person-vivian-solien">
 <summary>Vivian Joseph Solien (b. 1899/1900, d. 1969) &mdash; 6 DNA matches</summary>
 <div class="descendant"><span class="sp">m. Margaret Gou</span></div>
-<div class="descendant"><span class="name">Philomena Solien</span> <span class="dates">b. 6 Dec 1921</span> <span class="sp">m. Kadio Sariman, 19 Jan 1959</span></div>
+<div class="descendant"><span class="name">Philomena Solien</span> <span class="dates">b. 6 Dec 1921</span> <span class="sp">m. <a href="#intermarriage-table" class="cross-link">Kadio Sariman</a>, 19 Jan 1959</span></div>
+<div class="also-appears">Cross-ref: Kadio Sariman is son of Sariman Kadio line. See <a href="#intermarriage-table">Intermarriage table</a></div>
 <p style="font-size:.8rem;color:var(--text-light)">Through Philomena &rarr; Kadio Sariman: Eleanora Sariman (b. 1958), Mary Elizabeth Sariman (b. 1962).</p>
 </details>
 
-<details>
-<summary>Theresa Solien (b. 1898, Kanosia) &mdash; Whitfield/Fabila branch</summary>
-<div class="descendant"><span class="sp">m. George Michael Sariman (b. 1905, d. 10 Nov 1991), 3 Jan 1926, Port Moresby</span></div>
+<details id="person-theresa-solien">
+<summary>Theresa Solien (b. 1898, Kanosia) &mdash; 6 children via George Michael Sariman</summary>
+<div class="descendant"><span class="sp">m. <a href="#person-george-michael-sariman" class="cross-link" id="person-george-michael-sariman">George Michael Sariman</a> (b. 1905, Kanosia, d. 10 Nov 1991, Port Moresby), 3 Jan 1926, Port Moresby</span></div>
+<div class="also-appears">Cross-ref: George Michael Sariman is son of Sariman Kadio and Gogori Keia. See <a href="#intermarriage-table">Solien-Sariman Intermarriage table</a></div>
 <p class="gen-label">Children with George Michael Sariman:</p>
 <div class="descendant"><span class="name">Sam Henry Sariman</span> <span class="dates">b. 25 Mar 1927, Manilla Point</span> <span class="sp">m. Alice Elizabeth Davies</span></div>
 <div class="descendant"><span class="name">Joseph Allan Sariman</span> <span class="dates">b. 6 May 1929, Koki</span> <span class="sp">m. Eunice Gou Ovia, 25 Jul 1964</span></div>
@@ -646,7 +685,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Jack Sariman</span> <span class="dates">b. 14 Jul 1939, Tatana</span> <span class="sp">m. Margarita Boroma</span></div>
 <div class="descendant"><span class="name">Rose Louisa Sariman</span> <span class="dates">b. 6 Dec 1941, Kanosia</span> <span class="sp">m. Andrew Michael Fabila, 3 Sep 1960</span></div>
 
-<details>
+<details id="person-sam-henry-sariman">
 <summary>Sam Henry Sariman &mdash; 10 children</summary>
 <div class="descendant"><span class="name">Mary Bernadette Sariman</span> <span class="dates">b. 17 Apr 1951</span></div>
 <div class="descendant"><span class="name">Henry Kadio Sam Sariman</span> <span class="dates">b. 21 Dec 1952 &ndash; d. 23 Jul 2021</span></div>
@@ -660,7 +699,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">George Michael Sariman</span> <span class="dates">b. 1 Nov 1969</span></div>
 </details>
 
-<details>
+<details id="person-joseph-allan-sariman">
 <summary>Joseph Allan Sariman &mdash; 6 children</summary>
 <div class="descendant"><span class="name">Nellie Valerie Sariman</span> <span class="dates">b. 28 May 1957</span></div>
 <div class="descendant"><span class="name">Lilian Patricia Sariman</span> <span class="dates">b. 14 Jul 1959</span></div>
@@ -670,7 +709,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Richard George Sariman</span> <span class="dates">b. 20 Jun 1969</span></div>
 </details>
 
-<details>
+<details id="person-peter-george-sariman">
 <summary>Peter George Sariman &mdash; 7 children</summary>
 <div class="descendant"><span class="name">Mary Therese Sariman</span> <span class="dates">b. 26 Jul 1955</span> <span class="sp">m. Daure Gaudi</span></div>
 <div class="descendant"><span class="name">Roselyn Jennifer Sariman</span> <span class="dates">b. 9 Dec 1958</span></div>
@@ -681,8 +720,8 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Maiari Judith Sariman</span> <span class="dates">b. 23 Mar 1969</span></div>
 </details>
 
-<details>
-<summary>Maisie Imelda Sariman &mdash; 7 Whitfield children + 1 Price child</summary>
+<details id="person-maisie-sariman">
+<summary>Maisie Imelda Sariman (b. 22 Jul 1935, Kikori) &mdash; 7 Whitfield children + 1 Price child</summary>
 <p class="gen-label">With Charles Richard Whitfield (b. 1920, Jundah QLD):</p>
 <div class="descendant"><span class="name">George Richard Whitfield</span> <span class="dates">b. 19 May 1952</span> <span class="sp">m. Mary Camillus Ah-Wong</span></div>
 <div class="descendant"><span class="name">Reginald John Whitfield</span> <span class="dates">b. 31 Oct 1953, Kikori</span> <span class="sp">m. Sue Maxime Matheson</span></div>
@@ -694,20 +733,20 @@ th,td{padding:.4rem .5rem}
 <p class="gen-label">With Leslie Price:</p>
 <div class="descendant"><span class="name">Leslie Price</span></div>
 
-<details>
+<details id="person-george-richard-whitfield">
 <summary>George Richard Whitfield &mdash; 3 children</summary>
 <div class="descendant"><span class="name">Michelle Imelda Whitfield</span> <span class="dates">b. 29 Sep 1973, Hohola</span></div>
 <div class="descendant"><span class="name">Kaylene Charimane Whitfield</span> <span class="dates">b. 14 Jan 1975, Wewak</span></div>
 <div class="descendant"><span class="name">Sharon Louise Whitfield</span> <span class="dates">b. 27 Sep 1977</span></div>
 </details>
 
-<details>
+<details id="person-reginald-whitfield">
 <summary>Reginald John Whitfield &mdash; 1 child</summary>
 <div class="descendant"><span class="name">Rose Ann Maria Whitfield</span> <span class="dates">b. 4 Aug 1973, Wewak</span></div>
 </details>
 </details>
 
-<details>
+<details id="person-jack-sariman">
 <summary>Jack Sariman &mdash; 5 children</summary>
 <div class="descendant"><span class="name">Angeline Theresa Sariman</span> <span class="dates">b. 6 Apr 1961</span> <span class="sp">m. Herman Joseph Leahy</span></div>
 <div class="descendant"><span class="name">Veronica Jacinta Phyllis Sariman</span> <span class="dates">b. 9 Jun 1962</span> <span class="sp">m. John Riocky Kone</span></div>
@@ -716,7 +755,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Abraham Sariman</span> <span class="dates">b. 21 Feb 1967</span> <span class="sp">m. Jessica Thomas</span></div>
 </details>
 
-<details>
+<details id="person-rose-louisa-sariman">
 <summary>Rose Louisa Sariman &mdash; Fabila branch, 7 children</summary>
 <div class="descendant"><span class="sp">m. Andrew Michael Fabila (b. 27 Aug 1937, Koki), 3 Sep 1960, St Mary&rsquo;s Cathedral</span></div>
 <div class="descendant"><span class="name">Jeffrey Nicholas George Fabila</span> <span class="dates">b. 25 Sep 1961 &ndash; d. 1965</span></div>
@@ -739,11 +778,12 @@ th,td{padding:.4rem .5rem}
 
 <!-- ===== DAIHANAI'S CHILDREN - EXPANDED ===== -->
 
-<details>
+<details id="person-samuel-alphonse-solien">
 <summary>Samuel Alphonse Solien (b. 1891, Kanosia) &mdash; 7 children via Sariman</summary>
-<div class="descendant"><span class="sp">m. Theresa Sukira Sariman (b. 1880, Tatana), 1912, Kanosia</span></div>
+<div class="descendant"><span class="sp">m. <a href="#person-theresa-sukira-sariman" class="cross-link" id="person-theresa-sukira-sariman">Theresa Sukira Sariman</a> (b. 1880, Tatana), 1912, Kanosia</span></div>
+<div class="also-appears">Cross-ref: Theresa Sukira Sariman also married <a href="#person-george-kevin-solien">George Kevin Solien</a> (~1908). See <a href="#intermarriage-table">Intermarriage table</a></div>
 
-<details>
+<details id="person-keven-solien-sa">
 <summary>Keven Solien (b. 25 Jan 1911, d. 6 Jan 1980) &mdash; 8 children</summary>
 <div class="descendant"><span class="sp">m. (1) Mary Rita Field; (2) Monica Kila Hetabu, 1965</span></div>
 <div class="descendant"><span class="name">Jack Alex Solien</span> <span class="dates">b. 22 Jul 1961</span> <span class="sp">m. Gaulasi Hekoi. Son: Kevin Solien</span></div>
@@ -756,7 +796,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Gomea Solien</span></div>
 </details>
 
-<details>
+<details id="person-charles-solien-sa">
 <summary>Charles Solien (b. 28 Feb 1913, d. 26 Jan 1957) &mdash; 5 children</summary>
 <div class="descendant"><span class="sp">m. (1) Imelda Dia-Rahe; (2) Josephine Biria Veidiho</span></div>
 <div class="descendant"><span class="name">Nicholas Charles Solien</span> <span class="dates">b. 6 Dec 1940</span> <span class="sp">m. Kone Maritau. Children: Damian, Marcella Diana</span></div>
@@ -766,7 +806,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Louisa Philomena Mary Regina Solien</span> <span class="dates">b. 5 Dec 1945</span> <span class="sp">m. Michael Ganiga, 29 Aug 1983</span></div>
 </details>
 
-<details>
+<details id="person-lucy-mary-solien">
 <summary>Lucy Mary Solien (b. 6 Aug 1915) &mdash; Gallaher branch</summary>
 <div class="descendant"><span class="sp">m. (1) Osman; (2) Charles David Patrick Gallaher (b. 1921, Gympie QLD)</span></div>
 <div class="descendant"><span class="name">Theresa Solien</span> <span class="dates">b. 15 Jun 1939</span></div>
@@ -779,9 +819,10 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Samuel Gallaher</span></div>
 </details>
 
-<details>
+<details id="person-vincent-patrick-solien">
 <summary>Vincent Patrick Solien (b. 8 Sep 1918, d. 8 Dec 1997) &mdash; 12 children</summary>
 <div class="descendant"><span class="sp">m. Eileen Philomena Kassman, 1965, Kanosia</span></div>
+<div class="also-appears">Cross-ref: Eileen Kassman is from the <a href="#person-philomena-mary-solien">Kassman family</a> &mdash; another original &ldquo;Malay&rdquo; settler family</div>
 <div class="descendant"><span class="name">Agnes Margaret Solien</span> <span class="dates">b. 14 Jan 1946</span></div>
 <div class="descendant"><span class="name">Hilda Elsie Solien</span> <span class="dates">b. 9 Jun 1947</span> <span class="sp">m. Leonard William Norris, 1969</span></div>
 <div class="descendant"><span class="name">Patricia Veronica Solien</span> <span class="dates">b. 11 Jan 1949</span></div>
@@ -796,7 +837,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Pascaline Victoria Maria Gorety Solien</span> <span class="dates">b. 7 May 1970</span></div>
 </details>
 
-<details>
+<details id="person-sebastian-okitau-solien">
 <summary>Sebastian Okitau Solien (b. 2 Oct 1921, d. 17 Apr 1994) &mdash; 11 children</summary>
 <div class="descendant"><span class="sp">m. Philomena Tuana Ah-Wong (1939&ndash;1996), 29 Oct 1955, Koki</span></div>
 <div class="descendant"><span class="name">Imelda Marie Therese Solien</span> <span class="dates">b. 20 Nov 1956</span> <span class="sp">m. Philemon Mamahi Lotivi, 1978</span></div>
@@ -812,7 +853,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Linda Solien</span> <span class="dates">b. 26 Dec 1975</span></div>
 </details>
 
-<details>
+<details id="person-john-francis-solien">
 <summary>John Francis Solien (b. 29 Sep 1924, d. 3 Jan 1984) &mdash; 9 children</summary>
 <div class="descendant"><span class="sp">m. Sela (Sina) Bernadette Matthew (b. 1930, Gabutu)</span></div>
 <div class="descendant"><span class="name">Gabriel Christopher Solien</span> <span class="dates">b. 2 Apr 1948</span> <span class="sp">m. Janet Oneau. 5 children: Delphine, Wilfred, Michelle, Judy, Randy</span></div>
@@ -826,7 +867,7 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">John Solien</span> <span class="dates">b. 1970</span></div>
 </details>
 
-<details>
+<details id="person-baia-samuel-solien">
 <summary>Baia Samuel Gabriel Solien (b. 30 Oct 1933) &mdash; 9 children</summary>
 <div class="descendant"><span class="sp">m. Rosa Aiva Haino (b. 6 Dec 1940)</span></div>
 <div class="descendant"><span class="name">Sebastian Solien</span> <span class="dates">b. 17 Apr 1959</span></div>
@@ -841,13 +882,14 @@ th,td{padding:.4rem .5rem}
 </details>
 </details>
 
-<details>
+<details id="person-keven-sogo-solien">
 <summary>Keven Sogo Solien (b. 1892, d. 6 Feb 1958) &mdash; via Helen Savisa Sariman</summary>
-<div class="descendant"><span class="sp">m. Helen Savisa Sariman (b. 1894, d. 14 Jul 1969), 20 Feb 1912, Dibama</span></div>
-<p style="font-size:.8rem;color:var(--text-light)">Children not documented in available records. Helen Savisa later married Charlie Solien (7 Feb 1964).</p>
+<div class="descendant"><span class="sp">m. <a href="#person-helen-savisa-sariman" class="cross-link" id="person-helen-savisa-sariman">Helen Savisa Sariman</a> (b. 1894, d. 14 Jul 1969), 20 Feb 1912, Dibama</span></div>
+<div class="also-appears">Cross-ref: Helen Savisa Sariman later married <a href="#person-charlie-solien">Charlie Solien</a> (7 Feb 1964). See <a href="#intermarriage-table">Intermarriage table</a></div>
+<p style="font-size:.8rem;color:var(--text-light)">Children not documented in available records.</p>
 </details>
 
-<details>
+<details id="person-helen-savisa-mary-solien">
 <summary>Helen (Savisa) Mary Solien (b. 1910) &mdash; Domara line</summary>
 <div class="descendant"><span class="sp">Daughter of George Solien and Theresa Sukira Sariman. m. (1) John Domara, 15 Oct 1931; (2) Archie Pan-Tung (b. 1903, Canton, China)</span></div>
 <div class="descendant"><span class="name">Emmanuel (Manu) Patrick Domara</span> <span class="dates">b. 23 Jan 1930</span> <span class="sp">m. (1) Margaret Gertrude Ah-Wong; (2) Margaret Temu Ah-Mat. 10+ children</span></div>
@@ -855,9 +897,10 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Samuel Michael Domara</span> <span class="dates">b. 31 May 1934</span> <span class="sp">m. Elizabeth Cecilia Maba, 5 Jun 1979</span></div>
 </details>
 
-<details>
-<summary>Lucy Cecelia Solien (b. 1906, Kanosia) &mdash; via Joseph Vincent Sariman</summary>
-<div class="descendant"><span class="sp">m. Joseph Vincent Sariman (b. 1895, d. 10 Oct 1954), 3 Mar 1921, Manu Manu</span></div>
+<details id="person-lucy-cecelia-solien">
+<summary>Lucy Cecelia Solien (b. 1906, Kanosia) &mdash; 8 children via Joseph Vincent Sariman</summary>
+<div class="descendant"><span class="sp">m. <a href="#person-joseph-vincent-sariman" class="cross-link" id="person-joseph-vincent-sariman">Joseph Vincent Sariman</a> (b. 1895, d. 10 Oct 1954), 3 Mar 1921, Manu Manu</span></div>
+<div class="also-appears">Cross-ref: Joseph Vincent Sariman is son of Sariman Kadio and Gogori Keia. See <a href="#intermarriage-table">Intermarriage table</a></div>
 <div class="descendant"><span class="name">Alphonse Sariman</span> <span class="dates">b. 1922</span> <span class="sp">m. Eliza Kassman, 3 Jan 1945</span></div>
 <div class="descendant"><span class="name">Eugene Sariman</span> <span class="dates">b. 1923</span> <span class="sp">m. (1) Josephine Vedu; (2) Emily Eme Ovia</span></div>
 <div class="descendant"><span class="name">Martha Sariman</span> <span class="dates">b. 27 Nov 1924</span> <span class="sp">m. (1) Ambrose George Gorogo; (2) Joseph Alphonse Natera</span></div>
@@ -868,39 +911,67 @@ th,td{padding:.4rem .5rem}
 <div class="descendant"><span class="name">Anastasius Alphonse Sariman</span> <span class="dates">b. 4 Apr 1938</span> <span class="sp">m. (1) Boni Mauri Daroa (6 children); (2) Elizabeth Bure</span></div>
 </details>
 
-<details>
+<details id="person-josephine-solien">
 <summary>Josephine Solien (b. 1892) &mdash; Iorive/Yorive line</summary>
 <div class="descendant"><span class="sp">m. [Iorive/Yorive]</span></div>
 <p style="font-size:.8rem;color:var(--text-light)">Descendants George and Edward Yorive narrated the PARADISEC oral history recording (TD1-P02980) in 1980. Ancestor of the Veidiho Domara line (TikTok).</p>
 </details>
 
-<details>
+<details id="person-philomena-mary-solien">
 <summary>Philomena Mary Solien (b. 1899) &mdash; Kassman line (9 DNA matches)</summary>
 <div class="descendant"><span class="sp">m. [Kassman] &mdash; one of the original &ldquo;Malay&rdquo; settler families</span></div>
 <p style="font-size:.8rem;color:var(--text-light)">9 DNA matches through this line &mdash; the most of any sibling line. Descendants carry the Kassman surname.</p>
 </details>
 
-<details>
+<details id="person-agnes-daihanai-solien">
 <summary>Agnes Daihanai Solien (b. 1900, d. 1973) &mdash; English line</summary>
 <div class="descendant"><span class="sp">m. [English]</span></div>
 <p style="font-size:.8rem;color:var(--text-light)">Line leads to Agnes Mary &ldquo;Daihanai&rdquo; Solien (1937&ndash;2022) who married Edward Toua English (1934&ndash;2010). 11 children. Moved to Brisbane. Buried at Pinnaroo Cemetery, Bridgeman Downs, QLD.</p>
 <p style="font-size:.8rem;color:var(--text-light)">Through this line: Mary English married Bruno Choulai &rarr; Wendi Choulai (artist, 1954&ndash;2001) &rarr; Aaron Choulai Tenenbaum (Artistic Director, Australian Art Orchestra).</p>
 </details>
 
-<details>
+<details id="person-edress-solien">
+<summary>Edress (Edward) Solien (b. 1888)</summary>
+<div class="person-entry"><span class="name">Edress (Edward) Solien</span> <span class="dates">b. 1888</span>
+<span class="children-line">No spouse or children documented in available records. Sometimes listed under Biria instead of Daihanai.</span>
+</div>
+</details>
+
+<details id="person-vincent-solien">
+<summary>Vincent Solien (b. 1906)</summary>
+<div class="person-entry"><span class="name">Vincent Solien</span> <span class="dates">b. 1906</span>
+<span class="children-line">No spouse or children documented in available records.</span>
+</div>
+</details>
+
+<details id="person-madeline-solien">
+<summary>Madeline (Magdaline Buruka) Solien (b. 1908)</summary>
+<div class="person-entry"><span class="name">Madeline (Magdaline Buruka) Solien</span> <span class="dates">b. 1908</span>
+<span class="children-line">No spouse or children documented in available records.</span>
+</div>
+</details>
+
+<details id="person-nicholas-solien">
+<summary>Nicholas Solien (b. 1910)</summary>
+<div class="person-entry"><span class="name">Nicholas Solien</span> <span class="dates">b. 1910</span>
+<span class="children-line">No spouse or children documented in available records.</span>
+</div>
+</details>
+
+<details id="intermarriage-table">
 <summary>The Solien-Sariman Intermarriage Network (at least 10 marriages)</summary>
 <table>
 <tr><th>Solien</th><th>Sariman</th><th>Marriage Date</th></tr>
-<tr><td>Theresa Solien (Biria&rsquo;s daughter, b. 1898)</td><td>George Michael Sariman</td><td>3 Jan 1926</td></tr>
-<tr><td>Keven Sogo Solien</td><td>Helen Savisa Sariman</td><td>20 Feb 1912</td></tr>
-<tr><td>Samuel Alphonse Solien</td><td>Theresa Sukira Sariman</td><td>1912</td></tr>
-<tr><td>George Kevin Solien</td><td>Theresa Sukira Sariman</td><td>~1908</td></tr>
-<tr><td>George Kevin Solien</td><td>Vene Mary Elizabeth Sariman</td><td>16 Sep 1919</td></tr>
-<tr><td>Lucy Cecelia Solien</td><td>Joseph Vincent Sariman</td><td>3 Mar 1921</td></tr>
+<tr><td><a href="#person-theresa-solien" class="cross-link">Theresa Solien</a> (Biria&rsquo;s daughter, b. 1898)</td><td><a href="#person-george-michael-sariman" class="cross-link">George Michael Sariman</a></td><td>3 Jan 1926</td></tr>
+<tr><td><a href="#person-keven-sogo-solien" class="cross-link">Keven Sogo Solien</a></td><td><a href="#person-helen-savisa-sariman" class="cross-link">Helen Savisa Sariman</a></td><td>20 Feb 1912</td></tr>
+<tr><td><a href="#person-samuel-alphonse-solien" class="cross-link">Samuel Alphonse Solien</a></td><td><a href="#person-theresa-sukira-sariman" class="cross-link">Theresa Sukira Sariman</a></td><td>1912</td></tr>
+<tr><td><a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a></td><td><a href="#person-theresa-sukira-sariman" class="cross-link">Theresa Sukira Sariman</a></td><td>~1908</td></tr>
+<tr><td><a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a></td><td>Vene Mary Elizabeth Sariman</td><td>16 Sep 1919</td></tr>
+<tr><td><a href="#person-lucy-cecelia-solien" class="cross-link">Lucy Cecelia Solien</a></td><td><a href="#person-joseph-vincent-sariman" class="cross-link">Joseph Vincent Sariman</a></td><td>3 Mar 1921</td></tr>
 <tr><td>Philomena Solien (Vivian&rsquo;s daughter)</td><td>Kadio Sariman</td><td>19 Jan 1959</td></tr>
-<tr><td>Nellie Solien (James Alexis&rsquo;s daughter)</td><td>Peter Sariman</td><td>9 May 1958</td></tr>
+<tr><td><a href="#person-nellie-solien" class="cross-link">Nellie Solien</a> (James Alexis&rsquo;s daughter)</td><td>Peter Sariman</td><td>9 May 1958</td></tr>
 <tr><td>Madeleine Solien</td><td>Peter Sariman</td><td>(earlier marriage)</td></tr>
-<tr><td>Charlie Solien (b. 1897)</td><td>Helen Savisa Sariman</td><td>7 Feb 1964</td></tr>
+<tr><td><a href="#person-charlie-solien" class="cross-link">Charlie Solien</a> (b. 1897)</td><td><a href="#person-helen-savisa-sariman" class="cross-link">Helen Savisa Sariman</a></td><td>7 Feb 1964</td></tr>
 </table>
 <p style="font-size:.85rem">Theresa Sukira Sariman married three sons of Jimmy Malay. These marriages created the dense Galley Reach family enclave.</p>
 </details>
@@ -928,6 +999,8 @@ th,td{padding:.4rem .5rem}
 <span><span class="dot" style="background:#2a5298"></span> Son</span>
 <span><span class="dot" style="background:#8b4c2a"></span> Daughter</span>
 <span><span class="dot" style="background:#5a8a4a"></span> Grandchild+</span>
+<span style="border-top:2px solid #c9a84c;width:18px;display:inline-block;margin-right:3px;vertical-align:middle"></span> Parent-child
+<span style="border-top:2px dashed #e07040;width:18px;display:inline-block;margin-right:3px;vertical-align:middle"></span> Marriage
 </div>
 <canvas id="treeCanvas"></canvas>
 </div>
@@ -936,60 +1009,68 @@ th,td{padding:.4rem .5rem}
 </div>
 </section>
 
-<!-- ===================== SECTION 4: THE WHITFIELD BRANCH ===================== -->
-<section id="lineage">
-<div class="section-card">
-<h2>The Whitfield Branch</h2>
-<p>One of the many branches descending from Jimmy Malay, tracing through the Sariman-Whitfield connection:</p>
-
-<div class="lineage">
-<div class="person">Jimmy Malay (James Peter Subtino Solien, c.1853&ndash;1923) + Biria Veidiho</div>
-<div class="arrow">&#9660;</div>
-<div class="person">Theresa Solien (b. 1898, Kanosia) + George Michael Sariman (m. 3 Jan 1926)</div>
-<div class="arrow">&#9660;</div>
-<div class="person">Maisie Imelda Sariman (b. 22 Jul 1935, Kikori) + Charles Richard Whitfield (m. 29 Dec 1950)</div>
-<div class="arrow">&#9660;</div>
-<div class="person">Charles Rodney Whitfield (b. 2 Jan 1962, Koki) and 6 siblings</div>
-</div>
-
-<p>Maisie married Charles Richard Whitfield (b. 1920, Jundah, QLD; son of Charles Richard Whitfield and Charlotte Lewis) on <strong>29 December 1950</strong> at the <strong>Church of Our Lady of the Rosary</strong>, Port Moresby. Their children included George Richard (1952), Reginald John (1953), Neville Ernest (1955), Phillip Graham (1957), Angeline Rose Ann (1959), Charles Rodney (1962), and Sharon (1964).</p>
-</div>
-</section>
-
 <!-- ===================== SECTION 5: FIND YOUR BRANCH ===================== -->
 <section id="find-branch">
 <div class="section-card">
 <h2>&ldquo;Find Your Branch&rdquo; Guide</h2>
-<p>Do you have one of these surnames in your family? Here is how you likely connect to Jimmy Malay:</p>
+<p>Do you have one of these surnames in your family? Click any entry to jump directly to that branch in the family tree above.</p>
 
 <div class="branch-guide">
 <div class="branch-item">
-<div class="surname">Surname: English</div>
-<div class="connection">Through <strong>Agnes Daihanai Solien</strong> (b. 1900) &rarr; married into the English family. Agnes Mary &ldquo;Daihanai&rdquo; Solien (1937&ndash;2022) married Edward Toua English.</div>
+<div class="surname"><a href="#person-maona-solien">Surname: Lotai</a></div>
+<div class="connection">Through <a href="#person-maona-solien" class="cross-link"><strong>Maona/Mauna (Supina) Solien</strong></a> (b. 1877 or ~1884) &rarr; married Jack Lotai.</div>
 </div>
 <div class="branch-item">
-<div class="surname">Surname: Kassman</div>
-<div class="connection">Through <strong>Philomena Mary Solien</strong> (b. 1899) &rarr; married into the Kassman family, one of the original &ldquo;Malay&rdquo; settler families.</div>
+<div class="surname"><a href="#person-louisa-solien">Surname: Gorogo / Malabag</a></div>
+<div class="connection">Through <a href="#person-louisa-solien" class="cross-link"><strong>Louisa Mary/May Solien</strong></a> (b. 1887/1892) &rarr; married into the Gorogo/Malabag family.</div>
 </div>
 <div class="branch-item">
-<div class="surname">Surname: Sariman</div>
-<div class="connection">Multiple connections &mdash; at least 10 Solien-Sariman marriages: Theresa Solien (1926), Keven Sogo Solien (1912), Samuel Alphonse Solien (1912), George Kevin Solien (1908, 1919), Lucy Cecelia Solien (1921), Philomena Solien (1959), Nellie Solien (1958), and Charlie Solien (1964).</div>
+<div class="surname"><a href="#person-margaret-mary-solien">Surname: Arua</a></div>
+<div class="connection">Through <a href="#person-margaret-mary-solien" class="cross-link"><strong>Margaret Mary/May Solien</strong></a> (b. 1890/1895) &rarr; married into the Arua family of Hanuabada.</div>
 </div>
 <div class="branch-item">
-<div class="surname">Surname: Lotai</div>
-<div class="connection">Through <strong>Maona/Mauna (Supina) Solien</strong> (b. 1877 or ~1884) &rarr; married Jack Lotai.</div>
+<div class="surname"><a href="#intermarriage-table">Surname: Sariman</a></div>
+<div class="connection">Multiple connections &mdash; at least 10 Solien-Sariman marriages. See the <a href="#intermarriage-table" class="cross-link">full intermarriage table</a>: <a href="#person-theresa-solien" class="cross-link">Theresa</a> (1926), <a href="#person-keven-sogo-solien" class="cross-link">Keven Sogo</a> (1912), <a href="#person-samuel-alphonse-solien" class="cross-link">Samuel Alphonse</a> (1912), <a href="#person-george-kevin-solien" class="cross-link">George Kevin</a> (1908, 1919), <a href="#person-lucy-cecelia-solien" class="cross-link">Lucy Cecelia</a> (1921), and more.</div>
 </div>
 <div class="branch-item">
-<div class="surname">Surname: Whitfield</div>
-<div class="connection">Through <strong>Theresa Solien</strong> (b. 1898) &rarr; Maisie Imelda Sariman &rarr; married Charles Richard Whitfield (1950).</div>
+<div class="surname"><a href="#person-maisie-sariman">Surname: Whitfield</a></div>
+<div class="connection">Through <a href="#person-theresa-solien" class="cross-link"><strong>Theresa Solien</strong></a> (b. 1898) &rarr; <a href="#person-maisie-sariman" class="cross-link">Maisie Imelda Sariman</a> &rarr; married Charles Richard Whitfield (1950).</div>
 </div>
 <div class="branch-item">
-<div class="surname">Surname: Choulai</div>
-<div class="connection">Through the Solien &rarr; English &rarr; Choulai line. Mary English (of the Solien clan) married Bruno Choulai.</div>
+<div class="surname"><a href="#person-rose-louisa-sariman">Surname: Fabila</a></div>
+<div class="connection">Through <a href="#person-theresa-solien" class="cross-link"><strong>Theresa Solien</strong></a> (b. 1898) &rarr; <a href="#person-rose-louisa-sariman" class="cross-link">Rose Louisa Sariman</a> &rarr; married Andrew Michael Fabila.</div>
 </div>
 <div class="branch-item">
-<div class="surname">Surname: Yorive / Iorive</div>
-<div class="connection">Through <strong>Josephine Solien</strong> (b. 1892) &rarr; married into the Iorive/Yorive family.</div>
+<div class="surname"><a href="#person-agnes-daihanai-solien">Surname: English</a></div>
+<div class="connection">Through <a href="#person-agnes-daihanai-solien" class="cross-link"><strong>Agnes Daihanai Solien</strong></a> (b. 1900) &rarr; married into the English family. Agnes Mary &ldquo;Daihanai&rdquo; Solien (1937&ndash;2022) married Edward Toua English.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-philomena-mary-solien">Surname: Kassman</a></div>
+<div class="connection">Through <a href="#person-philomena-mary-solien" class="cross-link"><strong>Philomena Mary Solien</strong></a> (b. 1899) &rarr; married into the Kassman family, one of the original &ldquo;Malay&rdquo; settler families.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-agnes-daihanai-solien">Surname: Choulai</a></div>
+<div class="connection">Through the Solien &rarr; English &rarr; Choulai line. Mary English (of the Solien clan) married Bruno Choulai. See <a href="#person-agnes-daihanai-solien" class="cross-link">Agnes Daihanai Solien&rsquo;s branch</a>.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-josephine-solien">Surname: Yorive / Iorive</a></div>
+<div class="connection">Through <a href="#person-josephine-solien" class="cross-link"><strong>Josephine Solien</strong></a> (b. 1892) &rarr; married into the Iorive/Yorive family.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-lucy-mary-solien">Surname: Gallaher</a></div>
+<div class="connection">Through <a href="#person-samuel-alphonse-solien" class="cross-link">Samuel Alphonse Solien</a> &rarr; <a href="#person-lucy-mary-solien" class="cross-link"><strong>Lucy Mary Solien</strong></a> (b. 1915) &rarr; married Charles David Patrick Gallaher.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-helen-savisa-mary-solien">Surname: Domara</a></div>
+<div class="connection">Through <a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a> &rarr; <a href="#person-helen-savisa-mary-solien" class="cross-link"><strong>Helen (Savisa) Mary Solien</strong></a> (b. 1910) &rarr; married John Domara.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-imelda-solien-gk">Surname: Elly</a></div>
+<div class="connection">Through <a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a> &rarr; <a href="#person-imelda-solien-gk" class="cross-link"><strong>Imelda Solien</strong></a> (b. 1920) &rarr; married Saia Elly.</div>
+</div>
+<div class="branch-item">
+<div class="surname"><a href="#person-anna-madeleine-solien">Surname: Love / Oberleuter</a></div>
+<div class="connection">Through <a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a> &rarr; <a href="#person-anna-madeleine-solien" class="cross-link"><strong>Anna Madeleine Solien</strong></a> (1922&ndash;2012) &rarr; married Douglas Love, then Joseph Oberleuter.</div>
 </div>
 </div>
 <p style="margin-top:1rem"><strong>Don&rsquo;t see your surname?</strong> You may still be connected. With approximately 20 children and hundreds of descendants, the Solien Besena has many branches. Contact the community &mdash; see <a href="#help">How You Can Help</a> below.</p>
@@ -1456,8 +1537,11 @@ var C={
   grandchild:'#5a8a4a',
   nodeText:'#ffffff',
   line:'#c9a84c',lineSub:'#d0c8b0',
+  marriage:'#e07040',
   highlight:'#ff6b35',bg:'#faf6ee'
 };
+// Marriage connections (cross-branch links)
+var marriageLinks=[];
 
 function buildTreeData(){
   // Build a compact tree: Jimmy -> wives -> children -> grandchildren (collapsible)
@@ -1608,6 +1692,18 @@ function buildTreeData(){
     }
   }
   setParents(jimmy);
+
+  // Build marriage links (cross-branch connections)
+  // These are people who appear as spouses in different branches
+  marriageLinks=[
+    {from:'theresa',to:'samuel_a',label:'George Michael Sariman married Theresa; related to Sariman Kadio'},
+    {from:'keven_sogo',to:'charlie',label:'Helen Savisa Sariman married both'},
+    {from:'george_kevin',to:'samuel_a',label:'Theresa Sukira Sariman married both'},
+    {from:'nellie',to:'samuel_a',label:'Nellie married Peter Sariman (Sariman family)'},
+    {from:'lucy_c',to:'theresa',label:'Both married Sariman Kadio descendants'},
+    {from:'philomena_v',to:'theresa',label:'Philomena married Kadio Sariman'}
+  ];
+
   return jimmy;
 }
 
@@ -1671,7 +1767,7 @@ function drawTree(){
   ctx.translate(offsetX,offsetY);
   ctx.scale(scale,scale);
 
-  // Draw edges
+  // Draw parent-child edges (solid lines)
   edges.forEach(function(e){
     var fx=e.from._x+e.from._w;
     var fy=e.from._y+e.from._h/2;
@@ -1686,11 +1782,32 @@ function drawTree(){
     ctx.stroke();
   });
 
+  // Draw marriage connections (dotted lines)
+  marriageLinks.forEach(function(ml){
+    var fromNode=nodes.find(function(n){return n.id===ml.from;});
+    var toNode=nodes.find(function(n){return n.id===ml.to;});
+    if(fromNode&&toNode&&fromNode._x!==undefined&&toNode._x!==undefined){
+      var fx=fromNode._x+fromNode._w/2;
+      var fy=fromNode._y+fromNode._h;
+      var tx=toNode._x+toNode._w/2;
+      var ty=toNode._y+toNode._h;
+      ctx.beginPath();
+      ctx.setLineDash([4,4]);
+      ctx.moveTo(fx,fy);
+      var midY=Math.max(fy,ty)+30;
+      ctx.bezierCurveTo(fx,midY,tx,midY,tx,ty);
+      ctx.strokeStyle=C.marriage;
+      ctx.lineWidth=1.5;
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  });
+
   // Draw nodes
   nodes.forEach(function(node){
     var x=node._x,y=node._y,w=node._w,h=node._h;
     var col=getNodeColor(node);
-    var isHighlighted=highlightName&&node.name.toLowerCase().indexOf(highlightName.toLowerCase())>=0;
+    var isHighlighted=highlightName&&(node.name.toLowerCase().indexOf(highlightName.toLowerCase())>=0||(node.sub&&node.sub.toLowerCase().indexOf(highlightName.toLowerCase())>=0));
 
     // Shadow
     ctx.fillStyle='rgba(0,0,0,.08)';
@@ -1769,8 +1886,23 @@ function findNodeAt(mx,my){
   return null;
 }
 
+// People who appear in multiple branches (for cross-highlighting)
+var intermarriedNames=['helen savisa sariman','theresa sukira sariman','peter sariman','kadio sariman','george michael sariman','joseph vincent sariman'];
+
 function toggleNode(node){
-  if(!node.children||node.children.length===0)return;
+  if(!node.children||node.children.length===0){
+    // If clicking a leaf node, check if they're an intermarried person and highlight all
+    var nameLower=node.name.toLowerCase()+(node.sub?' '+node.sub.toLowerCase():'');
+    var matchedSpouse='';
+    intermarriedNames.forEach(function(im){
+      if(nameLower.indexOf(im)>=0||node.sub&&node.sub.toLowerCase().indexOf(im)>=0)matchedSpouse=im;
+    });
+    if(matchedSpouse){
+      highlightName=matchedSpouse;
+      drawTree();
+    }
+    return;
+  }
   node.expanded=node.expanded===false?true:false;
   layoutTree(treeData);
   drawTree();
@@ -1817,7 +1949,7 @@ window.searchTree=function(){
   // Find and expand path to matching nodes
   function findAndExpand(node){
     var found=false;
-    if(node.name.toLowerCase().indexOf(q.toLowerCase())>=0)found=true;
+    if(node.name.toLowerCase().indexOf(q.toLowerCase())>=0||(node.sub&&node.sub.toLowerCase().indexOf(q.toLowerCase())>=0))found=true;
     if(node.children){
       node.children.forEach(function(c){
         if(findAndExpand(c)){found=true;}
@@ -1830,7 +1962,7 @@ window.searchTree=function(){
   layoutTree(treeData);
 
   // Pan to first match
-  var match=nodes.find(function(n){return n.name.toLowerCase().indexOf(q.toLowerCase())>=0;});
+  var match=nodes.find(function(n){return n.name.toLowerCase().indexOf(q.toLowerCase())>=0||(n.sub&&n.sub.toLowerCase().indexOf(q.toLowerCase())>=0);});
   if(match){
     var cw=canvas.width/2,ch=canvas.height/2;
     offsetX=cw-match._x*scale-NODE_W/2*scale;
