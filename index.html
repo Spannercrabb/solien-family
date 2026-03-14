@@ -153,8 +153,8 @@ li{margin-bottom:.4rem}
 
 /* Expanded text tree details */
 .tree-section details{margin:.3rem 0 .3rem .8rem;border-left:2px solid var(--cream-dark);padding-left:.6rem}
-.tree-section details summary{font-size:.85rem;padding:.3rem 0}
-.tree-section details summary::before{width:16px;height:16px;font-size:.7rem}
+.tree-section details summary{font-size:.85rem;padding:.5rem 0}
+.tree-section details summary::before{width:24px;height:24px;font-size:.85rem}
 .tree-section .descendant{font-size:.82rem;padding:.2rem .4rem;margin:.15rem 0;background:var(--cream);border-radius:3px;line-height:1.4}
 .tree-section .descendant .name{font-weight:700;color:var(--navy-light)}
 .tree-section .descendant .dates{color:var(--text-light);font-size:.78rem}
@@ -215,9 +215,19 @@ li{margin-bottom:.4rem}
 
 /* Expandable */
 details{margin:1rem 0}
-details summary{cursor:pointer;font-family:var(--font-heading);font-weight:700;color:var(--navy-light);padding:.5rem 0;list-style:none;display:flex;align-items:center;gap:.5rem}
-details summary::before{content:'+';display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;background:var(--gold);color:var(--white);border-radius:50%;font-size:.85rem;flex-shrink:0;transition:transform .2s}
+details[id],[id^="person-"]{scroll-margin-top:130px}
+details summary{cursor:pointer;font-family:var(--font-heading);font-weight:700;color:var(--navy-light);padding:.6rem 0;list-style:none;display:flex;align-items:center;gap:.5rem}
+details summary::before{content:'+';display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;background:var(--gold);color:var(--white);border-radius:50%;font-size:1rem;flex-shrink:0;transition:transform .2s}
 details[open] summary::before{content:'-'}
+
+/* Generation depth styling */
+.tree-section details{border-left-color:var(--gold)}
+.tree-section details details{border-left-color:#3a72c4}
+.tree-section details details details{border-left-color:#999}
+
+/* Hash navigation highlight */
+@keyframes hash-highlight{0%{background-color:rgba(201,168,76,.35)}100%{background-color:transparent}}
+.hash-highlight{animation:hash-highlight 2s ease-out}
 
 /* Tables */
 table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
@@ -508,6 +518,7 @@ th,td{padding:.4rem .5rem}
 <div class="tree-view-toggle">
 <button class="active" onclick="showTreeView('text')" id="btn-text-view">Text View</button>
 <button onclick="showTreeView('interactive')" id="btn-interactive-view">Interactive Tree</button>
+<button onclick="collapseAllDetails()" id="btn-collapse-all">Collapse All</button>
 </div>
 
 <!-- ============ TEXT VIEW ============ -->
@@ -1030,6 +1041,7 @@ th,td{padding:.4rem .5rem}
 <div id="tree-pinch-hint" style="display:none;position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:10;background:rgba(26,39,68,.85);color:#e8d48b;padding:.5rem 1rem;border-radius:20px;font-size:.8rem;font-family:var(--font-heading);pointer-events:none;transition:opacity .6s ease;white-space:nowrap">Pinch to zoom &middot; Drag to pan</div>
 <canvas id="treeCanvas" role="img" aria-label="Interactive family tree of the Solien Besena descendants"></canvas>
 </div>
+<div id="tree-tooltip" style="display:none;position:absolute;z-index:20;background:var(--navy);color:var(--white);padding:.5rem .8rem;border-radius:6px;font-size:.82rem;font-family:var(--font-heading);pointer-events:none;max-width:280px;box-shadow:0 2px 8px rgba(0,0,0,.3)"></div>
 </div><!-- end tree-interactive-view -->
 
 </div>
@@ -1089,6 +1101,18 @@ th,td{padding:.4rem .5rem}
 <div class="branch-item">
 <div class="surname"><a href="#person-helen-savisa-mary-solien">Surname: Domara</a></div>
 <div class="connection">Through <a href="#person-george-kevin-solien" class="cross-link">George Kevin Solien</a> &rarr; <a href="#person-helen-savisa-mary-solien" class="cross-link"><strong>Helen (Savisa) Mary Solien</strong></a> (b. 1910) &rarr; married John Domara.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Pan-Tung</div>
+<div class="connection">Through <a href="#person-james-alexis-solien" class="cross-link"><strong>James Alexis Solien</strong></a> &rarr; Theresa Solien Jr married Archie Pan-Tung.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Ah-Wong</div>
+<div class="connection">Through multiple branches &mdash; Mary Camillus Ah-Wong married George Richard Whitfield; Philomena Tuana Ah-Wong married Sebastian Okitau Solien.</div>
+</div>
+<div class="branch-item">
+<div class="surname">Surname: Norris</div>
+<div class="connection">Through <a href="#person-samuel-alphonse-solien" class="cross-link"><strong>Samuel Alphonse Solien</strong></a> &rarr; Hilda Elsie Solien married Leonard William Norris (1969).</div>
 </div>
 <div class="branch-item">
 <div class="surname"><a href="#person-imelda-solien-gk">Surname: Elly</a></div>
@@ -1525,13 +1549,25 @@ window.addEventListener('load',function(){
         re.lastIndex=0;
       }
       nodes.forEach(function(n){
+        // Open all ancestor <details> elements so match is visible
+        var ancestor=n.parentNode;
+        while(ancestor){
+          if(ancestor.tagName==='DETAILS')ancestor.open=true;
+          ancestor=ancestor.parentNode;
+        }
         var span=document.createElement('span');
         span.innerHTML=n.textContent.replace(re,'<mark class="highlight">$1</mark>');
         n.parentNode.replaceChild(span,n);
       });
       if(nodes.length>0){
         var first=document.querySelector('mark.highlight');
-        if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+        if(first){
+          setTimeout(function(){
+            var rect=first.getBoundingClientRect();
+            var scrollTop=window.pageYOffset+rect.top-130;
+            window.scrollTo({top:scrollTop,behavior:'smooth'});
+          },50);
+        }
       }
     },300);
   });
@@ -2050,8 +2086,10 @@ window.initInteractiveTree=function(){
   }
 
   // Mouse events
+  var dragStartClientX=0,dragStartClientY=0;
   canvas.addEventListener('mousedown',function(e){
     dragging=true;dragStartX=e.clientX-offsetX;dragStartY=e.clientY-offsetY;
+    dragStartClientX=e.clientX;dragStartClientY=e.clientY;
     canvas.style.cursor='grabbing';
   });
   canvas.addEventListener('mousemove',function(e){
@@ -2059,19 +2097,40 @@ window.initInteractiveTree=function(){
       offsetX=e.clientX-dragStartX;offsetY=e.clientY-dragStartY;
       drawTree();
     }
+    // Tooltip on hover
+    var pos=getMousePos(e);
+    var hoverNode=findNodeAt(pos.x,pos.y);
+    var tooltip=document.getElementById('tree-tooltip');
+    if(tooltip){
+      if(hoverNode){
+        var tipText='<strong style="color:#c9a84c">'+hoverNode.name+'</strong>';
+        if(hoverNode.sub)tipText+='<br><span style="opacity:.8">'+hoverNode.sub+'</span>';
+        if(hoverNode.children&&hoverNode.children.length>0)tipText+='<br><span style="font-size:.75rem;opacity:.6">'+(hoverNode.expanded===false?'Click to expand':'Click to collapse')+'</span>';
+        tooltip.innerHTML=tipText;
+        tooltip.style.display='block';
+        var container=document.getElementById('interactive-tree-container');
+        var rect=container.getBoundingClientRect();
+        tooltip.style.left=Math.min(e.clientX-rect.left+12,rect.width-290)+'px';
+        tooltip.style.top=(e.clientY-rect.top+12)+'px';
+      }else{
+        tooltip.style.display='none';
+      }
+    }
   });
   canvas.addEventListener('mouseup',function(e){
     if(dragging){
-      var dx=Math.abs(e.clientX-dragStartX-offsetX);
-      var dy=Math.abs(e.clientY-dragStartY-offsetY);
-      // Only toggle if it was a click (not a drag)
-      if(dx<3&&dy<3){
+      // Only toggle if it was a click (not a drag) - compare raw client coordinates
+      if(Math.abs(e.clientX-dragStartClientX)<5&&Math.abs(e.clientY-dragStartClientY)<5){
         var pos=getMousePos(e);
         var node=findNodeAt(pos.x,pos.y);
         if(node)toggleNode(node);
       }
     }
     dragging=false;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('mouseleave',function(){
+    var tooltip=document.getElementById('tree-tooltip');
+    if(tooltip)tooltip.style.display='none';
   });
   // Wheel zoom
   canvas.addEventListener('wheel',function(e){
@@ -2088,11 +2147,14 @@ window.initInteractiveTree=function(){
 
   // Touch events for mobile
   var lastTouchDist=0;
+  var touchStartClientX=0,touchStartClientY=0;
   canvas.addEventListener('touchstart',function(e){
     if(e.touches.length===1){
       dragging=true;
       dragStartX=e.touches[0].clientX-offsetX;
       dragStartY=e.touches[0].clientY-offsetY;
+      touchStartClientX=e.touches[0].clientX;
+      touchStartClientY=e.touches[0].clientY;
     }else if(e.touches.length===2){
       dragging=false;
       var dx=e.touches[0].clientX-e.touches[1].clientX;
@@ -2129,11 +2191,13 @@ window.initInteractiveTree=function(){
     if(e.touches.length===0){
       if(dragging&&e.changedTouches.length===1){
         var t=e.changedTouches[0];
-        var rect=canvas.getBoundingClientRect();
-        var mx=(t.clientX-rect.left-offsetX)/scale;
-        var my=(t.clientY-rect.top-offsetY)/scale;
-        var node=findNodeAt(mx,my);
-        if(node)toggleNode(node);
+        if(Math.abs(t.clientX-touchStartClientX)<5&&Math.abs(t.clientY-touchStartClientY)<5){
+          var rect=canvas.getBoundingClientRect();
+          var mx=(t.clientX-rect.left-offsetX)/scale;
+          var my=(t.clientY-rect.top-offsetY)/scale;
+          var node=findNodeAt(mx,my);
+          if(node)toggleNode(node);
+        }
       }
       dragging=false;lastTouchDist=0;
     }
@@ -2157,6 +2221,59 @@ window.initInteractiveTree=function(){
   });
 };
 })();
+
+// ==================== HASH NAVIGATION ====================
+function navigateToHash(hash){
+  if(!hash||hash==='#')return;
+  var id=hash.replace(/^#/,'');
+  var target=document.getElementById(id);
+  if(!target)return;
+  // Open all ancestor <details> elements
+  var el=target.parentElement;
+  while(el){
+    if(el.tagName==='DETAILS')el.open=true;
+    el=el.parentElement;
+  }
+  // If the target itself is a <details>, open it too
+  if(target.tagName==='DETAILS')target.open=true;
+  // Scroll to the target with offset for sticky header
+  setTimeout(function(){
+    var rect=target.getBoundingClientRect();
+    var scrollTop=window.pageYOffset+rect.top-130;
+    window.scrollTo({top:scrollTop,behavior:'smooth'});
+    // Briefly highlight the target
+    target.classList.add('hash-highlight');
+    setTimeout(function(){target.classList.remove('hash-highlight');},2000);
+  },50);
+}
+
+// Handle hash navigation on page load
+window.addEventListener('DOMContentLoaded',function(){
+  if(window.location.hash)setTimeout(function(){navigateToHash(window.location.hash);},900);
+});
+
+// Handle hash changes
+window.addEventListener('hashchange',function(){
+  navigateToHash(window.location.hash);
+});
+
+// Event delegation for internal links
+document.addEventListener('click',function(e){
+  var link=e.target.closest('a[href^="#"]');
+  if(!link)return;
+  var hash=link.getAttribute('href');
+  if(!hash||hash==='#')return;
+  e.preventDefault();
+  history.pushState(null,null,hash);
+  navigateToHash(hash);
+});
+
+// ==================== COLLAPSE ALL ====================
+function collapseAllDetails(){
+  var treeSection=document.getElementById('tree-text-view');
+  if(!treeSection)return;
+  treeSection.querySelectorAll('details').forEach(function(d){d.open=false;});
+}
 </script>
 </body>
 </html>
